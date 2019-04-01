@@ -15,7 +15,7 @@ class Router
         array_shift($url);
 
         //action
-        $method = (isset($url[0]) && $url[0] != '') ? $url[0] : DEFAULT_CONTROLLER;
+        $method = (isset($url[0]) && $url[0] != '') ? $url[0] : "defaultHomeController";
         $method_name = $method;
         array_shift($url);
 
