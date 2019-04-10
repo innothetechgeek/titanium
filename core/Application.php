@@ -28,7 +28,7 @@ class Application
         }
     }
 
-    private function _inregister_globals(){
+    private function _unregister_globals(){
         if(ini_get('register_globals')){
             $globalsArr = ['_SESSION', '_COOKIE','_POST','_GET','REQUEST','_SERVER','_ENV','_FILES'];
             foreach ($globalsArr as $g){
