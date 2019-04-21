@@ -8,16 +8,16 @@
 
 class Application
 {
-    public function __contruct(){
+    public function __construct(){
         $this->_set_reporting();
-        $this->_unregister_global();
+        $this->_unregister_globals();
     }
 
     /**
      *
      */
     private function _set_reporting(){
-        if(DEBURG) {
+        if(DEBUG) {
             error_reporting(E_ALL);
             ini_set('display_errors',1);
         }else{

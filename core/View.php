@@ -6,7 +6,7 @@
  * Time: 21:42
  */
 
-trait View
+class View
 {
     protected $head, $body,$siteTitle, $outputBuffer, $layout = DEFAULT_LAYOUT;
 
@@ -18,10 +18,9 @@ trait View
     public function render($viewName){
         $viewArray  = explode('/',$viewName);
         $viewString = implode(DS,$viewArray);
-
-        if(file_exists(ROOT .DS .'app'. DS. $viewString .'.pgp')){
-            include(ROOT . DS . 'app' . DS . 'views' . DS . $viewString .'php');
-            include(ROOT . DS . 'app' . DS . 'voews' . DS . 'layouts' . DS . $this->layout . '.php');
+        if(file_exists(ROOT .DS .'app'. DS. 'views' . DS . $viewString .'.php')){
+            include(ROOT . DS . 'app' . DS . 'views' . DS . $viewString .'.php');
+            include(ROOT . DS . 'app' . DS . 'views' . DS . DS . $this->layout . '.php');
         }else{
             die("The view $viewName doesn't exists");
         }
@@ -35,5 +34,32 @@ trait View
                 return $this->body;
             }
         }
+    }
+
+    public function start($type){
+        $this->outputBuffer = $type;
+        ob_start();
+    }
+
+    public function end(){
+        if($this->outputBuffer == 'head'){
+            $this->head =  ob_get_clean();
+        }else if($this->outputBuffer =='body'){
+            $this->body = ob_get_clean();
+        }else{
+            die('You must first run the start method');
+        }
+    }
+
+    public function siteTitle(){
+        if($this->siteTile == '') return SITE_TITLE;
+    }
+
+    public function setSiteTitle($title){
+        $this->setSiteTitle = $title;
+    }
+
+    public function setLayout($path){
+        $this->layout = $path;
     }
 }

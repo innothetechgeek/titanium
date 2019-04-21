@@ -11,11 +11,11 @@ class Controller extends Application
     protected $controller,$action;
     public $view;
 
-    public function __contruct($controller,$action){
-        parent::_contruct();
-        $this->_controller = $controller;
+    public function __construct($controller,$action){
+        parent::__construct();
+        $this->controller = $controller;
         $this->action = $action;
-        $this->view = new View();
+         $this->view = new View();
     }
 
 }

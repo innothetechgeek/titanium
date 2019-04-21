@@ -11,6 +11,7 @@
 
     //Autoload classes
     function __autoload($className){ //Deprecated function spl_autoload_register()
+
         if(file_exists(ROOT . DS . 'core' . DS . $className . '.php')){
              require_once(ROOT . DS . 'core' . DS . $className . '.php');
         }elseif (file_exists(ROOT . DS . 'app' . DS .'controllers'. DS . $className . '.php')){

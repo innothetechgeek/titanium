@@ -8,4 +8,4 @@
     define('DEBUG',true);
     define('DEFAULT_CONTROLLER','HOME'); //default controller
     define('DEFAULT_LAYOUT','default'); //deafult layout
-    defeine('SITE_TITLE', 'TITANIUM MVC Framework');
+    define('SITE_TITLE', 'TITANIUM MVC Framework');
