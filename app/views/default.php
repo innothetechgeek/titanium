@@ -10,7 +10,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-
+    <?= $this->content('head') ?>
     <!-- Styles -->
     <style>
         html, body {
