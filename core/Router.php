@@ -15,10 +15,10 @@ class Router
         array_shift($url);
 
         //action
-        $method = (isset($url[0]) && $url[0] != '') ? $url[0] : "defaultHomeController";
+        $method = (isset($url[0]) && $url[0] != '') ? $url[0] : "index";
         $method_name = $method;
         array_shift($url);
-
+        
         //parameters
         $queryParams = $url;
 
