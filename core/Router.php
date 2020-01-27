@@ -18,7 +18,7 @@ class Router
         $method = (isset($url[0]) && $url[0] != '') ? $url[0] : "index";
         $method_name = $method;
         array_shift($url);
-        
+
         //parameters
         $queryParams = $url;
 
