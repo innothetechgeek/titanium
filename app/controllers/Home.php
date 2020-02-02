@@ -14,6 +14,14 @@ class Home extends Controller
     }
 
     public function index(){
+        $db = DB::getInstance();
+        $fields = [
+            'usr_name' => "Mark",
+            'usr_surname' => "Zuckerberg",
+            'usr_email' => "mark@facebook.com",
+
+        ];
+        $users = $db->insert('user',$fields);
         $this->view->render('home/index');
     }
 

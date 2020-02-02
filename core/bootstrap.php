@@ -25,6 +25,5 @@
         }
     }
 
-
     //Route Requests
-     Router::route($url);
+    Router::route($url);
