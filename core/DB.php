@@ -44,10 +44,7 @@ class DB
                 }
             }
 
-            dnd($this->query);
-            if($this->query->execute()){
-                dnd('we got here');
-
+            if($this->query->execute($params)){
                 $this->result = $this->query->fetchAll(PDO::FETCH_OBJ);
                 $this->count = $this->query->rowCount();
                 $this->last_insert_id = $this->pdo->lastInsertId();
@@ -74,18 +71,34 @@ class DB
         $fieldsString = rtrim($fieldsString,",");
         $valueString = rtrim($valueString,",");
 
-        dnd($table);
         $sql = "INSERT INTO {$table} ({$fieldsString}) VALUES($valueString)";
         if(!$this->query($sql,$values)->error()){
-
             return true;
         }
 
-        dnd($this->pdo->errorInfo());
         return false;
     }
 
+    public function update($table, $id,$fields = []){
+        $fieldString = "";
+        $values = [];
+        foreach($fields as $field => $value){
+            $fieldString .= " ". $field . " =?,";
+            $values[] = $value;
+        }
+        $fieldString = trim($fieldString);
+        $fieldString = rtrim($fieldString,",");
+        dnd($fieldString);
+        dnd($values);
+        $sql = "UPDATE {$table} SET {$fieldString} where usr_id = {$id}";
+        if(!$this->query($sql,$values)->error()){
+           // return true;
+        }
+       // return false;
+    }
+
     public function error(){
+       // dnd($this->pdo->errorInfo());
         return $this->error;
     }
 
