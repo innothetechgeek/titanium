@@ -88,13 +88,41 @@ class DB
         }
         $fieldString = trim($fieldString);
         $fieldString = rtrim($fieldString,",");
-        dnd($fieldString);
-        dnd($values);
         $sql = "UPDATE {$table} SET {$fieldString} where usr_id = {$id}";
         if(!$this->query($sql,$values)->error()){
            // return true;
         }
        // return false;
+    }
+
+    public function delete($table,$id){
+        $sql = "DELETE FROM  $table where usr_id = $id";
+        if(!$this->query($sql)->error()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function result(){
+        return $this->result;
+    }
+
+    public function count(){
+        return $this->count;
+    }
+
+    public function first(){
+        return (!empty($this->result)) ? $this->result[0] : [];
+    }
+
+    public function lastInsertId(){
+        return $this->last_insert_id;
+    }
+
+    public function getColumns($table){
+
+        return $this->query("SHOW COLUMNS FROM {$table}")->result();
     }
 
     public function error(){
