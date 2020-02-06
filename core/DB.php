@@ -125,6 +125,29 @@ class DB
         return $this->query("SHOW COLUMNS FROM {$table}")->result();
     }
 
+    protected function read($table,$params){
+        $conditionString = '';
+        $bind = [];
+        $order = '';
+        $limit = '';
+
+        if(isset($params['conditions'])){
+            foreach ($params['conditions'] as $condition){
+                $conditionString .= " ".$condition ."AND";
+            }
+            $conditionString = trim($conditionString);
+            $conditionString = rtrim($conditionString,"AND");
+        }else{
+            $conditionString = $params['conditions'];
+        }
+
+        $conditionString  = "WHERE ".$conditionString;
+
+    }
+    public function find($table,$params = []){
+
+    }
+
     public function error(){
        // dnd($this->pdo->errorInfo());
         return $this->error;
