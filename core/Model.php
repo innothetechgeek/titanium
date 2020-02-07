@@ -74,7 +74,7 @@ class Model
         if(property_exist($this,'id') && $this->id =''){
             return $this->update($this->id,$fields);
         }else{
-            return $this->insert($fields  )
+            return $this->insert($fields);
         }
     }
 
