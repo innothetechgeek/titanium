@@ -148,6 +148,7 @@ class DB
 
     }
 
+
     public function error(){
        // dnd($this->pdo->errorInfo());
         return $this->error;

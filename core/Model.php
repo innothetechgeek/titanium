@@ -52,6 +52,36 @@ class Model
 
     }
 
+    public function insert($fields){
+
+        if(empty($fields)) return false;
+        return $this->db->insert($this->table,$fields);
+
+    }
+
+    public function update($id,$fields){
+        if(empty($fields) || $id == '')  return false;
+        return $this->db->insert($this->table,$id, $fields);
+
+    }
+
+    public function save(){
+        $fields = [];
+        
+    }
+    public function delete($id = ''){
+
+        if($id == '' && $this->id == '') return false;
+        $id ($id == '') ? $this->id : $id;
+        if($this->soft_delete){
+            return $this->update(['deted' => 1]);
+        }
+
+        $this->delete->db->delete($this->table,$id);
+    }
+    public function query($sql,$bind){
+        return $this->db->query($sql,$bind);
+    }
     public function populate_object_data($result){
         foreach($result as $key => $val){
             $this->$key = $val;
