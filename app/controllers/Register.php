@@ -11,11 +11,19 @@ class Register extends Controller
     public function __construct($controller, $action)
     {
         parent::__construct($controller, $action);
-        $this->load_model();
+        $this->load_model('User');
     }
 
     public function login(){
-        echo password_hash('password',PASSWORD_DEFAULT);
-        $this->view->render('register');
+        if($_POST){
+           $user = $this->User->findByUsername(Input::get('user_name'));
+           if($user && verify_password($_POST['password'])){
+               $remember = (isset(Input::get('remember_me') && Input::get('remember_me') ? true : false;
+               $user->login($remember);
+                   //echo "hello";
+                  // Router::redirect('');
+           }
+        }
+        $this->view->render('register/ login');
     }
 }
