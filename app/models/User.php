@@ -15,7 +15,7 @@ class User extends Model
     {
 
         $table = 'users';
-        parent::__construct($table)
+        parent::__construct($table);
         $this->session_name = CURRENT_USER_SESSSION_NAME;
         $this->cookieName = REMEMBER_ME_COOKIE_NAME;
         $this->soft_delete = true;
