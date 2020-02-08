@@ -79,6 +79,13 @@ class DB
         return false;
     }
 
+    public function findFirst($table,$params){
+        if($this->read($table,$params)){
+            return $this->first();
+        }else{
+            return false;
+        }
+    }
     public function update($table, $id,$fields = []){
         $fieldString = "";
         $values = [];
