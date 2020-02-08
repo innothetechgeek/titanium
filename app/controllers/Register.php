@@ -18,12 +18,16 @@ class Register extends Controller
         if($_POST){
            $user = $this->User->findByUsername(Input::get('user_name'));
            if($user && verify_password($_POST['password'])){
-               $remember = (isset(Input::get('remember_me') && Input::get('remember_me') ? true : false;
+               $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true : false;
                $user->login($remember);
                    //echo "hello";
-                  // Router::redirect('');
+                  Router::redirect('');
            }
         }
-        $this->view->render('register/ login');
+        $this->view->render('register/login');
+    }
+
+    public function verify_password($password){
+
     }
 }

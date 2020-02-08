@@ -23,6 +23,10 @@ class View
         if(file_exists(ROOT .DS .'app'. DS. 'views' . DS . $viewString .'.php')){
 
             include(ROOT . DS . 'app' . DS . 'views' . DS . $viewString .'.php');
+           // include(ROOT . DS . 'app' . DS . 'views' . DS . DS . $this->layout . '.php');
+
+        }else if($viewName == "default") {
+
             include(ROOT . DS . 'app' . DS . 'views' . DS . DS . $this->layout . '.php');
 
         }else{

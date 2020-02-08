@@ -23,7 +23,7 @@ class Home extends Controller
        // $users = $db->delete('user',5);
         $columns = $db->getColumns('user');
         dnd($columns);
-        $this->view->render('home/index');
+        $this->view->render('default');
     }
 
 }

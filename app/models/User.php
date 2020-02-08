@@ -14,16 +14,16 @@ class User extends Model
     public function __construct($user = '')
     {
 
-        $table = 'users';
+        $table = 'user';
         parent::__construct($table);
-        $this->session_name = CURRENT_USER_SESSSION_NAME;
+        $this->session_name = CURRENT_USER_SESSION_NAME;
         $this->cookieName = REMEMBER_ME_COOKIE_NAME;
         $this->soft_delete = true;
          if ($user != '') {
-             if (is_init($user)) {
-                 $u = $this - $this->db->first('users', ['condition' => 'id = ?', 'bind=' => [$user]]);
+             if (is_int($user)) {
+                 $u = $this->db->first('users', ['condition' => 'id = ?', 'bind=' => [$user]]);
              } else {
-                 $u = $this - $this->db->first('users', ['condition' => 'id = ?', 'bind=' => [$user]]);
+                 $u = $this->db->first('users', ['condition' => 'id = ?', 'bind=' => [$user]]);
              }
 
              if ($u) {
@@ -36,7 +36,7 @@ class User extends Model
 
     public function findByUsername($username){
 
-        return $this->find_first(['condition'=>'username =?',"bind"=>$username]);
+        return $this->find_first(['condition'=>'usr_name =?',"bind"=>$username]);
     }
 
     public function login($rememberMe = false){

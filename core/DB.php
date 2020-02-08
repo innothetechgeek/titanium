@@ -149,10 +149,14 @@ class DB
         }
 
         $conditionString  = "WHERE ".$conditionString;
+        return $conditionString;
 
     }
     public function find($table,$params = []){
-
+        if($this->read($table,$params)){
+            return $this->result;
+        }
+        return false;
     }
 
 
