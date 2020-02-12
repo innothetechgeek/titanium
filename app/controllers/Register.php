@@ -30,4 +30,8 @@ class Register extends Controller
     public function verify_password($password){
 
     }
+
+    public function register(){
+        $this->view->render('register/register');
+    }
 }
