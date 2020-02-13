@@ -32,6 +32,14 @@ class Register extends Controller
     }
 
     public function register(){
+
         $this->view->render('register/register');
+
+    }
+
+    public static function registerUser(){
+
+        $user = new User();
+        $user->save();
     }
 }
