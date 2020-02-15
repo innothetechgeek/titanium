@@ -20,7 +20,8 @@ class Controller extends Application
 
     protected function load_model($model){
         if(class_exists($model)){
-            $this->$model = new $model(strtolower($model));
+
+            $this->$model =  new   $model(strtolower($model));
         }
     }
 

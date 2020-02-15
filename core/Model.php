@@ -9,6 +9,7 @@
 class Model
 {
     protected $db, $table,$model_name, $soft_delete = false, $column_names = [];
+    public $id;
 
     public function __construct($table){
         $this->db = DB::getInstance();
@@ -35,22 +36,29 @@ class Model
     public function find($params = []){
         $results = [];
         $resultQuery = $this->db->find($this->table,$params);
+       // dnd($resultQuery);
         foreach($resultQuery as $result){
             $obj = new $this->model_name($this->table);
-            $this->populate_object_data($result);
+            $obj->populate_object_data($result);
             $results = $obj;
         }
         return $results;
     }
     public function find_first($params){
-        $resultQuery = $this->db->first($this->table,$params);
-        $result = new $this->model_name($this->table);
-        $result->populate_object_data($resultQuery);
+        $resultQuery = $this->db->findFirst($this->table,$params);
+
+        foreach($resultQuery as $result) {
+            $obj = new $this->model_name($this->table);
+            $obj->populate_object_data($resultQuery);
+
+        }
+        return $obj;
     }
 
     public function find_by_id($id){
 
-        return $this->find_first(['condition'=>"id=?","bind"=>$id]);
+        $obj =  $this->find_first(['condition'=>"id=?","bind"=>$id]);
+
 
     }
 
@@ -116,6 +124,7 @@ class Model
     }
     public function populate_object_data($result){
         foreach($result as $key => $val){
+         //   dnd($key);
             $this->$key = $val;
         }
     }

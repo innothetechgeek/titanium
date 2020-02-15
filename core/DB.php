@@ -9,7 +9,7 @@
 class DB
 {
     private static $instance = null;
-    private $pdo, $query, $error = false, $result, $count = 0, $last_insert_id;
+    private $pdo, $query, $error = false, $result = [], $count = 0, $last_insert_id;
 
 
     private function __construct(){
@@ -112,6 +112,7 @@ class DB
     }
 
     public function result(){
+
         return $this->result;
     }
 
@@ -120,6 +121,7 @@ class DB
     }
 
     public function first(){
+
         return (!empty($this->result)) ? $this->result[0] : [];
     }
 
@@ -137,19 +139,45 @@ class DB
         $bind = [];
         $order = '';
         $limit = '';
-
+        //conditions
         if(isset($params['conditions'])){
-            foreach ($params['conditions'] as $condition){
-                $conditionString .= " ".$condition ."AND";
+            if(is_array($params['conditions'])){
+                foreach ($params['conditions'] as $condition){
+                    $conditionString .= " ".$condition ."AND";
+                }
+                $conditionString = trim($conditionString);
+                $conditionString = rtrim($conditionString,"AND");
+            }else{
+                $conditionString = $params['conditions'];
             }
-            $conditionString = trim($conditionString);
-            $conditionString = rtrim($conditionString,"AND");
-        }else{
-            $conditionString = $params['conditions'];
+
+            if($conditionString !=''){
+                $conditionString  = " WHERE ".$conditionString;
+            }
         }
 
-        $conditionString  = "WHERE ".$conditionString;
-        return $conditionString;
+        //bind
+        if(array_key_exists('bind',$params)){
+            $bind = $params['bind'];
+
+        }
+
+
+        //order
+        if(array_key_exists('order',$params)){
+            $order = 'ORDER BY' .$params['order'];
+        }
+
+        if(array_key_exists('limit',$params)){
+            $limit = 'LIMIT' .$params['limit'];
+        }
+
+        $sql = "select * from {$table}{$conditionString}{$order}{$limit}";
+        dnd($sql);
+        if($this->query($sql,$bind)){
+            if(!count($this->result)) return false;
+            return true;
+        }
 
     }
     public function find($table,$params = []){
