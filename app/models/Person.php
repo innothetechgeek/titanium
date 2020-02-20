@@ -35,8 +35,6 @@ class Person extends Model
     }
 
     public function findByUsername($username){
-        dnd("the username is $username");
-
         return $this->find_first(['conditions'=>['usr_name =?'],'bind'=>[$username]]);
     }
 

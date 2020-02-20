@@ -173,7 +173,6 @@ class DB
         }
 
         $sql = "select * from {$table}{$conditionString}{$order}{$limit}";
-        dnd($sql);
         if($this->query($sql,$bind)){
             if(!count($this->result)) return false;
             return true;

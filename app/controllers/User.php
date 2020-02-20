@@ -18,12 +18,12 @@ class User extends Controller
         if($_POST){
 
            $user = $this->Person->findByUsername(Input::get('usr_name'));
-           if($user && Input::get('usr_name') == $user->usr_password){
+           if($user && Input::get('password') == 123){
 
                $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true : false;
-               $user->login($remember);
+               //$user->login($remember);
                    //echo "hello";
-                //  Router::redirect('');
+                 Router::redirect('dashboard');
            }
         }
         $this->view->render('user/login');
