@@ -20,8 +20,6 @@ class Home extends Controller
                         'conditions' => ["usr_name = ?"],
                         'bind' => ['Mark2'],
                     ]);
-
-        dnd($users);
         $this->view->render('default');
 
     }

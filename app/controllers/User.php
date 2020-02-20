@@ -18,10 +18,11 @@ class User extends Controller
         if($_POST){
 
            $user = $this->Person->findByUsername(Input::get('usr_name'));
-           if($user && Input::get('password') == 123){
+           if($user && Input::get('password') == $user->usr_password){
+               dnd($user);
 
                $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true : false;
-               //$user->login($remember);
+               $user->login($remember);
                    //echo "hello";
                  Router::redirect('dashboard');
            }
@@ -32,13 +33,17 @@ class User extends Controller
 
     public function register(){
 
-        $this->view->render('user/login');
+        $this->view->render('user/register');
 
     }
 
     public static function registerUser(){
 
-        $user = new User();
+        $user = new Person();
+        $user->usr_name = Input::get('name');
+        $user->usr_email = Input::get('email');
+        $user->usr_password = Input::get('password');
         $user->save();
+
     }
 }

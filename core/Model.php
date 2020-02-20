@@ -23,7 +23,7 @@ class Model
         foreach ($columns as $column){
             $column_name = $column->Field;
             $this->column_names[] = $column_name;
-            $this->column_name = null;
+            $this->$column_name = null;
         }
     }
 
@@ -81,7 +81,7 @@ class Model
             $fields[$column] = $this->$column;
         }
         //determine whether to updae or insert
-        if(property_exist($this,'id') && $this->id =''){
+        if(property_exists($this,'id') && $this->id =''){
             return $this->update($this->id,$fields);
         }else{
             return $this->insert($fields);
