@@ -19,7 +19,7 @@ class User extends Controller
 
            $user = $this->Person->findByUsername(Input::get('usr_name'));
            if($user && Input::get('password') == $user->usr_password){
-               dnd($user);
+               //dnd($user);
 
                $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true : false;
                $user->login($remember);
