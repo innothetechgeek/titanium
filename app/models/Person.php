@@ -21,9 +21,9 @@ class Person extends Model
         $this->soft_delete = true;
          if ($user != '') {
              if (is_int($user)) {
-                 $u = $this->db->first('person', ['condition' => 'id = ?', 'bind=' => [$user]]);
+                 $u = $this->db->first('person', ['condition' => 'usr_id = ?', 'bind=' => [$user]]);
              } else {
-                 $u = $this->db->first('person', ['condition' => 'id = ?', 'bind=' => [$user]]);
+                 $u = $this->db->first('person', ['condition' => 'usr_id = ?', 'bind=' => [$user]]);
              }
 
              if ($u) {

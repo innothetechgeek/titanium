@@ -14,12 +14,9 @@ class Home extends Controller
     }
 
     public function index(){
-        $db = DB::getInstance();
-        $users = $db->find('person',
-                    [
-                        'conditions' => ["usr_name = ?"],
-                        'bind' => ['Mark2'],
-                    ]);
+         $person = new Person();
+         dnd($person);
+
         $this->view->render('default');
 
     }

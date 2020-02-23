@@ -15,6 +15,8 @@ class Model
         $this->db = DB::getInstance();
         $this->table = $table;
         $this->setTableColumns();
+
+        //expplain when explaininf findFirst
         $this->model_name = str_replace(' ','',ucwords(str_replace('_',' ',$this->table)));
     }
 
@@ -46,13 +48,15 @@ class Model
     }
     public function find_first($params){
         $resultQuery = $this->db->findFirst($this->table,$params);
+        if($resultQuery) {
+            foreach ($resultQuery as $result) {
+                $obj = new $this->model_name($this->table);
+                $obj->populate_object_data($resultQuery);
 
-        foreach($resultQuery as $result) {
-            $obj = new $this->model_name($this->table);
-            $obj->populate_object_data($resultQuery);
-
+            }
+            return $obj;
         }
-        return $obj;
+
     }
 
     public function find_by_id($id){
