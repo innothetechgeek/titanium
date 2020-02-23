@@ -32,26 +32,8 @@ class Router
     }
 
     public static function redirect($location){
-
-        if(!headers_sent()){
-            $app_url = $_SERVER['HTTP_HOST'];
-           // dnd( "$app_url/titanium/".$location);
-            $redirect_location =  "$app_url/titanium/".$location;
-            echo "<script type = 'text/javascript'>";
-            echo "window.location.href='".$redirect_location."';";
-            echo "</script>";
-            echo "<noscript>";
-            echo '<meta http-equiv="refresh" content="0;url='.$redirect_location.'" />';
-            echo "<noscript>";
-           // header("Location: $app_url/titanium/".$location);
-            //exit();
-        }else{
-            echo "<script type = 'text/javascript'>";
-            echo "window.location.href='".ROOT.$location."';";
-            echo "</script>";
-            echo "<noscript>";
-            echo '<meta http-equiv="refresh" content="0;url='.$location.'" />';
-            echo "<noscript>";
-        }
+        //dnd(ROOT."/".$location);
+            $location = "../".$location;
+           header('Location: '.$location);
     }
 }
