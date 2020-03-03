@@ -16,8 +16,8 @@ class Model
         $this->table = $table;
         $this->setTableColumns();
 
-        //expplain when explaininf findFirst
-        $this->model_name = str_replace(' ','',ucwords(str_replace('_',' ',$this->table)));
+        //find first
+         = str_replace(' ','',ucwords(str_replace('_',' ',$this->table)));
     }
 
     public function setTableColumns(){
