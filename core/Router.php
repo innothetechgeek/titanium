@@ -19,6 +19,13 @@ class Router
         $method_name = $method;
         array_shift($url);
 
+        //acl check
+        $grantAccess = self::hasAccess($controller,$method_name);
+
+        if(!$grantAccess){
+            $controller_name = ACCESS_RESTRICTED;
+        }
+
         //parameters
         $queryParams = $url;
 
@@ -29,6 +36,23 @@ class Router
         }else{
             die('That method does not exist in the controller '.$controller_name);
         }
+    }
+    public static function hasAccess($controller,$method_name = "index"){
+        $acl_file = file_get_contents(ROOT . DS . 'app' . DS . "acl.json");
+        $acl = json_decode($acl_file,true);
+        $current_user_acls = ["Guest"];
+        $grantAccess = false;
+
+        if(Session::exists(CURRENT_USER_SESSION_NAME)){
+            $current_user_acls[] = "LoggedIn";
+            foreach($current_user_acls()->acl() as $acl){
+                $current_user_acls = $acl;
+            }
+
+        }
+
+
+        return false;
     }
 
     public static function redirect($location){
