@@ -16,4 +16,5 @@
     define('CURRENT_USER_SESSION_NAME','titADgexYbz1');
     define('REMEMBER_ME_COOKIE_NAME','titXr28dgd4567');
     define('REMEMBER_ME_COOKIE_EXPIRY',604800);//time in seconds 30 days
+    define('ACCESS_RESTRICTED','Restricted');
 

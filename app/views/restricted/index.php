@@ -72,7 +72,7 @@
     </div>
     <div class="content">
         <div class="title m-b-md">
-          You don't have permissions to access to this page
+           WELCOME TO TITANIUM
         </div>
         <div class="links">
             <a href="#">Documentation</a>
