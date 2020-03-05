@@ -194,7 +194,6 @@
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/app/views/dashboard.php" />
         <option value="$PROJECT_DIR$/core/DB.php" />
-        <option value="$PROJECT_DIR$/app/views/user/register.php" />
         <option value="$PROJECT_DIR$/app/views/user/login.php" />
         <option value="$PROJECT_DIR$/core/Input.php" />
         <option value="$PROJECT_DIR$/core/Router.php" />
@@ -202,8 +201,11 @@
         <option value="$PROJECT_DIR$/core/Controller.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/app/controllers/Home.php" />
+        <option value="$PROJECT_DIR$/app/views/user/register.php" />
         <option value="$PROJECT_DIR$/app/controllers/User.php" />
         <option value="$PROJECT_DIR$/core/Model.php" />
+        <option value="$PROJECT_DIR$/app/acl.json" />
+        <option value="$PROJECT_DIR$/app/menu_acl.json" />
       </list>
     </option>
   </component>
