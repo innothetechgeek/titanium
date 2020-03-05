@@ -17,7 +17,7 @@ class Model
         $this->setTableColumns();
 
         //find first
-         = str_replace(' ','',ucwords(str_replace('_',' ',$this->table)));
+        $this->model_name = str_replace(' ','',ucwords(str_replace('_',' ',$this->table)));
     }
 
     public function setTableColumns(){
@@ -26,6 +26,7 @@ class Model
             $column_name = $column->Field;
             $this->column_names[] = $column_name;
             $this->$column_name = null;
+          //  $person->user =
         }
     }
 
