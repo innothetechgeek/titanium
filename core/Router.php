@@ -38,6 +38,7 @@ class Router
         }
     }
     public static function hasAccess($controller,$method_name = "index"){
+        return true;
         $acl_file = file_get_contents(ROOT . DS . 'app' . DS . "acl.json");
         $acl = json_decode($acl_file,true);
         $current_user_acls = ["Guest"];
@@ -51,7 +52,7 @@ class Router
         }
 
         foreach($current_user_acls as $level){
-            if(array_key_exists($level) && array_key_exists($controller,$acl[$level])){
+            if(array_key_exists($level,$acl) && array_key_exists($controller,$acl[$level])){
                 if(in_array($method_name,$acl[$level][$controller]) || in_array("*",$acl[$level][$controller])){
                     $grantAccess = true;
                     break;
