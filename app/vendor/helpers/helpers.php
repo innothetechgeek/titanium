@@ -15,3 +15,11 @@ function dnd($data){
 function sanitize($dirty){
     return htmlentities($dirty, ENT_QUOTES,'UTF-8');
 }
+
+function currentPage(){
+    $current_page = $_SERVER['REQUEST_URI'];
+    if($current_page == ROOT || $current_page == ROOT.'home/index'){
+        $current_page = ROOT.'home';
+    }
+    return $current_page;
+}

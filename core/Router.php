@@ -76,4 +76,46 @@ class Router
             $location = "../".$location;
            header('Location: '.$location);
     }
+
+    public static function getMenu($menu){
+
+        $menu_arr = [];
+        $menu_file = file_get_contents(ROOT.DS.'app'. DS . $menu. '.json');
+        $acl = json_decode($menu_file,true);
+        foreach ($acl as $key => $val){
+            if(is_array($val)){
+                $sub = [];
+                foreach ($val as $k=>$v){
+                    if($k == 'seperator' && !empty($sub)){
+                        $sub[$k] = '';
+                        continue;
+                    }else if($final_val = self::getLink($v)){
+                        $sub[$k] = $final_val;
+                    }
+                }
+                if(!empty($sub)){
+                    $menu_arr[$key] = $sub;
+                }
+            }else{
+                if($final_val = self::getLink($val )){
+                    $menu_arr[$key] = $final_val;
+                }
+            }
+        }
+        return $menu_arr;
+    }
+
+    private static function getLink($val){
+        if(preg_match('/https?:\/\//',$val) ==1){
+            return $val;
+        }else{
+            $u_array = explode(DS,$val);
+            $controller_name = ucwords($u_array[0]);
+            $action_name = (isset($u_array[1])) ? $u_array[1] : '';
+            if(self::hasAccess($controller_name,$action_name)){
+                return ROOT. $val;
+            }
+            return false;
+        }
+    }
 }
