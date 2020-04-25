@@ -19,7 +19,7 @@ $current_page = currentPage();
 
                             <?php else : ?>
                                 <li class="nav-item active">
-                                    <a class="nav-link <?=$active?>" href="<?=$k?>"><?=$v?><span class="sr-only">(current)</span></a>
+                                    <a class="nav-link <?=$active?>" href="<?=$k?>"><?=$k?><span class="sr-only">(current)</span></a>
                                 </li>
                             <?php endif; ?>
                         <?php endforeach; ?>
@@ -27,7 +27,7 @@ $current_page = currentPage();
                 <?php else:
                     $active =  ($key == $current_page) ? 'active' : ''; ?>
                     <li class="nav-item active">
-                        <a class="nav-link <?=$active?>" href="<?=$key?>"><?=$val?><span class="sr-only">(current)</span></a>
+                        <a class="nav-link <?=$active?>" href="<?=$key?>"><?=$key?><span class="sr-only">(current)</span></a>
                     </li>
                 <?php endif; ?>
         <?php endforeach; ?>
@@ -35,19 +35,6 @@ $current_page = currentPage();
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             <ul>
-<!--                --><?php //if(currentUser()) : ?>
-<!--                    <li class="nav-item dropdown show">-->
-<!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">-->
-<!--                        Hello currentUser()->usr_name;-->
-<!--                    </a>-->
-<!--                    <div class="dropdown-menu show" aria-labelledby="navbarDropdown">-->
-<!--                        <a class="dropdown-item" href="#">Action</a>-->
-<!--                        <a class="dropdown-item" href="#">Another action</a>-->
-<!--                        <div class="dropdown-divider"></div>-->
-<!--                        <a class="dropdown-item" href="#">Something else here</a>-->
-<!--                    </div>-->
-<!--                    </li>-->
-<!--                --><?php //endif; ?>
             </ul>
         </form>
     </div>
