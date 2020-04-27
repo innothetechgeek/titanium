@@ -46,4 +46,9 @@ class User extends Controller
         $user->save();
 
     }
+
+    public function acls(){
+        if(empty($this->acl)) return [];
+        return json_decode($this->acl,true);
+    }
 }
