@@ -15,7 +15,6 @@ class Home extends Controller
 
     public function index(){
          $person = new Person();
-       // dnd("hello");
 
         $this->view->render('default');
 
