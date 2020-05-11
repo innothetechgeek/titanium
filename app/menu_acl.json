@@ -10,6 +10,6 @@
   "Google" : "www.google.com",
   "PHP Docs" : "php.net/manual",
   "Login" : "/user/login",
-  "Logout" : "/register/logout"
+  "Signup" : "/user/register"
 
 }
