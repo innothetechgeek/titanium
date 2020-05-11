@@ -113,7 +113,7 @@ class Router
             $controller_name = ucwords($u_array[0]);
             $action_name = (isset($u_array[1])) ? $u_array[1] : '';
             if(self::hasAccess($controller_name,$action_name)){
-                return ROOT. $val;
+                return $val;
             }
             return false;
         }

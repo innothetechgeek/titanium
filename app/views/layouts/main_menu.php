@@ -3,7 +3,7 @@ $menu = Router::getMenu('menu_acl');
 $current_page = currentPage();
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Titanium</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -44,7 +44,7 @@ $current_page = currentPage();
                     <?php else:
                         $active =  ($key == $current_page) ? 'active' : ''; ?>
                         <li class="nav-item active">
-                            <a class="nav-link <?=$active?>" href="<?=$key?>"><?=$key?><span class="sr-only">(current)</span></a>
+                            <a class="nav-link <?=$active?>" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/<?=$val?>"><?=$key?><span class="sr-only">(current)</span></a>
                         </li>
                     <?php endif; ?>
 

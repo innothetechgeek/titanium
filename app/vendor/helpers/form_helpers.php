@@ -6,7 +6,7 @@
  * Time: 23:07
  */
 
-function inputBlock($type,$label,$name,$name,$value,$input_attribute = [],$div_attributes= []){
+function inputBlock($type,$label,$name,$value,$input_attribute = [],$div_attributes= []){
     $div_attributes = stringfyAttributes($div_attributes);
     $input_attributes = stringfyAttributes($input_attribute);
     $html = "<div $div_attributes >";
