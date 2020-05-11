@@ -1,0 +1,96 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               5.7.14 - MySQL Community Server (GPL)
+-- Server OS:                    Win64
+-- HeidiSQL Version:             9.3.0.4984
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Dumping database structure for titanium
+CREATE DATABASE IF NOT EXISTS `titanium` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `titanium`;
+
+
+-- Dumping structure for table titanium.contacts
+CREATE TABLE IF NOT EXISTS `contacts` (
+  `ctc_id` int(11) NOT NULL AUTO_INCREMENT,
+  `ctc_picture` varchar(200) DEFAULT NULL,
+  `ctc_cell_nr` varchar(200) DEFAULT NULL,
+  `ctc_tell_nr` varchar(200) DEFAULT NULL,
+  `ctc_ref_usr` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`ctc_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- Dumping data for table titanium.contacts: 0 rows
+/*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
+
+
+-- Dumping structure for table titanium.person
+CREATE TABLE IF NOT EXISTS `person` (
+  `usr_id` int(11) NOT NULL AUTO_INCREMENT,
+  `usr_name` varchar(250) DEFAULT '',
+  `usr_surname` varchar(250) DEFAULT '',
+  `usr_email` varchar(250) DEFAULT '',
+  `usr_password` varchar(250) DEFAULT NULL,
+  `acl` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`usr_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table titanium.person: 19 rows
+/*!40000 ALTER TABLE `person` DISABLE KEYS */;
+INSERT INTO `person` (`usr_id`, `usr_name`, `usr_surname`, `usr_email`, `usr_password`, `acl`) VALUES
+	(1, 'dave', 'berry', 'dave@yahoo.com', NULL, NULL),
+	(2, 'larypage@google.com', 'larypage@google.com', 'larypage@google.com', 'dgenerationx', NULL),
+	(3, 'Mark', 'Zuckerberg', 'mark@facebook.com', NULL, NULL),
+	(6, 'Mark2', 'Zuckerberg3', '', NULL, NULL),
+	(7, 'Mark2', 'Zuckerberg3', '', NULL, NULL),
+	(8, NULL, NULL, NULL, NULL, NULL),
+	(9, 'Len Odonnell', '', 'vuxe@mailinator.com', 'Pa$$w0rd!', NULL),
+	(10, 'Len Odonnell', NULL, 'vuxe@mailinator.com', 'Pa$$w0rd!', NULL),
+	(11, 'Robin Guerrero', NULL, 'pequv@mailinator.net', 'Pa$$w0rd!', NULL),
+	(12, 'Jackson Blankenship', NULL, 'lyqafi@mailinator.com', 'Pa$$w0rd!', NULL),
+	(13, 'quzijek@mailinator.com', NULL, 'quzijek@mailinator.com', 'dgenerationx', NULL),
+	(14, 'Xaviera York', NULL, 'taqysic@mailinator.com', 'Pa$$w0rd!', NULL),
+	(15, 'Chelsea Oconnor', NULL, 'jogyqugap@mailinator.net', 'Pa$$w0rd!', NULL),
+	(16, 'Chloe Welch', NULL, 'jovebeqin@mailinator.com', 'Pa$$w0rd!', NULL),
+	(17, NULL, NULL, NULL, NULL, NULL),
+	(18, 'Maxine Hurst', NULL, 'gowe@mailinator.net', 'Pa$$w0rd!', NULL),
+	(19, 'Ivana Rich', NULL, 'fugosavib@mailinator.com', 'Pa$$w0rd!', NULL),
+	(20, 'Amena Rivers', NULL, 'kaguga@mailinator.com', 'Pa$$w0rd!', NULL),
+	(21, 'Troy Munoz', NULL, 'lara@gmail.com', '123', NULL);
+/*!40000 ALTER TABLE `person` ENABLE KEYS */;
+
+
+-- Dumping structure for table titanium.person_person
+CREATE TABLE IF NOT EXISTS `person_person` (
+  `pep_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pep_ref_person` int(11) DEFAULT NULL,
+  `pep_ref_person_linked` int(11) DEFAULT NULL,
+  `pep_relationship_type` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`pep_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table titanium.person_person: ~0 rows (approximately)
+/*!40000 ALTER TABLE `person_person` DISABLE KEYS */;
+/*!40000 ALTER TABLE `person_person` ENABLE KEYS */;
+
+
+-- Dumping structure for table titanium.user_sessions
+CREATE TABLE IF NOT EXISTS `user_sessions` (
+  `uss_id` int(11) DEFAULT NULL,
+  `uss_session` varchar(50) DEFAULT NULL,
+  `uss_user_agent` varchar(50) DEFAULT NULL,
+  `uss_ref_user` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- Dumping data for table titanium.user_sessions: 0 rows
+/*!40000 ALTER TABLE `user_sessions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_sessions` ENABLE KEYS */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
