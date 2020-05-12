@@ -29,5 +29,8 @@ request parameters.
 
 All requests are routed to a relevant class and a method. All of that is handled by the index.php & Router class
 
+INDEX.PHP
+
+
 
 
