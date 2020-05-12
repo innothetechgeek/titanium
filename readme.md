@@ -61,6 +61,21 @@ $url = [
 
 THE ROUTER CLASS AND THE ROUTE METHOD.
 
+The router class calls a relevant class and the method, based on what we have on the url.
+
+it declares the first part of the url array as a class.
+e.g $class = user;
+the second part as a method of that class.
+e.g $method = edit;
+and the 3rd part as request parameters
+e.g
+$params = 1;
+
+with all this information, it a relevant class (Crontroller) and and method is called..
+then the magic happens...
+
+to be continued.
+
 
 
 
