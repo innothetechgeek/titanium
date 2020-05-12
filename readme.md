@@ -31,6 +31,27 @@ All requests are routed to a relevant class and a method. All of that is handled
 
 INDEX.PHP
 
+The index.php file explodes urls in the url bar on '/'. 
+
+E.g if the url is user/edit/1, index.php will turn into
+
+$url = [
+   0 => "user",
+   1 => "edit",
+   2 => 1
+] 
+
+this array is passed to the bootstrap.php, which kinda boot the framework and get everything running.
+
+
+BOOTSTRAP.PHP
+
+The bootstrap .php application starts the framework and get everything running, it beggins that process by 
+including all framework helper functions...so they are publicly available anywhere in the framework. The it autoload all the
+classes in the framework so can be instiated without requiring/including them.
+
+
+
 
 
 
