@@ -47,8 +47,23 @@ this array is passed to the bootstrap.php, which kinda boot the framework and ge
 BOOTSTRAP.PHP
 
 The bootstrap .php application starts the framework and get everything running, it beggins that process by 
-including all framework helper functions...so they are publicly available anywhere in the framework. The it autoload all the
-classes in the framework so can be instiated without requiring/including them.
+including all framework helper functions...so they are publicly available anywhere in the framework.
+(an example of a helper function is the dd function in laravel)
+Then it autoload all the classes in the framework so can be instanciated without requiring/including them.
+
+Once all classes and helpers functions are loaded, we pass the url array to the Router class.
+again the url array could be something like: 
+$url = [
+   0 => "user",
+   1 => "edit",
+   2 => 1
+] 
+
+THE ROUTER CLASS AND THE ROUTE METHOD.
+
+
+
+
 
 
 
