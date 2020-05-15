@@ -14,15 +14,21 @@ class FORMS extends Controller
     }
 
     public function general(){
+
         $this->view->render('admin_lte_template/forms/general');
+
     }
 
     public function advanced(){
+
         $this->view->render('admin_lte_template/forms/advanced');
+
     }
 
     public function editors(){
+
         $this->view->render('admin_lte_template/forms/editors');
+
     }
 
     public function validation(){
