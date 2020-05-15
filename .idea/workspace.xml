@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3bb79cf-a4ab-43e9-a183-8b3ee46eabe9" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/FORMS.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/UI_ELEMENTS.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin_lte_template/forms/general.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin_lte_template/ui/general.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/contact/index.php" afterPath="$PROJECT_DIR$/app/views/contact/list_all.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/dashboard.php" afterPath="$PROJECT_DIR$/app/views/admin_lte_template/dashboard/dashboard.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/menu_acl.json" afterPath="$PROJECT_DIR$/app/menu_acl.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/acl.json" afterPath="$PROJECT_DIR$/app/acl.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Contact.php" afterPath="$PROJECT_DIR$/app/controllers/Contact.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Dashboard.php" afterPath="$PROJECT_DIR$/app/controllers/Dashboard.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Restricted.php" afterPath="$PROJECT_DIR$/app/controllers/Restricted.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/restricted/index.php" afterPath="$PROJECT_DIR$/app/views/restricted/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.php" afterPath="$PROJECT_DIR$/config/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Router.php" afterPath="$PROJECT_DIR$/core/Router.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/User.php">
+      <file leaf-file-name="acl.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/acl.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="30" column="42" lean-forward="false" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+            <state relative-caret-position="300">
+              <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
               <folding />
             </state>
           </provider>
