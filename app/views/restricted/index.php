@@ -71,12 +71,8 @@
 <!--        <a href="">Home</a>-->
     </div>
     <div class="content">
-        <div class="title m-b-md">
-           WELCOME TO TITANIUM
-        </div>
-        <div class="links">
-            <a href="#">Documentation</a>
-            <a href="#">GitHub</a>
+        <div class="" style = "color:red;font-weight: bold">
+          You do not have permission to access this page
         </div>
     </div>
 </div>

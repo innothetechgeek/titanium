@@ -13,5 +13,9 @@ class Contact  extends Controller
         parent::__construct($controller,$action);
     }
 
+    public  function list_all(){
+        $this->view->render('contact/list_all');
+    }
+
 
 }
