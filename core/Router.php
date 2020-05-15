@@ -20,25 +20,30 @@ class Router
         array_shift($url);
 
         //acl check
-        $grantAccess = self::hasAccess($controller,$method_name);
+        $grantAccess = self::hasAccess($controller_name,$method_name);
+
 
         if(!$grantAccess){
             $controller_name = ACCESS_RESTRICTED;
+            $method_name = ACCESS_RESTRICTED_METHOD;
         }
 
         //parameters
         $queryParams = $url;
 
-        $controller_obj = new $controller($controller_name,$method);
 
-        if(method_exists($controller,$method)){
-            call_user_func_array([$controller_obj,$method],$queryParams);
+        $controller_obj = new $controller_name($controller_name,$method_name);
+
+        if(method_exists($controller_name,$method_name)){
+            call_user_func_array([$controller_obj,$method_name],$queryParams);
         }else{
             die('That method does not exist in the controller '.$controller_name);
         }
     }
     public static function hasAccess($controller,$method_name = "index"){
+
         return true;
+        $controller = ucfirst($controller);
         $acl_file = file_get_contents(ROOT . DS . 'app' . DS . "acl.json");
         $acl = json_decode($acl_file,true);
         $current_user_acls = ["Guest"];
@@ -52,6 +57,7 @@ class Router
         }
 
         foreach($current_user_acls as $level){
+            //dnd($acl[$level]);
             if(array_key_exists($level,$acl) && array_key_exists($controller,$acl[$level])){
                 if(in_array($method_name,$acl[$level][$controller]) || in_array("*",$acl[$level][$controller])){
                     $grantAccess = true;
@@ -68,6 +74,7 @@ class Router
                 break;
             }
         }
+
         return $grantAccess;
     }
 
@@ -102,6 +109,7 @@ class Router
                 }
             }
         }
+        dnd($menu_arr);
         return $menu_arr;
     }
 

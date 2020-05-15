@@ -14,6 +14,10 @@ class Dashboard extends Controller
     }
 
     public function index(){
-        $this->view->render('dashboard');
+        $this->view->render('admin_lte_template/dashboard/dashboard');
+    }
+
+    public function ui_elements(){
+
     }
 }

@@ -13,7 +13,7 @@ class Restricted extends Controller
         parent::__construct($controller,$action);
     }
 
-    public function indexAction(){
+    public function AccessRestricted(){
         $this->view->render('restricted/index');
     }
 }

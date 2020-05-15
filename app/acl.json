@@ -4,7 +4,10 @@
     "denied": {},
     "Home":  ["*"],
     "Register":  ["Login","Register"],
-    "Restricted" : ["*"]
+    "Restricted" : ["*"],
+    "Contact" : ["*"],
+    "Dashboard": ["*"],
+    "Ui_elements": ["*"]
   },
   "LoggedIn": {
     "denied" : {
