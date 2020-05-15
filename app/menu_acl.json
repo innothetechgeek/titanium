@@ -1,8 +1,8 @@
 {
   "Home": "home",
-  "Contacts": {
-    "Add Contact": "/contact/addContact",
-    "View Contacts": "/contact/view",
+  "Movies": {
+    "Add Movie": "/contact/addContact",
+    "View Movies": "/contact/view",
     "separator" : "",
     "More stuff" : "/tools/third"
   },

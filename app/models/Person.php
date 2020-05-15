@@ -35,7 +35,9 @@ class Person extends Model
     }
 
     public function findByUsername($username){
+
         return $this->find_first(['conditions'=>['usr_name =?'],'bind'=>[$username]]);
+
     }
 
     public function login($rememberMe = false){
