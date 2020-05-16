@@ -9,11 +9,11 @@
     <!-- Bootstrap 4 -->
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/plugins/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?php url('plugins/plugins/fontawesome-free/css/all.min.css') ?>">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/css/admin_template/adminlte.min.css">
+    <link rel="stylesheet" href="<?php url('assets/css/admin_template/adminlte.min.css') ?>">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 

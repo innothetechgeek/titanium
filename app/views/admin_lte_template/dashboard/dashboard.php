@@ -7,22 +7,22 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="http://<?=$_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/fontawesome-free/css/all.min.css"  type="text/css">
+  <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/fontawesome-free/css/all.min.css') ?>"  type="text/css">
    <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="http://<?=$_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"  type="text/css">
+  <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')?>"  type="text/css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/icheck-bootstrap/icheck-bootstrap.min.css"   type="text/css">
+  <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/icheck-bootstrap/icheck-bootstrap.min.css') ?>"   type="text/css">
   <!-- JQVMap -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/jqvmap/jqvmap.min.css"  type="text/css">
+  <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/jqvmap/jqvmap.min.css') ?>"  type="text/css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/css/admin_template/adminlte.min.css" type="text/css">
+  <link rel="stylesheet" href="<?php url('assets/css/admin_template/adminlte.min.css') ?>" type="text/css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/plugins/dashboard//overlayScrollbars/css/OverlayScrollbars.min.css"  type="text/css">
+  <link rel="stylesheet" href="<?php url('plugins/dashboard//overlayScrollbars/css/OverlayScrollbars.min.css') ?>"  type="text/css">
   <!-- Daterange picker -->
   <!-- summernote -->
-  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/plugins/dashboard/summernote/summernote-bs4.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="<?php url('plugins/dashboard/summernote/summernote-bs4.css') ?>" rel="stylesheet" type="text/css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>

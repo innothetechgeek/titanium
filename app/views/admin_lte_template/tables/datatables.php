@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/fontawesome-free/css/all.min.css') ?>">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <!-- DataTables -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/datatables-bs4/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/datatables-bs4/css/dataTables.bootstrap4.css') ?>">
     <!-- Theme style -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/css/admin_template/adminlte.min.css">
+    <link rel="stylesheet" href="<?php url('assets/css/admin_template/adminlte.min.css')?>">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -939,16 +939,16 @@
     <!-- /.content-wrapper -->
 
     <!-- jQuery -->
-    <script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/jquery/jquery/jquery.min.js"></script>
+    <script src="<?php url('assets/plugins/admin_template/jquery/jquery/jquery.min.js') ?>"></script>
     <!-- Bootstrap 4 -->
-    <script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php url('assets/plugins/admin_template/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
     <!-- DataTables -->
-    <script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/datatables/jquery.dataTables.js"></script>
-    <script src=http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+    <script src="<?php url('assets/plugins/admin_template/datatables/jquery.dataTables.js') ?>"></script>
+    <script src="<?php url('assets/plugins/admin_template/datatables-bs4/js/dataTables.bootstrap4.js') ?>"></script>
     <!-- AdminLTE App -->
-    <script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/js/admin_template/adminlte.min.js"></script>
+    <script src="<?php url('assets/js/admin_template/adminlte.min.js') ?>"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/js/admin_template/demo.js"></script>
+    <script src="<?php url('assets/js/admin_template/demo.js') ?>"></script>
 </div>
 </body>
 </html>

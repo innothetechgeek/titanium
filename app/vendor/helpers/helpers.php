@@ -23,3 +23,12 @@ function currentPage(){
     }
     return $current_page;
 }
+
+function url($path){
+    if(ENVIROMENT == 'Development'){
+        echo "http://".$_SERVER['HTTP_HOST']."/". strtolower(SITE_NAME).'/'.$path;
+    }else{
+        echo "http://".$_SERVER['HTTP_HOST']."/".$path;
+    }
+
+}

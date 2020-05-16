@@ -7,7 +7,7 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/fontawesome-free/css/all.min.css') ?>">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -491,14 +491,14 @@
     <!-- /.content-wrapper -->
 </div>
 <!-- jQuery -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/jquery/jquery.min.js"></script>
+<script src="<?php url('plugins/admin_template/jquery/jquery.min.js') ?>"></script>
 <!-- Bootstrap 4 -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/js/bootstrap.bundle.min.js"></script>
+<script src="<?php url('assets/plugins/admin_template/js/bootstrap.bundle.min.js') ?>"></script>
 <!-- bs-custom-file-input -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="<?php url('assets/plugins/admin_template/bs-custom-file-input/bs-custom-file-input.min.js') ?>"></script>
 <!-- AdminLTE App -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/js/admin_template/adminlte.min.js"></script>
+<script src="<?php url('assets/js/admin_template/adminlte.min.js') ?>"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/js/admin_template/demo.js"></script>
+<script src="<?php url('assets/js/admin_template/demo.js') ?>"></script>
 </body>
 </html>

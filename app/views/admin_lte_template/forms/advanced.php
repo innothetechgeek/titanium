@@ -9,25 +9,25 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/fontawesome-free/css/all.min.css') ?>">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <!-- daterange picker -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/daterangepicker/daterangepicker.css') ?>">
     <!-- iCheck for checkboxes and radio inputs -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/icheck-bootstrap/icheck-bootstrap.min.css') ?>">
     <!-- Bootstrap Color Picker -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') ?>">
     <!-- Tempusdominus Bbootstrap 4 -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') ?>">
     <!-- Select2 -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/select2/css/select2.min.css">
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/select2/css/select2.min.css') ?>">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/select2-bootstrap4-theme/select2-bootstrap4.min.css') ?>">
     <!-- Bootstrap4 Duallistbox -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/bootstrap4-duallistbox/bootstrap-duallistbox.min.css') ?>">
     <!-- Theme style -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/css/admin_template/adminlte.min.css">
+    <link rel="stylesheet" href="<?php url('assets/css/admin_template/adminlte.min.css') ?>">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -663,28 +663,28 @@
     <!-- /.content-wrapper -->
 </div>
 <!-- jQuery -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/jquery/jquery.min.js"></script>
+<script src="<?php url('assets/plugins/admin_template/jquery/jquery.min.js') ?>"></script>
 <!-- Bootstrap 4 -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php url('assets/plugins/admin_template/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <!-- Select2 -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/select2/js/select2.full.min.js"></script>
+<script src="<?php url('assets/plugins/admin_template/select2/js/select2.full.min.js')?>"></script>
 <!-- Bootstrap4 Duallistbox -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<script src="<?php url('assets/plugins/admin_template/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js') ?>"></script>
 <!-- InputMask -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/moment/moment.min.js"></script>
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<script src="<?php url('assets/plugins/admin_template/moment/moment.min.js') ?>"></script>
+<script src="<?php url('assets/plugins/admin_template/inputmask/min/jquery.inputmask.bundle.min.js') ?>"></script>
 <!-- date-range-picker -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/daterangepicker/daterangepicker.js"></script>
+<script src="<?php url('assets/plugins/admin_template/daterangepicker/daterangepicker.js') ?>"></script>
 <!-- bootstrap color picker -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<script src="<?php url('assets/plugins/admin_template/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') ?>"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/ttitanium/assets/plugins/admin_template/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="<?php url('assets/plugins/admin_template/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') ?>"></script>
 <!-- Bootstrap Switch -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="<?php url('assets/plugins/admin_template/bootstrap-switch/js/bootstrap-switch.min.js') ?>"></script>
 <!-- AdminLTE App -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/js/admin_template/adminlte.min.js"></script>
+<script src="<?php url('assets/js/admin_template/adminlte.min.js') ?>"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/js/admin_template/demo.js"></script>
+<script src="<?php url('/assets/js/admin_template/demo.js') ?>"></script>
 <!-- Page script -->
 <script>
     $(function () {

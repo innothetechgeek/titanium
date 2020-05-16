@@ -18,4 +18,6 @@
     define('REMEMBER_ME_COOKIE_EXPIRY',604800);//time in seconds 30 days
     define('ACCESS_RESTRICTED','Restricted');
     define('ACCESS_RESTRICTED_METHOD','AccessRestricted');
+    define('ENVIROMENT','Development');
+    define('SITE_NAME','Titanium');
 
