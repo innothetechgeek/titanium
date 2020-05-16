@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
+<?php $this->start('head') ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Titanium | Add Movie</title>
@@ -19,9 +17,8 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-</head>
-<body>
-<body class="hold-transition sidebar-mini">
+<?php $this->end() ?>
+<?php $this->start('body'); ?>
 <div class="wrapper">
 <!-- Navbar -->
 <?php include(ROOT . DS . 'app' . DS . 'views'. DS .'layouts'. DS .'admin_nav_bar.php') ?>
@@ -69,46 +66,20 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1.</td>
-                                <td>Update software</td>
-                                <td>
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-danger">55%</span></td>
-                            </tr>
-                            <tr>
-                                <td>2.</td>
-                                <td>Clean database</td>
-                                <td>
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar bg-warning" style="width: 70%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-warning">70%</span></td>
-                            </tr>
-                            <tr>
-                                <td>3.</td>
-                                <td>Cron job running</td>
-                                <td>
-                                    <div class="progress progress-xs progress-striped active">
-                                        <div class="progress-bar bg-primary" style="width: 30%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-primary">30%</span></td>
-                            </tr>
-                            <tr>
-                                <td>4.</td>
-                                <td>Fix and squish bugs</td>
-                                <td>
-                                    <div class="progress progress-xs progress-striped active">
-                                        <div class="progress-bar bg-success" style="width: 90%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-success">90%</span></td>
-                            </tr>
+                            <?php
+                                $movies = $this->movies;
+                                foreach ($movies as $movie){ ?>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Update software</td>
+                                    <td>
+                                        <div class="progress progress-xs">
+                                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-danger">55%</span></td>
+                                </tr>
+                            <?php } ?>
                             </tbody>
                         </table>
                     </div>
@@ -141,5 +112,4 @@
 <script src="<?php url('assets/js/admin_template/adminlte.min.js') ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php url('assets/js/admin_template/demo.js') ?>"></script>
-</body>
-</html>
+<?php $this->end() ?>

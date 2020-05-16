@@ -23,7 +23,7 @@ class View
         if(file_exists(ROOT .DS .'app'. DS. 'views' . DS . $viewString .'.php')){
 
             include(ROOT . DS . 'app' . DS . 'views' . DS . $viewString .'.php');
-           // include(ROOT . DS . 'app' . DS . 'views' . DS . DS . $this->layout . '.php');
+             include(ROOT . DS . 'app' . DS . 'views' . DS .'layouts'. DS . $this->layout . '.php');
 
         }else if($viewName == "default") {
 
@@ -59,7 +59,7 @@ class View
     public function end(){
         if($this->outputBuffer == 'head'){
             $this->head =  ob_get_clean();
-        }else if($this->outputBuffer =='body'){
+        }else if($this->outputBuffer == 'body'){
             $this->body = ob_get_clean();
         }else{
             die('You must first run the start method');
