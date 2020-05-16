@@ -14,7 +14,18 @@ class Movies extends Controller
     }
 
     public function add(){
+
         $this->view->render('movies/add');
+    }
+
+    public function view(){
+
+        $movie = new Movie();
+        $movies = $movie->findAll();
+
+        $this->view->movies = $movies;
+        $this->view->render('movies/list');
+
     }
 
 

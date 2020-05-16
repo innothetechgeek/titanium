@@ -47,6 +47,10 @@ class Model
         }
         return $results;
     }
+    public function findAll(){
+        return $this->db->find($this->table);
+
+    }
     public function find_first($params){
         $resultQuery = $this->db->findFirst($this->table,$params);
         if($resultQuery) {
