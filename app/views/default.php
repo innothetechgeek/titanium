@@ -29,7 +29,7 @@
         }
 
         .full-height {
-            height: 100vh;
+            height: 78vh;
         }
 
         .flex-center {
@@ -74,12 +74,12 @@
 <body>
 <?php include('layouts/main_menu.php') ?>
 <div class="flex-center position-ref full-height">
-    <div class="top-right links">
-<!--        <a href="">Home</a>-->
-    </div>
     <div class="content">
         <div class="title m-b-md">
          Welcome to Titanium
+        </div>
+        <div class="title m-b-md" style="font-size:35px;">
+            Theee Best PHP Framework Ever!
         </div>
         <div class="links">
             <a href="#">Documentation</a>

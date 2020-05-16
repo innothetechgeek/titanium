@@ -1,14 +1,12 @@
 {
   "Home": "home",
-  "Movies": {
+  "Movie Management Demo": {
     "Add Movie": "/contact/addContact",
     "View Movies": "/contact/view",
     "separator" : "",
     "More stuff" : "/tools/third"
   },
 
-  "Google" : "www.google.com",
-  "PHP Docs" : "php.net/manual",
   "Login" : "/user/login",
   "Signup" : "/user/register"
 

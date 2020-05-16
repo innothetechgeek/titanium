@@ -672,15 +672,15 @@
 <script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
 <!-- InputMask -->
 <script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/moment/moment.min.js"></script>
-<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/admin_template/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/inputmask/min/jquery.inputmask.bundle.min.js"></script>
 <!-- date-range-picker -->
-<script src=".http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/daterangepicker/daterangepicker.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/daterangepicker/daterangepicker.js"></script>
 <!-- bootstrap color picker -->
 <script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src=".http://<?= $_SERVER['HTTP_HOST']?>/ttitanium/assets/plugins/admin_template/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>/ttitanium/assets/plugins/admin_template/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Bootstrap Switch -->
-<script src=".http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/plugins/admin_template/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <!-- AdminLTE App -->
 <script src="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/js/admin_template/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->

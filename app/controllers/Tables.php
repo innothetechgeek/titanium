@@ -18,7 +18,7 @@ class Tables extends Controller
     }
 
     public function data_tables(){
-        $this->view->render('admin_lte_template/tables/data_tables');
+        $this->view->render('admin_lte_template/tables/datatables');
     }
 
 }

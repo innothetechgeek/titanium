@@ -109,7 +109,6 @@ class Router
                 }
             }
         }
-        dnd($menu_arr);
         return $menu_arr;
     }
 
