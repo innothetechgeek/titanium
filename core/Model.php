@@ -47,10 +47,29 @@ class Model
         }
         return $results;
     }
-    public function findAll(){
-        return $this->db->find($this->table);
+    public function findAll($params=[]){
+        return $this->db->find($this->table,$params);
 
     }
+
+    public function select($sql){
+        $queryResult = $this->db->select($sql);
+
+        $resultArr = [];
+        $fildsArr = [];
+        if($queryResult){
+
+            foreach ($queryResult as $field => $obj) {
+                foreach ($obj as $field => $value) {
+                    $fildsArr[$field] = $value;
+                }
+                array_push($resultArr,$fildsArr);
+
+            }
+        }
+        return $resultArr;
+    }
+
     public function find_first($params){
         $resultQuery = $this->db->findFirst($this->table,$params);
         if($resultQuery) {

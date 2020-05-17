@@ -32,7 +32,7 @@ class DB
         return self::$instance;
     }
 
-    public function  query($sql, $params = []){
+    public function query($sql, $params = []){
 
         $this->error = false;
         if($this->query = $this->pdo->prepare($sql)){
@@ -49,13 +49,19 @@ class DB
                 $this->count = $this->query->rowCount();
                 $this->last_insert_id = $this->pdo->lastInsertId();
             }else{
-
                 $this->error = true;
             }
         }
 
         return $this;
 
+    }
+
+    public function select($sql){
+        if($this->query($sql)){
+            return $this->result;
+        }
+        return false;
     }
 
     public function insert($table,$fields = []){
@@ -73,7 +79,7 @@ class DB
 
         $sql = "INSERT INTO {$table} ({$fieldsString}) VALUES($valueString)";
         if(!$this->query($sql,$values)->error()){
-            return true;
+            return $this->last_insert_id;
         }
 
         return false;
@@ -169,7 +175,7 @@ class DB
         }
 
         if(array_key_exists('limit',$params)){
-            $limit = 'LIMIT' .$params['limit'];
+            $limit = ' LIMIT ' .$params['limit'];
         }
 
         $sql = "select * from {$table}{$conditionString}{$order}{$limit}";

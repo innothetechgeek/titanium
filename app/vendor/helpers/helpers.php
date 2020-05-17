@@ -32,3 +32,7 @@ function url($path){
     }
 
 }
+
+function format_date($format,$date){
+    return date($format, strtotime($date));
+}

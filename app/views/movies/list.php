@@ -51,10 +51,10 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
-<!--                    <div class="card-header">-->
-<!--<!--                        <h3 class="card-title">Bordered Table</h3>-->
-<!--                    </div>-->
-                    <!-- /.card-header -->
+                    <div class="card-header">
+                        <h3 class="card-title"><?=$this->rows_found?> movies</h3>
+                    </div>
+<!--                     /.card-header -->
                     <div class="card-body">
                         <table class="table table-bordered">
                             <thead>
@@ -70,14 +70,12 @@
                                 $movies = $this->movies;
                                 foreach ($movies as $movie){ ?>
                                 <tr>
-                                    <td>1.</td>
-                                    <td>Update software</td>
+                                    <td><?=$movie['mv_id']?>.</td>
+                                    <td><?=$movie['mv_title']?></td>
                                     <td>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                        </div>
+                                        <?= format_date('d F Y',$movie['mv_year_released']) ?>
                                     </td>
-                                    <td><span class="badge bg-danger">55%</span></td>
+                                    <td><?=$movie['genres']?></td>
                                 </tr>
                             <?php } ?>
                             </tbody>
@@ -86,11 +84,12 @@
                     <!-- /.card-body -->
                     <div class="card-footer clearfix">
                         <ul class="pagination pagination-sm m-0 float-right">
-                            <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                            <style>
+                                .pagination .active{
+                                    background: #007bff;
+                                }
+                            </style>
+                            <?= $this->pagination_links; ?>
                         </ul>
                     </div>
                 </div>
