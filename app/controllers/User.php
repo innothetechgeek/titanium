@@ -17,14 +17,14 @@ class User extends Controller
 
         if($_POST){
             $user = new Person();
-            $user = $user->findByUsername(Input::get('usr_name'));
+            $user = $user->findByUsername(Input::get('usr_email'));
            if($user && Input::get('password') == $user->usr_password){
 
                $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true : false;
 
                $user->login($remember);
 
-               Router::redirect('dashboard');
+               Router::redirect('movies/view');
            }
         }
 
@@ -52,5 +52,14 @@ class User extends Controller
     public function acls(){
         if(empty($this->acl)) return [];
         return json_decode($this->acl,true);
+    }
+
+    public function logout(){
+        currentUser()->logOut();
+        Router::redirect(url(''));
+    }
+
+    public function registration_successful(){
+        $this->view->render('user/registration_successful');
     }
 }

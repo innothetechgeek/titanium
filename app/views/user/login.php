@@ -77,7 +77,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" class="form-control" name="usr_name" value="" required autofocus>
+                                <input id="email" class="form-control" name="usr_email" value="" required autofocus>
                                 <span class="help-block">
                                             <strong></strong>
                                         </span>

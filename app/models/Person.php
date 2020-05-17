@@ -37,7 +37,7 @@ class Person extends Model
 
     public function findByUsername($username){
 
-        return $this->find_first(['conditions'=>['usr_name =?'],'bind'=>[$username]]);
+        return $this->find_first(['conditions'=>['usr_email =?'],'bind'=>[$username]]);
 
     }
 
@@ -71,4 +71,17 @@ class Person extends Model
         }
     }
     //===================================================================================================
+
+    public function logOut(){
+
+        $user_agent = Session::uagent_no_version();
+        $this->db->query("DELETE from user_sessions where user_id = ? and user_agent ?",[$this->id,$user_agent]);
+        Session::delete(CURRENT_USER_SESSION_NAME);
+        if(Cookie::exists(REMEMBER_ME_COOKIE_NAME)){
+            Cookie::delete(REMEMBER_ME_COOKIE_NAME);
+        }
+        self::$currentLoggedInUser = null;
+        return true;
+
+    }
 }
