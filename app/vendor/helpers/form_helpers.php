@@ -16,7 +16,7 @@ function inputBlock($type,$label,$name,$value,$input_attribute = [],$div_attribu
 
     return $html;
 }
-
+//===================================================================================================
 function stringfyAttributes($attributes){
     $string = '';
     foreach($attributes as $attribute_name => $attribute_value){
@@ -24,13 +24,13 @@ function stringfyAttributes($attributes){
     }
     return $string;
 }
-
+//===================================================================================================
 function submitButton($submitText, $input_attributes){
     $input_string_attr = stringfyAttributes($input_attributes);
     $html = "<input type = 'submit' value '$submitText'  $input_string_attr />";
     return $html;
 }
-
+//===================================================================================================
 function submitBlock($submitText,$inputAttr = [], $div_attr = []){
 
     $div_attributes = stringfyAttributes($div_attr);
@@ -43,3 +43,4 @@ function submitBlock($submitText,$inputAttr = [], $div_attr = []){
     return $html;
 
 }
+//===================================================================================================

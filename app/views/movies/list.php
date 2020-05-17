@@ -49,7 +49,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title"><?=$this->rows_found?> movies</h3>

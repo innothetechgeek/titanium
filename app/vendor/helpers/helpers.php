@@ -15,7 +15,7 @@ function dnd($data){
 function sanitize($dirty){
     return htmlentities($dirty, ENT_QUOTES,'UTF-8');
 }
-
+//===================================================================================================
 function currentPage(){
     $current_page = $_SERVER['REQUEST_URI'];
     if($current_page == ROOT || $current_page == ROOT.'home/index'){
@@ -23,7 +23,7 @@ function currentPage(){
     }
     return $current_page;
 }
-
+//===================================================================================================
 function url($path){
     if(ENVIROMENT == 'Development'){
         echo "http://".$_SERVER['HTTP_HOST']."/". strtolower(SITE_NAME).'/'.$path;
@@ -32,7 +32,11 @@ function url($path){
     }
 
 }
-
+//===================================================================================================
 function format_date($format,$date){
     return date($format, strtotime($date));
+}
+//===================================================================================================
+function currentUser(){
+    return Person::currentUser();
 }

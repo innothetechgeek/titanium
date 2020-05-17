@@ -33,6 +33,7 @@ class Person extends Model
              }
          }
     }
+    //===================================================================================================
 
     public function findByUsername($username){
 
@@ -40,6 +41,24 @@ class Person extends Model
 
     }
 
+    //===================================================================================================
+
+    public static function currentUser(){
+
+        if(isset(self::$currentLoggedInUser)) return self::$currentLoggedInUser;
+
+        if(Session::exists(CURRENT_USER_SESSION_NAME)){
+
+            $user = new Person(int(Session::get(CURRENT_USER_SESSION_NAME)));
+            self::$currentLoggedInUser = $user;
+
+        }
+
+        return self::$currentLoggedInUser;
+
+    }
+
+    //===================================================================================================
     public function login($rememberMe = false){
         Session::set($this->session_name,$this->id);
         if($rememberMe){
@@ -51,4 +70,5 @@ class Person extends Model
             $this->db->insert('user_sessions',$fields);
         }
     }
+    //===================================================================================================
 }
