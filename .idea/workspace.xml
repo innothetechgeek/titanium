@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3bb79cf-a4ab-43e9-a183-8b3ee46eabe9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/movies/list_home.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Home.php" afterPath="$PROJECT_DIR$/app/controllers/Home.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Movies.php" afterPath="$PROJECT_DIR$/app/controllers/Movies.php" />
@@ -14,6 +13,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/admin_side_bar.php" afterPath="$PROJECT_DIR$/app/views/layouts/admin_side_bar.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/default.php" afterPath="$PROJECT_DIR$/app/views/layouts/default.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/movies/list.php" afterPath="$PROJECT_DIR$/app/views/movies/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/movies/list_home.php" afterPath="$PROJECT_DIR$/app/views/movies/list_home.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/DB.php" afterPath="$PROJECT_DIR$/core/DB.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Model.php" afterPath="$PROJECT_DIR$/core/Model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Router.php" afterPath="$PROJECT_DIR$/core/Router.php" />
