@@ -25,13 +25,13 @@ $current_page = currentPage();
                                     <?php if($i == 0) {?>
 
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="nav-link dropdown-toggle" href="<?php url($v) ?>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <?=$key?>
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                                     <?php } ?>
-                                            <a class="dropdown-item" href="#"><?=$k?></a>
+                                            <a class="dropdown-item" href="<?php url($v) ?>"><?=$k?></a>
                                     <?php if($i == count($val)) { ?>
 
                                             </div>

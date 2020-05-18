@@ -18,7 +18,7 @@ class User extends Controller
         if($_POST){
             $user = new Person();
             $user = $user->findByUsername(Input::get('usr_email'));
-           if($user){
+           if($user && md5(Input::get('password')) == $user->usr_password){
 
                $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true : false;
 
@@ -28,7 +28,7 @@ class User extends Controller
            }
         }
 
-        $this->view->render('user/login');
+       $this->view->render('user/login');
 
     }
 
@@ -44,7 +44,7 @@ class User extends Controller
         $user = new Person();
         $user->usr_name = Input::get('name');
         $user->usr_email = Input::get('email');
-        $user->usr_password = Input::get('password');
+        $user->usr_password = md5(Input::get('password'));
         $user->save();
 
     }

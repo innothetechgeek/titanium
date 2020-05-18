@@ -64,6 +64,9 @@
         <div class="title m-b-md" style="font-size:35px;">
             Theee Best PHP Framework Ever!
         </div>
+        <div class="alert alert-info" role="alert" style="margin-top:5px;">
+            Don't try to break the framework :( , this is only a better version!
+        </div>
         <div class="links">
             <a href="#">Documentation</a>
             <a href="#">GitHub</a>

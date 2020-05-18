@@ -69,6 +69,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="margin-top: 140px">
+            <?php if(isset($_GET['login-required'])){ ?>
+            <div class="alert alert-warning" role="alert">
+                YOU NEED TO LOGIN TO ADD A MOVIE
+            </div>
+            <?php }?>
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">

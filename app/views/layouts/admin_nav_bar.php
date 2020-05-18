@@ -14,9 +14,12 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                 <a class="dropdown-item" href="#">Add Movie</a>
-                <a class="dropdown-item" href="#">View Movies</a>
+                <a class="dropdown-item" href="<?php url('movies/view') ?>">View Movies</a>
                 <a class="dropdown-item" href="#">More stuff</a>
             </div>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="<?php url('user/logout') ?>" class="nav-link">Logout</a>
         </li>
     </ul>
 

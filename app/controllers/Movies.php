@@ -14,7 +14,7 @@ class Movies extends Controller
     }
 
     public function add(){
-
+        if(!currentUser()) Router::redirect('user/login?login-required=true');
         if($_POST) {
             $movie_id = $this->create_movie();
             $this->create_movie_genre($movie_id);

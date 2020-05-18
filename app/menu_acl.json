@@ -1,13 +1,13 @@
 {
   "Home": "home",
   "Movie Management Demo": {
-    "Add Movie": "/contact/addContact",
-    "View Movies": "/contact/view",
+    "Add Movie": "movies/add",
+    "View Movies": "movies/view",
     "separator" : "",
-    "More stuff" : "/tools/third"
+    "More stuff" : "tools/third"
   },
 
-  "Login" : "/user/login",
-  "Signup" : "/user/register"
+  "Login" : "user/login",
+  "Signup" : "user/register"
 
 }
