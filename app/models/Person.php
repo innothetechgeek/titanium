@@ -14,6 +14,7 @@ class Person extends Model
     public function __construct($user = '')
     {
 
+
         $table = 'person';
         parent::__construct($table);
         $this->session_name = CURRENT_USER_SESSION_NAME;
@@ -22,9 +23,9 @@ class Person extends Model
         $this->soft_delete = true;
          if ($user != '') {
              if (is_int($user)) {
-                 $u = $this->db->first('person', ['condition' => 'usr_id = ?', 'bind=' => [$user]]);
+                 $u = $this->find_first(['conditions'=>['usr_id =?'],'bind'=>[$user]]);
              } else {
-                 $u = $this->db->first('person', ['condition' => 'usr_id = ?', 'bind=' => [$user]]);
+                 $u = $this->find_first(['conditions'=>['usr_id =?'],'bind'=>[$user]]);
              }
 
              if ($u) {
@@ -33,6 +34,7 @@ class Person extends Model
                  }
              }
          }
+
     }
     //===================================================================================================
 
