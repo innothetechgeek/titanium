@@ -48,8 +48,7 @@ class Person extends Model
         if(isset(self::$currentLoggedInUser)) return self::$currentLoggedInUser;
 
         if(Session::exists(CURRENT_USER_SESSION_NAME)){
-
-            $user = new Person(int(Session::get(CURRENT_USER_SESSION_NAME)));
+            $user = new Person(Session::get(CURRENT_USER_SESSION_NAME));
             self::$currentLoggedInUser = $user;
 
         }
@@ -60,7 +59,9 @@ class Person extends Model
 
     //===================================================================================================
     public function login($rememberMe = false){
-        Session::set($this->session_name,$this->id);
+
+        Session::set($this->session_name,$this->usr_id);
+
         if($rememberMe){
             $hash = md5(uniqid(+rand(0,100)));
             $user_agent = Session::uagent_no_version();
