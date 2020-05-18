@@ -48,7 +48,13 @@ class Movies extends Controller
         $this->view->movies = $movies;
         $this->view->rows_found = $rows_found;
        // dnd($this->view->movies);
-        $this->view->render('movies/list');
+
+        if(currentUser()){
+            $this->view->render('movies/list');
+        }else{
+            $this->view->render('movies/list_home');
+        }
+
 
     }
 
