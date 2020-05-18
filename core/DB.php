@@ -86,11 +86,13 @@ class DB
     }
 
     public function findFirst($table,$params){
+
         if($this->read($table,$params)){
             return $this->first();
         }else{
             return false;
         }
+
     }
     public function update($table, $id,$fields = []){
         $fieldString = "";
@@ -141,6 +143,7 @@ class DB
     }
 
     protected function read($table,$params){
+
         $conditionString = '';
         $bind = [];
         $order = '';
@@ -185,6 +188,7 @@ class DB
         }
 
     }
+
     public function find($table,$params = []){
         if($this->read($table,$params)){
             return $this->result;

@@ -71,14 +71,19 @@ class Model
     }
 
     public function find_first($params){
-        $resultQuery = $this->db->findFirst($this->table,$params);
+
+
+       $resultQuery = $this->db->findFirst($this->table,$params);
         if($resultQuery) {
             foreach ($resultQuery as $result) {
-                $obj = new $this->model_name($this->table);
+
+                $obj = new $this->model_name();
+
+
                 $obj->populate_object_data($resultQuery);
 
             }
-            return $obj;
+           return $obj;
         }
 
     }

@@ -9,6 +9,7 @@
 class Router
 {
     public static function route($url){
+        //$user = new Person();
         //controller
         $controller = (isset($url[0]) && $url[0] != '') ? $url[0] : DEFAULT_CONTROLLER;
         $controller_name = $controller;
