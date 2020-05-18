@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/core/DB.php" line="147" />
+    <bookmark url="file://$PROJECT_DIR$/core/DB.php" line="150" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3bb79cf-a4ab-43e9-a183-8b3ee46eabe9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/user/registration_successful.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/movies/list_home.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Home.php" afterPath="$PROJECT_DIR$/app/controllers/Home.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Movies.php" afterPath="$PROJECT_DIR$/app/controllers/Movies.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User.php" afterPath="$PROJECT_DIR$/app/controllers/User.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Person.php" afterPath="$PROJECT_DIR$/app/models/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user/login.php" afterPath="$PROJECT_DIR$/app/views/user/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/admin_side_bar.php" afterPath="$PROJECT_DIR$/app/views/layouts/admin_side_bar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/default.php" afterPath="$PROJECT_DIR$/app/views/layouts/default.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/movies/list.php" afterPath="$PROJECT_DIR$/app/views/movies/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/DB.php" afterPath="$PROJECT_DIR$/core/DB.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Model.php" afterPath="$PROJECT_DIR$/core/Model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Router.php" afterPath="$PROJECT_DIR$/core/Router.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,45 +27,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="26" column="44" lean-forward="false" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+            <state relative-caret-position="-182">
+              <caret line="26" column="47" lean-forward="true" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/user/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="79" column="86" lean-forward="false" selection-start-line="79" selection-start-column="86" selection-end-line="79" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="list.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/movies/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="58" column="54" lean-forward="false" selection-start-line="58" selection-start-column="54" selection-end-line="58" selection-end-column="54" />
+            <state relative-caret-position="458">
+              <caret line="35" column="32" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Movies.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Movies.php">
+      <file leaf-file-name="list_home.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/movies/list_home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="32" column="24" lean-forward="false" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="24" />
+            <state relative-caret-position="493">
+              <caret line="66" column="32" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
               <folding>
-                <marker date="1589690607387" expanded="true" signature="477:496" ph="select * fro... genre" />
-                <marker date="1589690607387" expanded="true" signature="1026:1033" ph="select * fro... movies" />
-                <marker date="1589690607387" expanded="true" signature="1026:1267" ph="select * fro... movie" />
+                <element signature="e#1104#1129#0#HTML" expanded="true" />
+                <marker date="1589763750608" expanded="true" signature="1129:2946" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="1215:2946" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="1302:1585" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="1344:1540" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="1383:1521" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="1426:1498" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="1650:2946" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="1692:2946" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="1726:2946" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="1771:2946" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="1814:2946" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="1868:1993" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="2116:2946" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="2185:2946" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="2229:2627" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="2270:2582" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="2671:2946" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="2887:2946" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="3088:3153" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="3642:4126" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="3728:4091" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="3772:3985" ph="..." />
+                <marker date="1589763750608" expanded="true" signature="3833:3941" ph="{...}" />
               </folding>
             </state>
           </provider>
