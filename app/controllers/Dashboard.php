@@ -17,7 +17,9 @@ class Dashboard extends Controller
         $this->view->render('admin_lte_template/dashboard/dashboard');
     }
 
-    public function ui_elements(){
+    public function version1(){
+
+        $this->view->render('admin_lte_template/dashboard/version1');
 
     }
 }

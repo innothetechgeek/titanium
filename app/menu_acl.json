@@ -1,10 +1,10 @@
 {
   "Home": "home",
   "Movie Management Demo": {
-    "Add Movie": "movies/add",
     "View Movies": "movies/view",
+    "Add Movie": "movies/add",
     "separator" : "",
-    "More stuff" : "tools/third"
+    "More stuff" : "#"
   },
 
   "Login" : "user/login",

@@ -15,6 +15,7 @@ class User extends Controller
 
     public function login(){
 
+        if(currentUser()) Router::redirect('movies/view');
         if($_POST){
             $user = new Person();
             $user = $user->findByUsername(Input::get('usr_email'));
@@ -23,8 +24,12 @@ class User extends Controller
                $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true : false;
 
                $user->login($remember);
+               if(isset($_POST['login_required']) && $_POST['login_required'] != '' ){
+                   Router::redirect('movies/add');
+               }else{
+                   Router::redirect('movies/view');
+               }
 
-               Router::redirect('movies/view');
            }
         }
 

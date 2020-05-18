@@ -71,7 +71,7 @@
         <div class="col-md-8 col-md-offset-2" style="margin-top: 140px">
             <?php if(isset($_GET['login-required'])){ ?>
             <div class="alert alert-warning" role="alert">
-                YOU NEED TO LOGIN TO ADD A MOVIE
+                YOU NEED TO LOGIN TO ADD A MOVIE, DEMO USER:  agent47@yahoo.com , password: dgenerationx
             </div>
             <?php }?>
             <div class="panel panel-default">
@@ -93,7 +93,8 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" name="password">
+                                <input type="hidden" class="form-control" name="login_required" value ='<?= isset($_GET['login-required']) ? "true": ""; ?>'>
                                 <span class="help-block">
                                     <strong></strong>
                                 </span>

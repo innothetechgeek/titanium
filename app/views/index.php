@@ -65,7 +65,7 @@
             Theee Best PHP Framework Ever!
         </div>
         <div class="alert alert-info" role="alert" style="margin-top:5px;">
-            Don't try to break the framework :( , this is only a better version!
+            Don't try to break the framework :( , this is only the beta version!
         </div>
         <div class="links">
             <a href="#">Documentation</a>
