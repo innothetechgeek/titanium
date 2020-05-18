@@ -18,6 +18,7 @@ class Person extends Model
         parent::__construct($table);
         $this->session_name = CURRENT_USER_SESSION_NAME;
         $this->cookieName = REMEMBER_ME_COOKIE_NAME;
+
         $this->soft_delete = true;
          if ($user != '') {
              if (is_int($user)) {
