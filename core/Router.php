@@ -12,7 +12,7 @@ class Router
         //$user = new Person();
         //controller
         $controller = (isset($url[0]) && $url[0] != '') ? $url[0] : DEFAULT_CONTROLLER;
-        $controller_name = $controller;
+        $controller_name = ucfirst($controller);
         array_shift($url);
 
         //action
