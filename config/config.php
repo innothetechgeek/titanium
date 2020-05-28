@@ -9,7 +9,7 @@
     define('DB_NAME','titanium');
     define('DB_USER','root');
     define('DB_PASSWORD','');
-    define('DB_HOST','127.0.0.1:3309');
+    define('DB_HOST','127.0.0.11:3309');
     define('DEFAULT_CONTROLLER','Home'); //default controller
     define('DEFAULT_LAYOUT','default'); //deafult layout
     define('SITE_TITLE', 'TITANIUM MVC Framework');
