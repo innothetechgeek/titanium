@@ -13,7 +13,7 @@
                 Movies                                            </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                <a class="dropdown-item" href="#">Add Movie</a>
+                <a class="dropdown-item" href="<?php url('movies/add') ?>">Add Movie</a>
                 <a class="dropdown-item" href="<?php url('movies/view') ?>">View Movies</a>
                 <a class="dropdown-item" href="#">More stuff</a>
             </div>

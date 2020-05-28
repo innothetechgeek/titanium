@@ -18,6 +18,7 @@ class Movies extends Controller
         if($_POST) {
             $movie_id = $this->create_movie();
             $this->create_movie_genre($movie_id);
+            Router::redirect('movies/view');
 
         }else{
 
