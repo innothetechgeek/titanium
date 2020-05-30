@@ -1,4 +1,4 @@
-<?php $this->start('head') ?>
+<?php $this->start('head'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Titanium | Add Movie</title>
@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/fontawesome-free/css/all.min.css') ?>">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/toastr/toastr.min.css') ?>">
+    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') ?>">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -105,10 +107,27 @@
 <script src="<?php url('plugins/admin_template/jquery/jquery.min.js') ?>"></script>
 <!-- Bootstrap 4 -->
 <script src="<?php url('assets/plugins/admin_template/js/bootstrap.bundle.min.js') ?>"></script>
+<script src="<?php url('assets/plugins/admin_template/toastr/toastr.min.js') ?>"></script>
+<script src="<?php url('assets/plugins/admin_template/sweetalert2/sweetalert2.min.js') ?>"></script>
 <!-- bs-custom-file-input -->
 <script src="<?php url('assets/plugins/admin_template/bs-custom-file-input/bs-custom-file-input.min.js') ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?php url('assets/js/admin_template/adminlte.min.js') ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php url('assets/js/admin_template/demo.js') ?>"></script>
+<?php  if($this->movie_added){ ?>
+<script>
+    $(function() {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    Toast.fire({
+        type: 'success',
+        title: ' Movie Successfully added!.'
+    })});
+</script>
+<?php } ?>
 <?php $this->end() ?>

@@ -18,7 +18,7 @@ class Movies extends Controller
         if($_POST) {
             $movie_id = $this->create_movie();
             $this->create_movie_genre($movie_id);
-            Router::redirect('movies/view');
+            Router::redirect('movies/view/movie-added=true');
 
         }else{
 
@@ -31,7 +31,7 @@ class Movies extends Controller
 
     }
 
-    public function view(){
+    public function view($param = []){
 
         $movie = new Movie();
         $movies = $movie->findAll();
@@ -48,7 +48,7 @@ class Movies extends Controller
                                  LEFT JOIN genre on mvg_ref_genre = gnr_id  GROUP BY mv_id order by mv_id desc LIMIT $limit_and_offset");
         $this->view->movies = $movies;
         $this->view->rows_found = $rows_found;
-       // dnd($this->view->movies);
+        if($param == 'movie-added=true') $this->view->movie_added = true;
 
         if(currentUser()){
             $this->view->render('movies/list');
