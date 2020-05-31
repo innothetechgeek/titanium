@@ -65,9 +65,10 @@ class Paginator{
                     </li>";
 
         }else{
-
+            $ref = $request_url."page=".$page_number;
             return "<li class='page-item $is_link_active' >
-                        <a class = 'page-link'  href='$request_url&page=$page_number' class = 'page-link'>$html_text</a>
+                           
+                        <a class = 'page-link'  href='$ref' class = 'page-link'>$html_text</a>
                     </li>";
 
         }
@@ -82,7 +83,7 @@ class Paginator{
 
         for ($page = 1; $page <= $this->last_page; $page++) {
 
-            $request_url = $this->get_request_path()."?".http_build_query($request_query_strings);
+            $request_url = $this->get_request_path().'?'.http_build_query($request_query_strings);
 
             //class: to show link as active or in active
             $active = "";
@@ -108,7 +109,6 @@ class Paginator{
 
          return parse_url($request_url)['path'];
 
-         return $request_url;
     }
     //===============================================================================
     public function get_request_query_strings(){

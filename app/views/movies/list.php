@@ -55,6 +55,14 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title"><?=$this->rows_found?> movies</h3>
+                        <ul class="pagination pagination-sm m-0 float-right">
+                            <style>
+                                .pagination .active{
+                                    background: #007bff;
+                                }
+                            </style>
+                            <?= $this->pagination_links; ?>
+                        </ul>
                     </div>
 <!--                     /.card-header -->
                     <div class="card-body">
@@ -72,7 +80,7 @@
                                 $movies = $this->movies;
                                 foreach ($movies as $movie){ ?>
                                 <tr>
-                                    <td><?=$movie['mv_id']?>.</td>
+                                    <td><?=$this->count?>.</td>
                                     <td><?=$movie['mv_title']?></td>
                                     <td>
                                         <?= format_date('d F Y',$movie['mv_year_released']) ?>
@@ -82,17 +90,6 @@
                             <?php } ?>
                             </tbody>
                         </table>
-                    </div>
-                    <!-- /.card-body -->
-                    <div class="card-footer clearfix">
-                        <ul class="pagination pagination-sm m-0 float-right">
-                            <style>
-                                .pagination .active{
-                                    background: #007bff;
-                                }
-                            </style>
-                            <?= $this->pagination_links; ?>
-                        </ul>
                     </div>
                 </div>
                 <!-- /.card -->
@@ -115,7 +112,7 @@
 <script src="<?php url('assets/js/admin_template/adminlte.min.js') ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php url('assets/js/admin_template/demo.js') ?>"></script>
-<?php  if($this->movie_added){ ?>
+<?php   if($this->movie_added){ ?>
 <script>
     $(function() {
         const Toast = Swal.mixin({

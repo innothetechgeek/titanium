@@ -33,6 +33,7 @@ class Movies extends Controller
 
     public function view($param = []){
 
+
         $movie = new Movie();
         $movies = $movie->findAll();
 
@@ -48,7 +49,9 @@ class Movies extends Controller
                                  LEFT JOIN genre on mvg_ref_genre = gnr_id  GROUP BY mv_id order by mv_id desc LIMIT $limit_and_offset");
         $this->view->movies = $movies;
         $this->view->rows_found = $rows_found;
-        if($param == 'movie-added=true') $this->view->movie_added = true;
+        $this->view->count = $rows_found;
+        $refer = parse_url($_SERVER['HTTP_REFERER'])['path'];
+         if(strpos($refer, 'movies/add') !== false) $this->view->movie_added = true;
 
         if(currentUser()){
             $this->view->render('movies/list');
