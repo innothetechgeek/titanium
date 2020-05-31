@@ -65,7 +65,7 @@ class Paginator{
                     </li>";
 
         }else{
-            $ref = $request_url."page=".$page_number;
+            $ref = $request_url."&page=".$page_number;
             return "<li class='page-item $is_link_active' >
                            
                         <a class = 'page-link'  href='$ref' class = 'page-link'>$html_text</a>
