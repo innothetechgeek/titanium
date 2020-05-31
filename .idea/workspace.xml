@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3bb79cf-a4ab-43e9-a183-8b3ee46eabe9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index.php" afterPath="$PROJECT_DIR$/app/views/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/admin_nav_bar.php" afterPath="$PROJECT_DIR$/app/views/layouts/admin_nav_bar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/admin_side_bar.php" afterPath="$PROJECT_DIR$/app/views/layouts/admin_side_bar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Paginator.php" afterPath="$PROJECT_DIR$/core/Paginator.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="678">
@@ -71,19 +69,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Paginator.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Paginator.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/Paginator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="67" column="34" lean-forward="false" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
+            <state relative-caret-position="264">
+              <caret line="42" column="61" lean-forward="false" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="61" />
               <folding>
-                <marker date="1590888543505" expanded="true" signature="2444:2590" ph="..." />
-                <marker date="1590888543505" expanded="true" signature="2722:2725" ph="..." />
-                <marker date="1590888543505" expanded="true" signature="2722:2752" ph="..." />
-                <marker date="1590888543505" expanded="true" signature="2722:2805" ph="..." />
-                <marker date="1590888543505" expanded="true" signature="2722:2806" ph="..." />
-                <marker date="1590888543505" expanded="true" signature="2722:2807" ph="..." />
-                <marker date="1590888543505" expanded="true" signature="2722:2872" ph="..." />
+                <marker date="1590889515965" expanded="true" signature="2452:2598" ph="..." />
+                <marker date="1590889515965" expanded="true" signature="2730:2732" ph="..." />
+                <marker date="1590889515965" expanded="true" signature="2730:2759" ph="..." />
+                <marker date="1590889515965" expanded="true" signature="2730:2812" ph="..." />
+                <marker date="1590889515965" expanded="true" signature="2730:2813" ph="..." />
+                <marker date="1590889515965" expanded="true" signature="2730:2814" ph="..." />
+                <marker date="1590889515965" expanded="true" signature="2730:2879" ph="..." />
               </folding>
             </state>
           </provider>
@@ -225,10 +223,10 @@
         <option value="$PROJECT_DIR$/app/views/movies/list.php" />
         <option value="$PROJECT_DIR$/app/controllers/Movies.php" />
         <option value="$PROJECT_DIR$/app/views/movies/list_home.php" />
-        <option value="$PROJECT_DIR$/core/Paginator.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/admin_nav_bar.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/admin_side_bar.php" />
         <option value="$PROJECT_DIR$/app/views/index.php" />
+        <option value="$PROJECT_DIR$/core/Paginator.php" />
       </list>
     </option>
   </component>
@@ -435,12 +433,12 @@
       <workItem from="1590355063496" duration="1625000" />
       <workItem from="1590700417649" duration="1247000" />
       <workItem from="1590744368578" duration="1262000" />
-      <workItem from="1590879080671" duration="9480000" />
+      <workItem from="1590879080671" duration="10058000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="300076000" />
+    <option name="totallyTimeSpent" value="300654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1064" extended-state="6" />
@@ -850,22 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Paginator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="67" column="34" lean-forward="false" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
-          <folding>
-            <marker date="1590888543505" expanded="true" signature="2444:2590" ph="..." />
-            <marker date="1590888543505" expanded="true" signature="2722:2725" ph="..." />
-            <marker date="1590888543505" expanded="true" signature="2722:2752" ph="..." />
-            <marker date="1590888543505" expanded="true" signature="2722:2805" ph="..." />
-            <marker date="1590888543505" expanded="true" signature="2722:2806" ph="..." />
-            <marker date="1590888543505" expanded="true" signature="2722:2807" ph="..." />
-            <marker date="1590888543505" expanded="true" signature="2722:2872" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/vendor/helpers/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
@@ -903,6 +885,22 @@
         <state relative-caret-position="678">
           <caret line="75" column="21" lean-forward="true" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Paginator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="42" column="61" lean-forward="false" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="61" />
+          <folding>
+            <marker date="1590889515965" expanded="true" signature="2452:2598" ph="..." />
+            <marker date="1590889515965" expanded="true" signature="2730:2732" ph="..." />
+            <marker date="1590889515965" expanded="true" signature="2730:2759" ph="..." />
+            <marker date="1590889515965" expanded="true" signature="2730:2812" ph="..." />
+            <marker date="1590889515965" expanded="true" signature="2730:2813" ph="..." />
+            <marker date="1590889515965" expanded="true" signature="2730:2814" ph="..." />
+            <marker date="1590889515965" expanded="true" signature="2730:2879" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
