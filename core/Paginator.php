@@ -39,8 +39,8 @@ class Paginator{
         if ($this->last_page != 1) {
 
             if ($this->page > 1 && $this->page != $this->last_page) {
-                $next_page = $this->last_page + 1;
-                $request_url = $this->get_request_path();
+                $next_page = $this->page + 1; //current page + 1
+                $request_url = $this->get_request_path().'?';
 
                 $this->pagination_links .= $this->create_html_for_pagination_links($next_page,$request_url,"Next");
             }
@@ -51,7 +51,7 @@ class Paginator{
         if ($this->page > 1) {
             //Show 'Previous' only if page number is greater than 1,
             $previous_page = $this->page - 1;
-            $request_url = $this->get_request_path();
+            $request_url = $this->get_request_path().'?';
             $this->pagination_links = $this->create_html_for_pagination_links($previous_page,$request_url,"Previous");
         }
     }
@@ -66,8 +66,7 @@ class Paginator{
 
         }else{
             $ref = $request_url."&page=".$page_number;
-            return "<li class='page-item $is_link_active' >
-                           
+            return "<li class='page-item $is_link_active' >                           
                         <a class = 'page-link'  href='$ref' class = 'page-link'>$html_text</a>
                     </li>";
 
