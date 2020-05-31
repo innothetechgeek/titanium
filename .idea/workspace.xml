@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3bb79cf-a4ab-43e9-a183-8b3ee46eabe9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Movies.php" afterPath="$PROJECT_DIR$/app/controllers/Movies.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/movies/list.php" afterPath="$PROJECT_DIR$/app/views/movies/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Paginator.php" afterPath="$PROJECT_DIR$/core/Paginator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/movies/list_home.php" afterPath="$PROJECT_DIR$/app/views/movies/list_home.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,7 +17,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Movies.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Movies.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/Movies.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
@@ -27,6 +26,16 @@
                 <marker date="1590887116470" expanded="true" signature="617:636" ph="select * fro... genre" />
                 <marker date="1590887116470" expanded="true" signature="1179:1420" ph="select mv_id... movie" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list_home.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/movies/list_home.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="579">
+              <caret line="88" column="37" lean-forward="false" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -79,16 +88,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/bootstrap.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Router.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/Router.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -102,8 +101,8 @@
       <file leaf-file-name="list.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/movies/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="83" column="50" lean-forward="false" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
+            <state relative-caret-position="190">
+              <caret line="80" column="58" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -160,8 +159,8 @@
       <find>queryParams</find>
       <find>sweetalert2/sweetalert2.min.js</find>
       <find>found</find>
-      <find>movie-ad</find>
       <find>get_request_path</find>
+      <find>movie-ad</find>
       <find>rows_found</find>
     </findStrings>
     <replaceStrings>
@@ -208,7 +207,6 @@
         <option value="$PROJECT_DIR$/app/models/Person.php" />
         <option value="$PROJECT_DIR$/core/Model.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/default.php" />
-        <option value="$PROJECT_DIR$/app/views/movies/list_home.php" />
         <option value="$PROJECT_DIR$/app/controllers/Home.php" />
         <option value="$PROJECT_DIR$/core/Session.php" />
         <option value="$PROJECT_DIR$/app/views/layouts/main_menu.php" />
@@ -229,6 +227,7 @@
         <option value="$PROJECT_DIR$/core/Paginator.php" />
         <option value="$PROJECT_DIR$/app/views/movies/list.php" />
         <option value="$PROJECT_DIR$/app/controllers/Movies.php" />
+        <option value="$PROJECT_DIR$/app/views/movies/list_home.php" />
       </list>
     </option>
   </component>
@@ -287,6 +286,19 @@
               <item name="titanium" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="titanium" type="b2602c69:ProjectViewProjectNode" />
+              <item name="titanium" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="titanium" type="b2602c69:ProjectViewProjectNode" />
+              <item name="titanium" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="movies" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="titanium" type="b2602c69:ProjectViewProjectNode" />
@@ -433,18 +445,18 @@
       <workItem from="1590355063496" duration="1625000" />
       <workItem from="1590700417649" duration="1247000" />
       <workItem from="1590744368578" duration="1262000" />
-      <workItem from="1590879080671" duration="7956000" />
+      <workItem from="1590879080671" duration="8478000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298552000" />
+    <option name="totallyTimeSpent" value="299074000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1064" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.103125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2953125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917318" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -625,13 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="539">
           <caret line="35" column="79" lean-forward="false" selection-start-line="35" selection-start-column="79" selection-end-line="35" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/movies/list_home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="66" column="32" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -882,14 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/movies/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="83" column="50" lean-forward="false" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Movies.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -898,6 +895,22 @@
             <marker date="1590887116470" expanded="true" signature="617:636" ph="select * fro... genre" />
             <marker date="1590887116470" expanded="true" signature="1179:1420" ph="select mv_id... movie" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/movies/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="80" column="58" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/movies/list_home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="88" column="37" lean-forward="false" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

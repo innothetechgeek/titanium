@@ -77,7 +77,16 @@
                     <div class="col-md-12" >
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title"><?=$this->rows_found?> movies</h3>
+                                <h3 class="card-title"><?=$this->rows_found?> movies
+                                    <ul class="pagination pagination-sm m-0 float-right">
+                                        <style>
+                                            .pagination .active{
+                                                background: #007bff;
+                                            }
+                                        </style>
+                                        <?= $this->pagination_links; ?>
+                                    </ul>
+                                </h3>
                             </div>
                             <!--                     /.card-header -->
                             <div class="card-body">
@@ -93,29 +102,19 @@
                                     <tbody>
                                     <?php
                                     $movies = $this->movies;
+                                    $offset = $this->offset+1;
                                     foreach ($movies as $movie){ ?>
                                         <tr>
-                                            <td><?=$movie['mv_id']?>.</td>
+                                            <td><?=$offset?>.</td>
                                             <td><?=$movie['mv_title']?></td>
                                             <td>
                                                 <?= format_date('d F Y',$movie['mv_year_released']) ?>
                                             </td>
                                             <td><?=$movie['genres']?></td>
                                         </tr>
-                                    <?php } ?>
+                                    <?php $offset++; } ?>
                                     </tbody>
                                 </table>
-                            </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer clearfix">
-                                <ul class="pagination pagination-sm m-0 float-right">
-                                    <style>
-                                        .pagination .active{
-                                            background: #007bff;
-                                        }
-                                    </style>
-                                    <?= $this->pagination_links; ?>
-                                </ul>
                             </div>
                         </div>
                         <!-- /.card -->
