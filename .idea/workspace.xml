@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3bb79cf-a4ab-43e9-a183-8b3ee46eabe9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Movies.php" afterPath="$PROJECT_DIR$/app/controllers/Movies.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/movies/list.php" afterPath="$PROJECT_DIR$/app/views/movies/list.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Paginator.php" afterPath="$PROJECT_DIR$/core/Paginator.php" />
@@ -22,11 +21,11 @@
       <file leaf-file-name="Movies.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/Movies.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="564">
-              <caret line="53" column="51" lean-forward="false" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+            <state relative-caret-position="264">
+              <caret line="41" column="49" lean-forward="false" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
               <folding>
-                <marker date="1590886550554" expanded="true" signature="617:636" ph="select * fro... genre" />
-                <marker date="1590886550554" expanded="true" signature="1178:1419" ph="select mv_id... movie" />
+                <marker date="1590887116470" expanded="true" signature="617:636" ph="select * fro... genre" />
+                <marker date="1590887116470" expanded="true" signature="1179:1420" ph="select mv_id... movie" />
               </folding>
             </state>
           </provider>
@@ -35,16 +34,16 @@
       <file leaf-file-name="Paginator.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/Paginator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="67" column="33" lean-forward="true" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
+            <state relative-caret-position="606">
+              <caret line="152" column="30" lean-forward="false" selection-start-line="152" selection-start-column="20" selection-end-line="152" selection-end-column="30" />
               <folding>
-                <marker date="1590885988450" expanded="true" signature="2444:2590" ph="..." />
-                <marker date="1590885988450" expanded="true" signature="2721:2724" ph="..." />
-                <marker date="1590885988450" expanded="true" signature="2721:2751" ph="..." />
-                <marker date="1590885988450" expanded="true" signature="2721:2804" ph="..." />
-                <marker date="1590885988450" expanded="true" signature="2721:2805" ph="..." />
-                <marker date="1590885988450" expanded="true" signature="2721:2806" ph="..." />
-                <marker date="1590885988450" expanded="true" signature="2721:2871" ph="..." />
+                <marker date="1590886924255" expanded="true" signature="2444:2590" ph="..." />
+                <marker date="1590886924255" expanded="true" signature="2721:2724" ph="..." />
+                <marker date="1590886924255" expanded="true" signature="2721:2751" ph="..." />
+                <marker date="1590886924255" expanded="true" signature="2721:2804" ph="..." />
+                <marker date="1590886924255" expanded="true" signature="2721:2805" ph="..." />
+                <marker date="1590886924255" expanded="true" signature="2721:2806" ph="..." />
+                <marker date="1590886924255" expanded="true" signature="2721:2871" ph="..." />
               </folding>
             </state>
           </provider>
@@ -103,8 +102,8 @@
       <file leaf-file-name="list.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/movies/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="114" column="7" lean-forward="false" selection-start-line="114" selection-start-column="7" selection-end-line="114" selection-end-column="7" />
+            <state relative-caret-position="545">
+              <caret line="83" column="50" lean-forward="false" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -162,8 +161,8 @@
       <find>sweetalert2/sweetalert2.min.js</find>
       <find>found</find>
       <find>movie-ad</find>
-      <find>rows_found</find>
       <find>get_request_path</find>
+      <find>rows_found</find>
     </findStrings>
     <replaceStrings>
       <replace>conditions</replace>
@@ -247,7 +246,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="259" />
     <option name="y" value="185" />
     <option name="width" value="1006" />
@@ -434,15 +433,15 @@
       <workItem from="1590355063496" duration="1625000" />
       <workItem from="1590700417649" duration="1247000" />
       <workItem from="1590744368578" duration="1262000" />
-      <workItem from="1590879080671" duration="7413000" />
+      <workItem from="1590879080671" duration="7956000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298009000" />
+    <option name="totallyTimeSpent" value="298552000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1064" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1064" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.103125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -867,37 +866,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/movies/list.php">
+    <entry file="file://$PROJECT_DIR$/core/Paginator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="114" column="7" lean-forward="false" selection-start-line="114" selection-start-column="7" selection-end-line="114" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="606">
+          <caret line="152" column="30" lean-forward="false" selection-start-line="152" selection-start-column="20" selection-end-line="152" selection-end-column="30" />
+          <folding>
+            <marker date="1590886924255" expanded="true" signature="2444:2590" ph="..." />
+            <marker date="1590886924255" expanded="true" signature="2721:2724" ph="..." />
+            <marker date="1590886924255" expanded="true" signature="2721:2751" ph="..." />
+            <marker date="1590886924255" expanded="true" signature="2721:2804" ph="..." />
+            <marker date="1590886924255" expanded="true" signature="2721:2805" ph="..." />
+            <marker date="1590886924255" expanded="true" signature="2721:2806" ph="..." />
+            <marker date="1590886924255" expanded="true" signature="2721:2871" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Paginator.php">
+    <entry file="file://$PROJECT_DIR$/app/views/movies/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="67" column="33" lean-forward="true" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
-          <folding>
-            <marker date="1590885988450" expanded="true" signature="2444:2590" ph="..." />
-            <marker date="1590885988450" expanded="true" signature="2721:2724" ph="..." />
-            <marker date="1590885988450" expanded="true" signature="2721:2751" ph="..." />
-            <marker date="1590885988450" expanded="true" signature="2721:2804" ph="..." />
-            <marker date="1590885988450" expanded="true" signature="2721:2805" ph="..." />
-            <marker date="1590885988450" expanded="true" signature="2721:2806" ph="..." />
-            <marker date="1590885988450" expanded="true" signature="2721:2871" ph="..." />
-          </folding>
+        <state relative-caret-position="545">
+          <caret line="83" column="50" lean-forward="false" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Movies.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="53" column="51" lean-forward="false" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+        <state relative-caret-position="264">
+          <caret line="41" column="49" lean-forward="false" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
           <folding>
-            <marker date="1590886550554" expanded="true" signature="617:636" ph="select * fro... genre" />
-            <marker date="1590886550554" expanded="true" signature="1178:1419" ph="select mv_id... movie" />
+            <marker date="1590887116470" expanded="true" signature="617:636" ph="select * fro... genre" />
+            <marker date="1590887116470" expanded="true" signature="1179:1420" ph="select mv_id... movie" />
           </folding>
         </state>
       </provider>

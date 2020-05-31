@@ -78,16 +78,17 @@
                             <tbody>
                             <?php
                                 $movies = $this->movies;
+                                $offset = $this->offset+1;
                                 foreach ($movies as $movie){ ?>
                                 <tr>
-                                    <td><?=$this->count?>.</td>
+                                    <td><?=$offset?>.</td>
                                     <td><?=$movie['mv_title']?></td>
                                     <td>
                                         <?= format_date('d F Y',$movie['mv_year_released']) ?>
                                     </td>
                                     <td><?=$movie['genres']?></td>
                                 </tr>
-                            <?php } ?>
+                            <?php $offset++; } ?>
                             </tbody>
                         </table>
                     </div>

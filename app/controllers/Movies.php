@@ -39,7 +39,7 @@ class Movies extends Controller
 
         $rows_found = count((array)$movies);
 
-        $paginator = new Paginator($rows_found,7);
+        $paginator = new Paginator($rows_found,10);
         $pagination_links = $paginator->get_pagination_links();
         $this->view->pagination_links = $pagination_links;
 
@@ -50,6 +50,7 @@ class Movies extends Controller
         $this->view->movies = $movies;
         $this->view->rows_found = $rows_found;
         $this->view->count = $rows_found;
+        $this->view->offset = $paginator->get_offset();
         $refer = parse_url($_SERVER['HTTP_REFERER'])['path'];
          if(strpos($refer, 'movies/add') !== false) $this->view->movie_added = true;
 

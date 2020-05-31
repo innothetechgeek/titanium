@@ -149,5 +149,9 @@ class Paginator{
                 //offset                                , limit
         return ($this->page - 1) * $this->per_page . ',' . $this->per_page;
     }
+
+    public function get_offset(){
+        return ($this->page - 1) * $this->per_page;
+    }
 }
 
