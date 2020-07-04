@@ -8,75 +8,53 @@
 
 class Router
 {
-    public static function route($url){
-        //$user = new Person();
-        //controller
-        $controller = (isset($url[0]) && $url[0] != '') ? $url[0] : DEFAULT_CONTROLLER;
-        $controller_name = ucfirst($controller);
-        array_shift($url);
+    private static $valid_routes = [];
 
-        //action
-        $method = (isset($url[0]) && $url[0] != '') ? $url[0] : "index";
-        $method_name = $method;
-        array_shift($url);
+    //method not allowed method
 
-        //acl check
-        $grantAccess = self::hasAccess($controller_name,$method_name);
-
-
-        if(!$grantAccess){
-            $controller_name = ACCESS_RESTRICTED;
-            $method_name = ACCESS_RESTRICTED_METHOD;
-        }
-
-        //parameters
-        $queryParams = $url;
-
-
-        $controller_obj = new $controller_name($controller_name,$method_name);
-
-        if(method_exists($controller_name,$method_name)){
-            call_user_func_array([$controller_obj,$method_name],$queryParams);
-        }else{
-            die('That method does not exist in the controller '.$controller_name);
-        }
+    //get method
+    public static function get($route,$function){
+      array_push(self::$valid_routes,Array(
+         'expression' => $expression,
+         'function' => $function,
+      ));
     }
-    public static function hasAccess($controller,$method_name = "index"){
 
-        return true;
-        $controller = ucfirst($controller);
-        $acl_file = file_get_contents(ROOT . DS . 'app' . DS . "acl.json");
-        $acl = json_decode($acl_file,true);
-        $current_user_acls = ["Guest"];
-        $grantAccess = false;
+    //route method
+    public static function route($url){
 
-        if(Session::exists(CURRENT_USER_SESSION_NAME)){
-            $current_user_acls[] = "LoggedIn";
-            foreach($current_user_acls()->acl() as $acl){
-                $current_user_acls = $acl;
-            }
+     /*loop through the list of valid routes, check if url matches a route in the list of valid routes
+          if request url matches method and class, call relevent method and class */
+      foreach (sef::$valid_routes as $route) {
+
+        //if path in the list of valid routes matches current request path, call relevent class and method
+        if($route['path'] == implode(url,'/'){
+                    
+          //acl check - grant or deny access
+          $grantAccess = self::hasAccess($controller_name,$method_name);
+
+          if(!$grantAccess){
+              $controller_name = ACCESS_RESTRICTED;
+              $method_name = ACCESS_RESTRICTED_METHOD;
+          }
+
+          $class_method = explode($route['function'],'@');
+          $class = $class_method[0];
+          $method =  $class_method[1];
+
+          $controller_obj = new $class($class,$method);
+
+          if(method_exists($class,$method)){
+              call_user_func_array([$controller_obj,$method],$queryParams);
+          }else{
+              die('That method does not exist in the controller '.$controller_name);
+          }
+
+          break;
+
         }
 
-        foreach($current_user_acls as $level){
-            //dnd($acl[$level]);
-            if(array_key_exists($level,$acl) && array_key_exists($controller,$acl[$level])){
-                if(in_array($method_name,$acl[$level][$controller]) || in_array("*",$acl[$level][$controller])){
-                    $grantAccess = true;
-                    break;
-                }
-            }
-        }
-
-        //check for denied
-        foreach($current_user_acls as $level){
-            $denied = $acl[$level]['denied'];
-            if(!empty($denied) && array_key_exists($controller,$denied) && in_array($method_name,$denied[$controller])){
-                $grantAccess = false;
-                break;
-            }
-        }
-
-        return $grantAccess;
+      }
     }
 
     public static function redirect($location){
@@ -126,4 +104,7 @@ class Router
             return false;
         }
     }
+
+
+
 }
