@@ -25,5 +25,8 @@
         }
     }
 
+    //adds list of valid routes to the $valid_routes array of the router class
+    require_once(ROOT . DS . 'routes' . DS .'routes.php');
+
     //Route Requests
     Router::route($url);

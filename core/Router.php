@@ -15,7 +15,7 @@ class Router
     //get method
     public static function get($route,$function){
       array_push(self::$valid_routes,Array(
-         'expression' => $expression,
+         'path' => $route,
          'function' => $function,
       ));
     }
@@ -25,24 +25,30 @@ class Router
 
      /*loop through the list of valid routes, check if url matches a route in the list of valid routes
           if request url matches method and class, call relevent method and class */
-      foreach (sef::$valid_routes as $route) {
+      foreach (self::$valid_routes as $route) {
 
         //if path in the list of valid routes matches current request path, call relevent class and method
-        if($route['path'] == implode(url,'/'){
-                    
+        if($route['path'] == implode($url,'/')){
+
+          $class_method = explode($route['function'],'@');
+          if(empty($url)){
+            $class =  DEFAULT_CONTROLLER;
+              $method =  "index";
+          }else{
+            $class = $class_method[0];
+            $method =  $class_method[1];
+          }
+
           //acl check - grant or deny access
-          $grantAccess = self::hasAccess($controller_name,$method_name);
+          $grantAccess = self::hasAccess($class,$method);
 
           if(!$grantAccess){
               $controller_name = ACCESS_RESTRICTED;
               $method_name = ACCESS_RESTRICTED_METHOD;
           }
 
-          $class_method = explode($route['function'],'@');
-          $class = $class_method[0];
-          $method =  $class_method[1];
-
           $controller_obj = new $class($class,$method);
+          $queryParams = [];
 
           if(method_exists($class,$method)){
               call_user_func_array([$controller_obj,$method],$queryParams);
@@ -103,6 +109,44 @@ class Router
             }
             return false;
         }
+    }
+
+    public static function hasAccess($controller,$method_name = "index"){
+
+        return true;
+        $controller = ucfirst($controller);
+        $acl_file = file_get_contents(ROOT . DS . 'app' . DS . "acl.json");
+        $acl = json_decode($acl_file,true);
+        $current_user_acls = ["Guest"];
+        $grantAccess = false;
+
+        if(Session::exists(CURRENT_USER_SESSION_NAME)){
+            $current_user_acls[] = "LoggedIn";
+            foreach($current_user_acls()->acl() as $acl){
+                $current_user_acls = $acl;
+            }
+        }
+
+        foreach($current_user_acls as $level){
+            //dnd($acl[$level]);
+            if(array_key_exists($level,$acl) && array_key_exists($controller,$acl[$level])){
+                if(in_array($method_name,$acl[$level][$controller]) || in_array("*",$acl[$level][$controller])){
+                    $grantAccess = true;
+                    break;
+                }
+            }
+        }
+
+        //check for denied
+        foreach($current_user_acls as $level){
+            $denied = $acl[$level]['denied'];
+            if(!empty($denied) && array_key_exists($controller,$denied) && in_array($method_name,$denied[$controller])){
+                $grantAccess = false;
+                break;
+            }
+        }
+
+        return $grantAccess;
     }
 
 
