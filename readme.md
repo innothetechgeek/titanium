@@ -22,7 +22,7 @@ URLS
       And you run your scripts by typing the script name in the url bar, e.g domain.co.za/add_user.php.
 
       That is not how things work in an mvc application. The .php extenstion is removed from the urls.
-      And the uri us mapped to a revevant route.
+      And the uri us mapped to a revevant route, and the route is mapped to a relevent class and method.
        
 
       The first part of the url is a class, and the second part is a method from a class and the 3rd part is optional 
