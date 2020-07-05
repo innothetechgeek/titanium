@@ -18,5 +18,8 @@ class Home extends Controller
         $this->view->render('index');
 
     }
+    public function page_not_found(){
+        $this->view->render('page_not_found');
+    }
 
 }

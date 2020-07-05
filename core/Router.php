@@ -30,7 +30,8 @@ class Router
         //if path in the list of valid routes matches current request path, call relevent class and method
         if($route['path'] == implode($url,'/')){
 
-          $class_method = explode($route['function'],'@');
+          $class_method = explode('@',$route['function']);
+
           if(empty($url)){
             $class =  DEFAULT_CONTROLLER;
               $method =  "index";
@@ -43,8 +44,8 @@ class Router
           $grantAccess = self::hasAccess($class,$method);
 
           if(!$grantAccess){
-              $controller_name = ACCESS_RESTRICTED;
-              $method_name = ACCESS_RESTRICTED_METHOD;
+              $class = ACCESS_RESTRICTED;
+              $method = ACCESS_RESTRICTED_METHOD;
           }
 
           $controller_obj = new $class($class,$method);
@@ -53,7 +54,7 @@ class Router
           if(method_exists($class,$method)){
               call_user_func_array([$controller_obj,$method],$queryParams);
           }else{
-              die('That method does not exist in the controller '.$controller_name);
+              die('That method does not exist in the controller '.$class);
           }
 
           break;
