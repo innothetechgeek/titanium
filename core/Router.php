@@ -22,12 +22,13 @@ class Router
 
     //route method
     public static function route($url){
-
+      unset($url[2]);
      /*loop through the list of valid routes, check if url matches a route in the list of valid routes
           if request url matches method and class, call relevent method and class */
       foreach (self::$valid_routes as $route) {
 
         //if path in the list of valid routes matches current request path, call relevent class and method
+
         if($route['path'] == implode($url,'/')){
 
           $class_method = explode('@',$route['function']);
