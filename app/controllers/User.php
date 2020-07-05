@@ -27,7 +27,7 @@ class User extends Controller
                if(isset($_POST['login_required']) && $_POST['login_required'] != '' ){
                    Router::redirect('movies/add');
                }else{
-                   Router::redirect('movies/view');
+                   Router::redirect('movies');
                }
 
            }
