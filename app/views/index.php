@@ -65,10 +65,11 @@
             Theee Best PHP Framework Ever!
         </div>
         <div class="alert alert-info" role="alert" style="margin-top:5px;">
+          
             Don't try to break the framework :( , this is only the beta version!
         </div>
         <div class="links">
-            <a target="_blank" href="https://github.com/innothetechgeek/titanium">Documentation</a>
+            <a target="_blank" href="www.tapandsell.co.za/thebookoflife">Documentation</a>
             <a target="_blank" href="https://github.com/innothetechgeek/titanium">GitHub</a>
         </div>
     </div>
