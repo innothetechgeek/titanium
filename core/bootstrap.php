@@ -7,7 +7,7 @@
  */
 //load configuration and helper functions
     require_once(ROOT . DS . 'config' . DS . 'config.php');
-    require_once(ROOT . DS . 'app' . DS. 'vendor' . DS . 'helpers' . DS . 'functions.php');
+    require_once(ROOT . DS. 'vendor' . DS . 'helpers' . DS . 'functions.php');
 
     //Autoload classes
      /*load classes automantically....make classes available to this file
@@ -25,7 +25,6 @@
         }
     }
 
-    //adds list of valid routes to the $valid_routes array of the router class
     require_once(ROOT . DS . 'routes' . DS .'routes.php');
 
     //Route Requests

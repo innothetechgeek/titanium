@@ -18,65 +18,58 @@ Installation
 
 URLS
 
-      In a php application that is not powered by a framework..all urls have a .php extenstion.
-      And you run your scripts by typing the script name in the url bar, e.g domain.co.za/add_user.php.
+     In a php application that is not powered by a framework..all urls have a .php extenstion. And the scripts are ran by passing the the script name to the url bar. Often you could see urls that look like: domain.co.za/users.php?action=edit&id=1, or domain.co.za/users.php?action=list. The script would look like this:
+if($_GET['action'] = edit){ 
+       //do something 
 
-      That is not how things work in an mvc application. The .php extenstion is removed from the urls.
-      And the uri us mapped to a revevant route, and the route is mapped to a relevent class and method.
-       
+}else{ 
+   //do something else
 
-      The first part of the url is a class, and the second part is a method from a class and the 3rd part is optional 
-      request parameters.
+ }
+The first that's wrong with this approach is that this kind of url domain.co.za/users.php?action=list, is not search-engine friendly. Secondly, the the scripts becomes messy with if's and else's. 
+Routing solves this problem. the .php extenstion is removed from the urls, and the uri us mapped to a revevant route, and the route is mapped to a relevent class and method.
 
-    All requests are routed to a relevant class and a method. All of that is handled by the index.php & Router class
+All routes are defined in the routes.php file. The first example in the above screenshot means domain.co.za/movies/add would be routed to the Movies controller, and the add method of the Movies controller. 
 
-INDEX.PHP
+URLS
 
-    The index.php file explodes urls in the url bar on '/'. 
+In a php application that is not powered by a framework..all urls have a .php extenstion. And the scripts are ran by passing the the script name to the url bar. Often you could see urls that look like: domain.co.za/users.php?action=edit&id=1, or domain.co.za/users.php?action=list. The script would look like this:
+if($_GET['action'] = edit){ 
+       //do something 
 
-    E.g if the url is user/edit/1, index.php will turn into
+}else{ 
+   //do something else
 
-    $url = [
-       0 => "user",
-       1 => "edit",
-       2 => 1
-    ] 
+ }
 
-    this array is passed to the bootstrap.php, which kinda boot the framework and get everything running.
+The first that's wrong with this approach is that this kind of url:  domain.co.za/users.php?action=list, is not search-engine friendly. Secondly, the the scripts become messy with if's and else's. 
+
+Routing solves this problem.  The .php extenstion is removed from the urls, and the uri us mapped to a revevant route, and the route is mapped to a relevent class and method.
 
 
-BOOTSTRAP.PHP
+All routes are defined in the routes.php file. The first example in the above screenshot means domain.co.za/movies/add would be routed to the Movies controller, and the add method of the Movies controller. 
 
-    The bootstrap .php application starts the framework and get everything running, it beggins that process by 
-    including all framework helper functions...so they are publicly available anywhere in the framework.
-    (an example of a helper function is the dd function in laravel)
-    Then it autoload all the classes in the framework so can be instanciated without requiring/including them.
+Index.php
 
-    Once all classes and helpers functions are loaded, we pass the url array to the Router class.
-    again the url array could be something like: 
-    $url = [
-       0 => "user",
-       1 => "edit",
-       2 => 1
-    ] 
+All requests are forwarded to the index.php file, which gets the request uri and pass it to to bootrap.php. Bootstrap.php kickstarts the framework and get everything running.
 
-THE ROUTER CLASS AND THE ROUTE METHOD.
+Bootstrap.php 
 
-    The router class calls a relevant class and the method, based on what we have on the url.
+The bootstrap.php file loads configuration file and helper functions. An example of a helper function is dd() in Laravel, and dnd() in my framework. After loading the helper functions, the bootstrap php autoloads all classes..it looks for classes the following directories: \core, \models \ controllers.
 
-    it declares the first part of the url array as a class.
-    e.g $class = user;
-    the second part as a method of that class.
-    e.g $method = edit;
-    and the 3rd part as request parameters
-    e.g
-    $params = 1;
+Once it's done loading the helper functions, it calls the route method from the router class.
 
-    with all this information, a relevant class (Crontroller) and and method is called..
-    then the magic happens...
 
-    to be continued.
 
+
+The router class and the route method 
+
+The Router class maps all requests to a relevant class and method. 
+
+When a route is registered on the routes.php file like so: Router::get('movies/add','movies@add'), that route is added to an array of valid routes. The route method of the router class loops through the array of valid routes, and try to match the request uri to the list of valid routes, if a match is found will class a relevant class and method. The relevant class and method are passed as second parameter when the Router::get() method is called.
+
+
+To be continued....
 
 
 

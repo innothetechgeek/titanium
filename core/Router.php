@@ -29,42 +29,43 @@ class Router
       foreach (self::$valid_routes as $route) {
 
         //if path in the list of valid routes matches current request path, call relevent class and method
-
         if($route['path'] == implode($url,'/')){
-          $route_found = true;
 
-          $class_method = explode('@',$route['function']);
+            $route_found = true;
+            $class_method = explode('@',$route['function']);
 
-          if(empty($url)){
-            $class =  DEFAULT_CONTROLLER;
-              $method =  "index";
-          }else{
-            $class = $class_method[0];
-            $method =  $class_method[1];
-          }
+            if(empty($url)){
+              $class =  DEFAULT_CONTROLLER;
+                $method =  "index";
+            }else{
+              $class = $class_method[0];
+              $method =  $class_method[1];
+            }
 
-          //acl check - grant or deny access
-          $grantAccess = self::hasAccess($class,$method);
+            //acl check - grant or deny access
+            $grantAccess = self::hasAccess($class,$method);
 
-          if(!$grantAccess){
-              $class = ACCESS_RESTRICTED;
-              $method = ACCESS_RESTRICTED_METHOD;
-          }
+            if(!$grantAccess){
+                $class = ACCESS_RESTRICTED;
+                $method = ACCESS_RESTRICTED_METHOD;
+            }
 
-          $controller_obj = new $class($class,$method);
-          $queryParams = [];
+            $controller_obj = new $class($class,$method);
+            $queryParams = [];
 
-          if(method_exists($class,$method)){
-              call_user_func_array([$controller_obj,$method],$queryParams);
-          }else{
-              die('That method does not exist in the controller '.$class);
-          }
-
-          break;
-
+            if(method_exists($class,$method)){
+                call_user_func_array([$controller_obj,$method],$queryParams);
+            }else{
+                die('That method does not exist in the controller '.$class);
+            }
+            break;
         }
       }
       if(!$route_found) Router::redirect('titanium/page-not-found');
+    }
+
+    public function map_request(){
+
     }
 
     public static function redirect($location){
