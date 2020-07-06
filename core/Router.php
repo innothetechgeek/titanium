@@ -50,7 +50,7 @@ class Router
                 $method = ACCESS_RESTRICTED_METHOD;
             }
 
-            $controller_obj = new $class($class,$method);
+            $controller_obj = new $class(ucfirst($class),$method);
             $queryParams = [];
 
             if(method_exists($class,$method)){
