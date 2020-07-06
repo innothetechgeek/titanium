@@ -69,7 +69,7 @@
             Don't try to break the framework :( , this is only the beta version!
         </div>
         <div class="links">
-            <a target="_blank" href="http://www.tapandsell.co.za/thebookoflife" ?>">Documentation</a>
+            <a target="_blank" href="http://www.tapandsell.co.za/thebookoflife" ?>"Documentation</a>
             <a target="_blank" href="https://github.com/innothetechgeek/titanium">GitHub</a>
         </div>
     </div>
