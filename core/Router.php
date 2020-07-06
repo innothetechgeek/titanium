@@ -49,7 +49,7 @@ class Router
                 $class = ACCESS_RESTRICTED;
                 $method = ACCESS_RESTRICTED_METHOD;
             }
-
+            $class = ucfirst($class);
             $controller_obj = new $class($class,$method);
             $queryParams = [];
 
