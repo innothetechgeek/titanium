@@ -51,6 +51,9 @@ class User extends Controller
         $user->usr_email = Input::get('email');
         $user->usr_password = md5(Input::get('password'));
         $user->save();
+        if($user->id){
+          Router::redirect('registration_successful');
+        }
 
     }
 
@@ -61,7 +64,7 @@ class User extends Controller
 
     public function logout(){
         currentUser()->logOut();
-        Router::redirect(url(''));
+        Router::redirect('');
     }
 
     public function registration_successful(){
