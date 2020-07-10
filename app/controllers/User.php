@@ -15,7 +15,7 @@ class User extends Controller
 
     public function login(){
 
-        if(currentUser()) Router::redirect('movies/view');
+        if(currentUser()) Router::redirect('movies');
         if($_POST){
             $user = new Person();
             $user = $user->findByUsername(Input::get('usr_email'));
