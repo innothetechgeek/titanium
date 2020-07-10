@@ -11,6 +11,7 @@ Router::get('','home@index');
 Router::get('page-not-found','home@page_not_found');
 
 Router::get('user/register','user@register');
+Router::post('register','user@registerUser');
 
 Router::get('user/login','user@login');
 

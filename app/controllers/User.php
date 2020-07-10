@@ -52,7 +52,8 @@ class User extends Controller
         $user->usr_password = md5(Input::get('password'));
         $user->save();
         if($user->id){
-          Router::redirect('registration_successful');
+            $this->view->render('user/registration_successful');
+        //  Router::redirect('registration-successful');
         }
 
     }

@@ -10,13 +10,21 @@ class Router
 {
     private static $valid_routes = [];
 
-    //method not allowed method
-
-    //get method
-    public static function get($route,$function){
+    //registers a new route with the router
+    public static function get($uri,$action){
       array_push(self::$valid_routes,Array(
-         'path' => $route,
-         'function' => $function,
+         'uri'    =>  $uri,
+         'action' =>  $action,
+         'method' => 'GET'
+      ));
+    }
+
+    //registers a new route with the router
+    public static function post($uri,$action){
+      array_push(self::$valid_routes,Array(
+         'uri'    =>   $uri,
+         'action' =>  $action,
+         'method' =>  'POST',
       ));
     }
 
@@ -29,10 +37,10 @@ class Router
       foreach (self::$valid_routes as $route) {
 
         //if path in the list of valid routes matches current request path, call relevent class and method
-        if($route['path'] == implode($url,'/')){
+        if(self::request_match_route($route,$url)){
 
             $route_found = true;
-            $class_method = explode('@',$route['function']);
+            $class_method = explode('@',$route['action']);
 
             if(empty($url)){
               $class =  DEFAULT_CONTROLLER;
@@ -61,17 +69,26 @@ class Router
             break;
         }
       }
-      if(!$route_found) Router::redirect('titanium/page-not-found');
+      if(!$route_found) Router::redirect('page-not-found');
     }
 
-    public function map_request(){
+   private static function request_match_route($route,$url){
+      return $route['uri'] == implode($url,'/');
+   }
+
+    public function dispatch_class_(){
 
     }
 
     public static function redirect($location){
-        //dnd(ROOT."/".$location);
-            $location = "../".$location;
-           header('Location: '.$location);
+        //dnd(ROOT."/".$location)
+        if(ENVIROMENT == 'Development'){
+          $location = "http://".$_SERVER['HTTP_HOST']."/". strtolower(SITE_NAME).'/'.$location;
+        }else{
+          $location =  "http://".$_SERVER['HTTP_HOST']."/".$location;
+        }
+
+        header('Location: '.$location);
     }
 
     public static function getMenu($menu){
