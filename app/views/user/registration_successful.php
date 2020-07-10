@@ -33,7 +33,7 @@
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
                     <div class="alert alert-success" role="alert">
-                        Registration successful! Click <a href="login">here</a> to login
+                        Registration successful! Click <a href="<?php url('user/login') ?>">here</a> to login
                     </div>
                 </div>
             </div>
