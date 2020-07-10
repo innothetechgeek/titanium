@@ -9,7 +9,8 @@
 class DB
 {
     private static $instance = null;
-    private $pdo, $query, $error = false, $result = [], $count = 0, $last_insert_id;
+    private $pdo, $query, $error = false, $result = [], $count = 0;
+    public $last_insert_id;
 
 
     private function __construct(){

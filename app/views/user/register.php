@@ -31,7 +31,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="registerUser">
+                    <form class="form-horizontal" role="form" method="POST" action="<?php url('register') ?>">
                        <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
