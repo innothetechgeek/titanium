@@ -30,7 +30,6 @@ function url($path){
     }else{
         echo "http://".$_SERVER['HTTP_HOST']."/".$path;
     }
-
 }
 //===================================================================================================
 function format_date($format,$date){

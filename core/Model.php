@@ -22,6 +22,7 @@ class Model
 
     public function setTableColumns(){
         $columns = $this->get_columns();
+
         foreach ($columns as $column){
             $column_name = $column->Field;
             $this->column_names[] = $column_name;
@@ -109,17 +110,23 @@ class Model
     }
 
     public function save(){
-        $fields = [];
+        $fields_ = [];
+       //dnd($this->column_names);
         foreach ($this->column_names as $column){
-            $fields[$column] = $this->$column;
+            $fields_[$column] = $this->$column;
         }
+
+      //  dnd($fields_);
+
         //determine whether to updae or insert
         if(property_exists($this,'id') && $this->id =''){
+
             return $this->update($this->id,$fields);
         }else{
-          $this->insert($fields);
-          $this->id = $this->db->last_insert_id;
-          return $this;
+
+           $this->insert($fields_);
+           $this->id = $this->db->last_insert_id;
+           return  $this->id;
 
         }
     }
