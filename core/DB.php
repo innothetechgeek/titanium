@@ -39,6 +39,7 @@ class DB
         if($this->query = $this->pdo->prepare($sql)){
             $x = 1;
             if(count($params)){
+            //  dnd($params);
                 foreach($params as $param){
                     $this->query->bindParam($x,$param);
                     $x++;
@@ -139,8 +140,7 @@ class DB
     }
 
     public function getColumns($table){
-
-        return $this->query("SHOW COLUMNS FROM {$table}")->result();
+          return $this->query("SHOW COLUMNS FROM {$table}")->result();
     }
 
     protected function read($table,$params){

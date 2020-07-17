@@ -14,11 +14,14 @@ class Movies extends Controller
     }
 
     public function add(){
-        if(!currentUser()) Router::redirect('user/login?login-required=true');
+
+       if(!currentUser()) Router::redirect('user/login?login-required=true');
+
         if($_POST) {
+
             $movie_id = $this->create_movie();
             $this->create_movie_genre($movie_id);
-            Router::redirect('movies/view/movie-added=true');
+            Router::redirect('movies/movie-added=true');
 
         }else{
 
@@ -69,7 +72,7 @@ class Movies extends Controller
         $movie->mv_title = Input::get('mv_title');
         $date_released = str_replace('/','-',Input::get('mv_year_released'));
         $movie->mv_year_released = format_date("Y-m-d",$date_released);
-         $movie_id = $movie->save();
+        $movie_id = $movie->save();
         return $movie_id;
 
     }
