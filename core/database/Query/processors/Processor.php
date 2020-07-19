@@ -1,7 +1,8 @@
 <?php
 class Processor{
 
-  //proccess inserts
+  //process inserts
+  
 
   //process update
 

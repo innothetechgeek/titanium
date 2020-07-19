@@ -15,7 +15,7 @@ class Connection{
 
   }
 
-  private function execute_statement(){
+  private function execute_statement($sql){
 
   }
 
