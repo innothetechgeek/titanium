@@ -8,31 +8,43 @@
 
 class Model
 {
-    protected $db, $table,$model_name, $soft_delete = false, $column_names = [];
-    public $id;
+    protected $connection,$query_builder,$model_name, $soft_delete = false, $column_names = [];
+    public $id,$table;
 
     public function __construct($table){
         $this->db = DB::getInstance();
+        $this->query_builder = new Builder();
         $this->table = $table;
-        $this->setTableColumns();
-
         //find first
         $this->model_name = str_replace(' ','',ucwords(str_replace('_',' ',$this->table)));
+        $this->query_builder->from = $this->table;
+          $this->setTableColumns();
+          $this->query_builder->setModel($this);
+
+    }
+
+    public function get_fields(){
+        $fields = [];
+        foreach ($this->column_names as $column){
+          dnd($this->$column);
+            $fields[$column] = $this->$column;
+        }
+        return $fields;
     }
 
     public function setTableColumns(){
         $columns = $this->get_columns();
 
+
         foreach ($columns as $column){
             $column_name = $column->Field;
             $this->column_names[] = $column_name;
             $this->$column_name = null;
-          //  $person->user =
         }
     }
 
     public function get_columns(){
-
+      dnd($this->table);
         return $this->db->getColumns($this->table);
 
     }
@@ -99,7 +111,8 @@ class Model
     public function insert($fields){
 
         if(empty($fields)) return false;
-        return $this->db->insert($this->table,$fields);
+        return $this->query_builder->insert($this->table);
+      //  return $this->db->insert($this->table,$fields);
 
     }
 
@@ -110,20 +123,17 @@ class Model
     }
 
     public function save(){
+      
         $fields_ = [];
        //dnd($this->column_names);
         foreach ($this->column_names as $column){
             $fields_[$column] = $this->$column;
         }
 
-      //  dnd($fields_);
-
         //determine whether to updae or insert
         if(property_exists($this,'id') && $this->id != ''){
-
             return $this->update($this->id,$fields);
         }else{
-
            $this->insert($fields_);
            $this->id = $this->db->last_insert_id;
            return  $this->id;

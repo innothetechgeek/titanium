@@ -1,7 +1,8 @@
 <?php
 class Builder{
 
- private $connection,$grammer;
+ private $connection,$grammer,$model;
+ public $from;
 
   public function __construct(){
 
@@ -10,19 +11,25 @@ class Builder{
 
   }
 
-  private function buildInsert($values){
+  public function insert($values){
 
-      $insert_statement = $this->grammer->complieInsert();
-      $this->connection->insert($this,$insert_statement);
+      $insert_statement = $this->grammer->compileInsert($this,$this->model->get_fields());
+      $this->connection->insert($insert_statement);
 
-      );
+  }
+
+  public function setModel(Model $model){
+
+      $this->model = $model;
+      $this->from = $model->table;
+
   }
 
   private function buildUpdate(){
 
   }
 
-  private buildDelete(){
+  private function buildDelete(){
 
   }
 
