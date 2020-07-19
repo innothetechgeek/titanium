@@ -8,7 +8,7 @@
 
 class Model
 {
-    protected $db, $table,$model_name, $soft_delete = false, $column_names = [];
+    protected $connection, $table,$model_name, $soft_delete = false, $column_names = [];
     public $id;
 
     public function __construct($table){

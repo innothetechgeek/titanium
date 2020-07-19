@@ -18,11 +18,19 @@
     function autoloader($className){
         if(file_exists(ROOT . DS . 'core' . DS . $className . '.php')){
             require_once(ROOT . DS . 'core' . DS . $className . '.php');
+        }
+        elseif (file_exists(ROOT . DS . 'core' . DS .'database'. DS . $className . '.php')){
+            require_once(ROOT . DS . 'core' . DS .'database'. DS . $className . '.php');
+        }elseif (file_exists(ROOT . DS . 'core' . DS .'database'. DS . 'query' . DS . $className . '.php')){
+            require_once(ROOT . DS . 'core' . DS .'database'. DS . DS . 'query' . DS . $className . '.php');
+        }elseif (file_exists(ROOT . DS . 'core' . DS .'database'. DS . 'query' . DS .'grammers' . DS . $className . '.php')){
+            require_once(ROOT . DS . 'core' . DS .'database'. DS . DS . 'query' . DS . 'grammers' . DS .  $className . '.php');
         }elseif (file_exists(ROOT . DS . 'app' . DS .'controllers'. DS . $className . '.php')){
             require_once(ROOT . DS . 'app' . DS .'controllers'. DS . $className . '.php');
         }elseif (file_exists(ROOT . DS . 'app' . DS .'models'. DS . $className . '.php')){
             require_once(ROOT . DS . 'app' . DS .'models'. DS . $className . '.php');
         }
+
     }
 
     require_once(ROOT . DS . 'routes' . DS .'routes.php');
