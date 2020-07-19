@@ -2,11 +2,14 @@
 class Grammer{
    //select
     public function compileInsert(Builder $quer_builder,$values){
-      dnd($values);
+
 
        $table = $quer_builder->from;
+       $columns = array_filter($values);
 
-        $columns = implode(array_keys($values),",");
+
+        $columns = implode(array_keys($columns),",");
+           dnd($columns);
         $insert_values = "(".$this->constructInsertValues($values).")";
 
 
@@ -14,16 +17,13 @@ class Grammer{
     }
 
     public function constructInsertValues($values){
-
-        $values['usr_id'] = rand();
+        $values = array_filter($values);
         $insert_values = "";
-        
+        dnd($values);
         foreach ($values as $column => $value) {
-            $value = empty($value) ? "' '" : "'$value'";
-            $insert_values .= "$value,";
-
+            $insert_values .= "'$value',";
         }
-        dnd(rtrim($insert_values,','));
+        dnd($insert_values);
         return rtrim($insert_values,',');
 
     }

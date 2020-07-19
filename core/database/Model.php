@@ -33,14 +33,14 @@ class Model
     }
 
     public function setTableColumns(){
+
         $columns = $this->get_columns();
-
-
         foreach ($columns as $column){
             $column_name = $column->Field;
             $this->column_names[] = $column_name;
             $this->$column_name = null;
         }
+        
     }
 
     public function get_columns(){
@@ -123,7 +123,7 @@ class Model
     }
 
     public function save(){
-      
+
         $fields_ = [];
        //dnd($this->column_names);
         foreach ($this->column_names as $column){
