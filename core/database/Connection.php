@@ -17,8 +17,26 @@ class Connection{
   }
 
   public function insert($sql){
-    dnd($sql);
+
       $this->connection->exec($sql);
+
+  }
+
+  public function get($sql){
+    $stmt = $this->connection->prepare($sql);
+    $stmt->execute();
+    return  $stmt->fetchAll();
+
+  }
+
+  public function getTableColumns($sql){
+
+       $columns = [];
+       foreach($this->connection->query($sql)->fetchAll() as $key => $value){
+          $columns[] = $value['Field'];
+       }
+       return $columns;
+
   }
 
   private function bindValues(){
