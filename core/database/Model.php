@@ -24,43 +24,46 @@ class Model
     }
 
     public function get_fields(){
+
         $fields = [];
         foreach ($this->column_names as $column){
-          dnd($this->$column);
             $fields[$column] = $this->$column;
         }
         return $fields;
+
     }
 
     public function setTableColumns(){
 
         $columns = $this->get_columns();
         foreach ($columns as $column){
-            $column_name = $column->Field;
+            $column_name = $column;
             $this->column_names[] = $column_name;
             $this->$column_name = null;
         }
-        
+
     }
 
     public function get_columns(){
-      dnd($this->table);
-        return $this->db->getColumns($this->table);
+
+        return $this->query_builder->getTableColumns($this->table);
 
     }
 
     public function find($params = []){
+
         $results = [];
         $resultQuery = $this->db->find($this->table,$params);
-       // dnd($resultQuery);
         foreach($resultQuery as $result){
             $obj = new $this->model_name($this->table);
             $obj->populate_object_data($result);
             $results = $obj;
         }
         return $results;
+
     }
     public function findAll($params=[]){
+
         return $this->db->find($this->table,$params);
 
     }
@@ -92,7 +95,6 @@ class Model
 
                 $obj = new $this->model_name();
 
-
                 $obj->populate_object_data($resultQuery);
 
             }
@@ -112,7 +114,7 @@ class Model
 
         if(empty($fields)) return false;
         return $this->query_builder->insert($this->table);
-      //  return $this->db->insert($this->table,$fields);
+
 
     }
 

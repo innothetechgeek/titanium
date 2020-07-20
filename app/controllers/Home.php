@@ -15,8 +15,8 @@ class Home extends Controller
 
     public function index(){
         $person = new Person();
-        $person->usr_name = "Marry";
-        $person->usr_surname = "Jones";
+        $person->usr_name = "Witney";
+        $person->usr_surname = "Pillay";
         $person->save();
         $this->view->render('index');
 
