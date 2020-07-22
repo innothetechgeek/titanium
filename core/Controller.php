@@ -5,8 +5,10 @@
  * Date: 2019-04-10
  * Time: 21:35
  */
+namespace core;
+use core\View;
 
-class Controller extends Application
+class Controller extends \core\Application
 {
     protected $controller,$action;
     public $view;

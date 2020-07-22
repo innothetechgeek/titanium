@@ -1,8 +1,13 @@
 <?php
+namespace core\database\query;
+use  core\database\Connection;
+use core\database\Model;
+use core\database\query\grammers\Grammer;
+
 class Builder{
 
- private $connection,$grammer,$model;
- public $from;
+ private $connection,$grammer;
+ public $from,$model;
 
  /**
   * The current query value bindings.
@@ -63,8 +68,20 @@ class Builder{
    public function get(){
 
       $select_statement = $this->grammer->compileSelect($this);
-      print_r($this->connection->get($select_statement));
-    //  return $this->connection-get($select_statement);
+
+      $result = $this->connection->get($select_statement);
+      $this->set_model_attribute_values($result);
+   }
+
+   public function set_model_attribute_values($query_result){
+     $varhello = 'hello';
+      $this->$varhello = 'hello';
+
+        foreach ($query_result as $key => $obj) {
+          foreach ($obj as $column => $value) {
+          $this->model->$column = $value;
+        }
+       }
 
    }
 

@@ -1,4 +1,6 @@
 <?php
+namespace core\database\query\grammers;
+use core\database\query\Builder;
 class Grammer{
   /**
    * The components that make up a select clause.

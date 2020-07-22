@@ -5,6 +5,9 @@
  * Date: 2019-04-21
  * Time: 16:46
  */
+ namespace app\controllers;
+ use core\Controller;
+ use app\models\Person;
 
 class Home extends Controller
 {
@@ -16,7 +19,9 @@ class Home extends Controller
     public function index(){
 
         $person = new Person();
-        $person::where('usr_name',"Jessica Anthony")->get();
+        $person = \app\models\Person::where('usr_name',"Jessica Anthony")->get();
+      //  $person::where('usr_name',"Jessica Anthony")->get();
+      // dnd($person);
       //  $person->save();
         $this->view->render('index');
 

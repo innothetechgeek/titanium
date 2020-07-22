@@ -5,7 +5,9 @@
  * Date: 2020-02-05
  * Time: 21:18
  */
-
+namespace core\database;
+use core\DB;
+use core\database\query\Builder;
 class Model
 {
     protected $connection,$query_builder,$model_name, $soft_delete = false, $column_names = [];
@@ -18,8 +20,8 @@ class Model
         //find first
         $this->model_name = str_replace(' ','',ucwords(str_replace('_',' ',$this->table)));
         $this->query_builder->from = $this->table;
-          $this->setTableColumns();
-          $this->query_builder->setModel($this);
+         $this->setTableColumns();
+        $this->query_builder->setModel($this);
 
     }
 
@@ -36,7 +38,9 @@ class Model
       $object = new Builder();
       $object->setModel($this);
 
-      return $object->{$method}(...$parameters);
+      $object = $object->{$method}(...$parameters);
+      dnd($object->model);
+      return $object;
     }
 
     /**
@@ -81,7 +85,7 @@ class Model
     public function find($params = []){
 
         $results = [];
-        $resultQuery = $this->db->find($this->table,$params);
+        $resultQuery =   $this->query_builder->get();
         foreach($resultQuery as $result){
             $obj = new $this->model_name($this->table);
             $obj->populate_object_data($result);

@@ -5,7 +5,7 @@
          * Date: 2020-02-02
          * Time: 11:10
  */
-
+namespace core;
 class DB
 {
     private static $instance = null;
@@ -16,7 +16,7 @@ class DB
     private function __construct(){
         try{
 
-            $this->pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME,DB_USER,DB_PASSWORD);
+            $this->pdo = new \PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME,DB_USER,DB_PASSWORD);
 
         }catch(PDOException $e){
 

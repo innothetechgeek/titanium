@@ -5,11 +5,11 @@
  * Date: 2019-03-31
  * Time: 01:57
  */
-
+namespace core;
 class Application
 {
     public function __construct(){
-
+      echo "hello wolrd";
         $this->_set_reporting();
         $this->_unregister_globals();
 

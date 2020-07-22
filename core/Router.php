@@ -1,10 +1,12 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: KhuselaM
  * Date: 2019-03-31
  * Time: 01:24
  */
+namespace core;
 
 class Router
 {
@@ -69,7 +71,7 @@ class Router
             $class = ACCESS_RESTRICTED;
             $method = ACCESS_RESTRICTED_METHOD;
         }
-        $class = ucfirst($class);
+        $class = "\app\controllers\\".ucfirst($class);
         $controller_obj = new $class($class,$method);
         $queryParams = [];
 

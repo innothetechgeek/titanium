@@ -5,6 +5,8 @@
  * Date: 2020-02-08
  * Time: 16:45
  */
+namespace app\models;
+use core\database\model;
 
 class Person extends Model
 {
