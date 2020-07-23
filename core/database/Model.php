@@ -10,17 +10,15 @@ use core\DB;
 use core\database\query\Builder;
 class Model
 {
-    protected $connection,$query_builder,$model_name, $soft_delete = false, $column_names = [];
-    public $id,$table;
+    protected $connection,$table,$query_builder,$model_name, $soft_delete = false, $column_names = [];
+    public $id;
 
-    public function __construct($table){
-        $this->db = DB::getInstance();
+    public function __construct(){
+
         $this->query_builder = new Builder();
-        $this->table = $table;
-        //find first
         $this->model_name = str_replace(' ','',ucwords(str_replace('_',' ',$this->table)));
         $this->query_builder->from = $this->table;
-         $this->setTableColumns();
+        $this->query_builder->addBinding('from',$this->table);
         $this->query_builder->setModel($this);
 
     }
@@ -39,7 +37,6 @@ class Model
       $object->setModel($this);
 
       $object = $object->{$method}(...$parameters);
-      dnd($object->model);
       return $object;
     }
 
@@ -65,10 +62,10 @@ class Model
 
     }
 
-    public function setTableColumns(){
+    public function fillWithAtrributes($attributes){
 
-        $columns = $this->get_columns();
-        foreach ($columns as $column){
+      //  $columns = $this->get_columns();
+        foreach ($attributes as $column){
             $column_name = $column;
             $this->column_names[] = $column_name;
             $this->$column_name = null;
@@ -148,6 +145,10 @@ class Model
         return $this->query_builder->insert($this->table);
 
 
+    }
+
+    public function getTable(){
+      return $this->table;
     }
 
     public function update($id,$fields){

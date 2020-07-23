@@ -5,12 +5,11 @@
  * Date: 2020-05-17
  * Time: 04:54
  */
-
+namespace app\models;
+use core\database\model;
 class Genre extends Model
 {
-    public function __construct()
-    {
-        $table = 'genre';
-        parent::__construct($table);
-    }
+
+    protected $table = 'genre';
+
 }

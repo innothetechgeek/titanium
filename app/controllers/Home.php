@@ -7,7 +7,7 @@
  */
  namespace app\controllers;
  use core\Controller;
- use app\models\Person;
+ use app\models\Genre;
 
 class Home extends Controller
 {
@@ -18,8 +18,8 @@ class Home extends Controller
 
     public function index(){
 
-        $person = new Person();
-        $person = \app\models\Person::where('usr_name',"Jessica Anthony")->get();
+        $genres = \app\models\Genre::where('gnr_name',"Romance")->get();
+        dnd($genres);
       //  $person::where('usr_name',"Jessica Anthony")->get();
       // dnd($person);
       //  $person->save();

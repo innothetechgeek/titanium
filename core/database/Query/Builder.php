@@ -66,11 +66,25 @@ class Builder{
 
   //execute a query as a select statemtn
    public function get(){
+     $select_statement = $this->grammer->compileSelect($this);
+     $result = $this->connection->get($select_statement);
 
-      $select_statement = $this->grammer->compileSelect($this);
+     $objectsArr = [];
+      foreach($result as $result){
+          $obj = new $this->model();
+          $obj->populate_object_data($result);
+          $objectsArr[] = $obj;
+      }
+      
+      return $objectsArr;
 
-      $result = $this->connection->get($select_statement);
-      $this->set_model_attribute_values($result);
+   }
+
+   public function populate_object_data($result){
+       foreach($result as $key => $val){
+        //   dnd($key);
+           $this->$key = $val;
+       }
    }
 
    public function set_model_attribute_values($query_result){
@@ -94,7 +108,7 @@ class Builder{
   public function setModel(Model $model){
 
       $this->model = $model;
-      $this->from = $model->table;
+      $this->from = $model->getTable();
 
   }
 

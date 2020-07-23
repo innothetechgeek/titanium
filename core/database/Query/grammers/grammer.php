@@ -67,12 +67,13 @@ class Grammer{
          $sql = [];
 
          foreach ($this->selectComponents as $component) {
+
              if (isset($query_builder->$component)) {
                  $method = 'compile'.ucfirst($component);
                  $sql[$component] = $this->$method($query_builder, $query_builder->$component);
              }
          }
-
+         
          return $sql;
        }
     }
