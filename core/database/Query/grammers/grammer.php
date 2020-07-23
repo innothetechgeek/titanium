@@ -67,13 +67,13 @@ class Grammer{
          $sql = [];
 
          foreach ($this->selectComponents as $component) {
-
              if (isset($query_builder->$component)) {
+
                  $method = 'compile'.ucfirst($component);
                  $sql[$component] = $this->$method($query_builder, $query_builder->$component);
              }
          }
-         
+
          return $sql;
        }
     }
@@ -83,8 +83,12 @@ class Grammer{
     }
 
     public function compileWheres($query_builder){
-        $wheres = $query_builder->wheres;
-        return "where {$wheres['column']} {$wheres['operator']} '{$wheres['value']}'";
+
+      if (empty($query_builder->wheres)) {
+          return '';
+      }
+      $wheres = $query_builder->wheres;
+      return "where {$wheres['column']} {$wheres['operator']} '{$wheres['value']}'";
     }
     /**
      * Remove the leading boolean from a statement.

@@ -5,7 +5,10 @@
  * Date: 2020-05-16
  * Time: 03:01
  */
-
+ namespace app\controllers;
+ use core\Controller;
+ use app\models\Genre;
+ use app\models\Movie;
 class Movies extends Controller
 {
     public function __construct($controller,$action)

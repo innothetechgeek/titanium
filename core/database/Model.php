@@ -54,9 +54,13 @@ class Model
 
     public function get_fields(){
 
+      $column_names = $this->get_columns();
         $fields = [];
-        foreach ($this->column_names as $column){
-            $fields[$column] = $this->$column;
+       //dnd($this->column_names);
+        foreach ($column_names as $column){
+          if(property_exists($this,$column)){
+              $fields[$column] = $this->$column;
+          }
         }
         return $fields;
 
@@ -159,19 +163,13 @@ class Model
 
     public function save(){
 
-        $fields_ = [];
-       //dnd($this->column_names);
-        foreach ($this->column_names as $column){
-            $fields_[$column] = $this->$column;
-        }
-
+        $fields = $this->get_fields();
         //determine whether to updae or insert
         if(property_exists($this,'id') && $this->id != ''){
             return $this->update($this->id,$fields);
         }else{
-           $this->insert($fields_);
-           $this->id = $this->db->last_insert_id;
-           return  $this->id;
+           $this->insert($fields);
+          return  $this->id;
 
         }
     }
@@ -215,6 +213,16 @@ class Model
          //   dnd($key);
             $this->$key = $val;
         }
+    }
+
+    public static function all(){
+        return (new static)->new_query_builder()->get();
+    }
+
+    public function new_query_builder(){
+
+        return $this->query_builder;
+
     }
 
 }

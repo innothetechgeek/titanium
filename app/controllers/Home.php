@@ -18,8 +18,11 @@ class Home extends Controller
 
     public function index(){
 
-        $genres = \app\models\Genre::where('gnr_name',"Romance")->get();
-        dnd($genres);
+       $genres = \app\models\Genre::all();
+       dnd($genres);
+      //$genres = new Genre();
+      //$genres->gnr_name = 'isisheli';
+        // $genres->save();
       //  $person::where('usr_name',"Jessica Anthony")->get();
       // dnd($person);
       //  $person->save();

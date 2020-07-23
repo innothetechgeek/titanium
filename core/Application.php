@@ -9,7 +9,6 @@ namespace core;
 class Application
 {
     public function __construct(){
-      echo "hello wolrd";
         $this->_set_reporting();
         $this->_unregister_globals();
 

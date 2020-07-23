@@ -7,7 +7,7 @@ use core\database\query\grammers\Grammer;
 class Builder{
 
  private $connection,$grammer;
- public $from,$model;
+ public $from,$model,$last_insert_id;
 
  /**
   * The current query value bindings.
@@ -75,7 +75,7 @@ class Builder{
           $obj->populate_object_data($result);
           $objectsArr[] = $obj;
       }
-      
+
       return $objectsArr;
 
    }
@@ -88,9 +88,7 @@ class Builder{
    }
 
    public function set_model_attribute_values($query_result){
-     $varhello = 'hello';
-      $this->$varhello = 'hello';
-
+    
         foreach ($query_result as $key => $obj) {
           foreach ($obj as $column => $value) {
           $this->model->$column = $value;
@@ -114,6 +112,10 @@ class Builder{
 
   private function buildUpdate(){
 
+  }
+
+  public function getConnection(){
+    return $this->connection;
   }
 
   private function buildDelete(){
