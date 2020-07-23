@@ -24,11 +24,15 @@ class Connection{
   }
 
   public function get($sql){
-    
+
     $stmt = $this->connection->prepare($sql);
     $stmt->execute();
     return  $stmt->fetchAll(\PDO::FETCH_OBJ);
 
+  }
+
+  function lastInsertId(){
+    return $this->connection->lastInsertId();
   }
 
   public function getTableColumns($sql){
