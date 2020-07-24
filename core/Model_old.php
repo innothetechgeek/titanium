@@ -123,7 +123,7 @@ class Model
 
             return $this->update($this->id,$fields);
         }else{
-
+            dnd($fields_);
            $this->insert($fields_);
            $this->id = $this->db->last_insert_id;
            return  $this->id;
