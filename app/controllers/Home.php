@@ -8,6 +8,7 @@
  namespace app\controllers;
  use core\Controller;
  use app\models\Genre;
+ use core\support\fecade\DB;
 
 class Home extends Controller
 {
@@ -17,6 +18,8 @@ class Home extends Controller
     }
 
     public function index(){
+
+      dnd(DB::get());
 
        $genres = \app\models\Genre::all();
        dnd($genres);

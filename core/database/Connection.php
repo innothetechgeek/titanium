@@ -49,5 +49,9 @@ class Connection{
 
   }
 
+  public function select($column){
+
+  }
+
 }
 ?>

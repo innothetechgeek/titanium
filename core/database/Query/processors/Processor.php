@@ -2,7 +2,7 @@
 class Processor{
 
   //process inserts
-  
+
 
   //process update
 
