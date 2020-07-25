@@ -69,6 +69,16 @@ class Builder{
      $select_statement = $this->grammer->compileSelect($this);
      $result = $this->connection->get($select_statement);
 
+     if(!empty($this->model)){
+         dnd('wer are  here we are here for ever');
+        return $this->return_results_as_model($result);
+      }else{
+
+        return $this->return_result_as_array($result);
+      }
+
+   }
+   public function return_results_as_model($result){
      $objectsArr = [];
       foreach($result as $result){
           $obj = new $this->model();
@@ -77,7 +87,18 @@ class Builder{
       }
 
       return $objectsArr;
+   }
 
+   public function return_result_as_array($result_obj){
+     $results_ = [];
+       foreach($result_obj as $results_arr => $result_arr){
+
+           foreach($result_arr as $key => $val){
+              $results_[$results_arr][$key] = $val;
+           }
+
+         }
+       return $results_;
    }
 
    public function populate_object_data($result){
@@ -88,7 +109,7 @@ class Builder{
    }
 
    public function set_model_attribute_values($query_result){
-    
+
         foreach ($query_result as $key => $obj) {
           foreach ($obj as $column => $value) {
           $this->model->$column = $value;
@@ -120,6 +141,13 @@ class Builder{
 
   private function buildDelete(){
 
+  }
+
+  public function table($table){
+    $table = $table[0];
+    $newBuilder = new Builder();
+    $newBuilder->from = $table;
+    return $newBuilder;
   }
 
 }

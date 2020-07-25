@@ -79,6 +79,7 @@ class Grammer{
     }
 
     public function compileFrom($query_builder){
+      dnd($query_builder->from);
         return "from $query_builder->from";
     }
 

@@ -4,8 +4,7 @@ use core\database\query\Builder;
 
 class Fecade{
   public static function __callStatic($name,$args){
-    dnd(static::getFecadeAccessor());
-      return self::resolve_instance(static::getFecadeAccessor())->$name();
+      return self::resolve_instance(static::getFecadeAccessor())->$name($args);
   }
 
   public static function getFecadeAccessor(){
@@ -13,7 +12,7 @@ class Fecade{
   }
 
   private static function resolve_instance($fecade){
-      
+
       return new $fecade();
   }
 

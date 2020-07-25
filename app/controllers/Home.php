@@ -19,10 +19,10 @@ class Home extends Controller
 
     public function index(){
 
-      dnd(DB::get());
+      dnd(DB::table('movie')->get());
 
        $genres = \app\models\Genre::all();
-       dnd($genres);
+      // dnd($genres);
       //$genres = new Genre();
       //$genres->gnr_name = 'isisheli';
         // $genres->save();
