@@ -7,6 +7,8 @@
  */
 //include('connect.php');
 
+namespace core;
+
 class Paginator{
 
     private $request_url;
@@ -66,7 +68,7 @@ class Paginator{
 
         }else{
             $ref = $request_url."&page=".$page_number;
-            return "<li class='page-item $is_link_active' >                           
+            return "<li class='page-item $is_link_active' >
                         <a class = 'page-link'  href='$ref' class = 'page-link'>$html_text</a>
                     </li>";
 
@@ -153,4 +155,3 @@ class Paginator{
         return ($this->page - 1) * $this->per_page;
     }
 }
-

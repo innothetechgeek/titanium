@@ -102,21 +102,21 @@ class Model
     }
 
     public function select($sql){
-        $queryResult = $this->db->select($sql);
-
-        $resultArr = [];
-        $fildsArr = [];
-        if($queryResult){
-
-            foreach ($queryResult as $field => $obj) {
-                foreach ($obj as $field => $value) {
-                    $fildsArr[$field] = $value;
-                }
-                array_push($resultArr,$fildsArr);
-
-            }
-        }
-        return $resultArr;
+        // $queryResult = $this->db->select($sql);
+        //
+        // $resultArr = [];
+        // $fildsArr = [];
+        // if($queryResult){
+        //
+        //     foreach ($queryResult as $field => $obj) {
+        //         foreach ($obj as $field => $value) {
+        //             $fildsArr[$field] = $value;
+        //         }
+        //         array_push($resultArr,$fildsArr);
+        //
+        //     }
+        // }
+        // return $resultArr;
     }
 
     public function find_first($params){

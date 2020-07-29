@@ -7,8 +7,12 @@
  */
  namespace app\controllers;
  use core\Controller;
+ use core\Paginator;
  use app\models\Genre;
  use app\models\Movie;
+ use app\models\Person;
+ use core\support\fecade\DB;
+
 class Movies extends Controller
 {
     public function __construct($controller,$action)
@@ -41,18 +45,21 @@ class Movies extends Controller
 
 
         $movie = new Movie();
-        $movies = $movie->findAll();
+
+        $movies = $movie->all();
 
         $rows_found = count((array)$movies);
-
+dnd($rows_found);
         $paginator = new Paginator($rows_found,10);
         $pagination_links = $paginator->get_pagination_links();
         $this->view->pagination_links = $pagination_links;
 
         $limit_and_offset = $paginator->get_offset_and_limit();
 
-        $movies = $movie->select("select mv_id,mv_title,mv_year_released,GROUP_CONCAT(gnr_name) genres from movie left join mv_genre on mvg_ref_movie = mv_id
-                                 LEFT JOIN genre on mvg_ref_genre = gnr_id  GROUP BY mv_id order by mv_id desc LIMIT $limit_and_offset");
+        $movies = DB::table('movie')->select()
+                  ->leftJoin('mv_genre', 'mv_genre.mvg_ref_movie', '=', 'movie.mv_id')
+                  ->leftJoin('genre', 'mv_genre.mvg_ref_genre', '=', 'genre.gnr_id')
+                  ->get();
         $this->view->movies = $movies;
         $this->view->rows_found = $rows_found;
         $this->view->count = $rows_found;

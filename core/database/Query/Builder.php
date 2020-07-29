@@ -27,6 +27,10 @@ class Builder{
      'unionOrder' => [],
  ];
 
+ public $columns;
+
+ public $limit;
+
  public $wheres = [];
 
   public function __construct(){
@@ -64,13 +68,33 @@ class Builder{
 
   }
 
+  public function select($columns = ['*']){
+
+      $this->columns = [];
+      $this->bindings['select'] = [];
+      $columns = is_array($columns) ? $columns : func_get_args();
+
+      foreach ($columns as $as => $column) {
+
+            $this->columns[] = $column;
+
+      }
+
+      return $this;
+  }
+
+  public function appendLimit($offset_and_limit){
+      $this->limit = $offset_and_limit;
+      return $this;
+  }
+
   //execute a query as a select statemtn
    public function get(){
+     if(is_null($this->columns)) $this->columns = ['*'];
      $select_statement = $this->grammer->compileSelect($this);
      $result = $this->connection->get($select_statement);
 
      if(!empty($this->model)){
-         dnd('wer are  here we are here for ever');
         return $this->return_results_as_model($result);
       }else{
 
@@ -78,6 +102,7 @@ class Builder{
       }
 
    }
+
    public function return_results_as_model($result){
      $objectsArr = [];
       foreach($result as $result){
@@ -135,10 +160,6 @@ class Builder{
 
   }
 
-  public function getConnection(){
-    return $this->connection;
-  }
-
   private function buildDelete(){
 
   }
@@ -148,6 +169,40 @@ class Builder{
     $newBuilder = new Builder();
     $newBuilder->from = $table;
     return $newBuilder;
+  }
+
+  public function getGrammer(){
+    return $this->grammer;
+  }
+  public function getConnection(){
+      return $this->connection;
+  }
+
+  public function leftJoin($table, $first, $operator = null, $second = null)
+  {
+      return $this->join($table, $first, $operator, $second, 'left');
+  }
+
+  public function join($table, $first, $operator = null, $second = null, $type = 'inner', $where = false){
+
+    $join = new JoinClause($this, $table,$type);
+    $method = $where ? 'where' : 'on';
+
+    $this->joins[] = $join->$method($first, $operator, $second);
+
+     return $this;
+  }
+
+  //add a where clause comparing two columns to the query
+  public function whereColumn($first, $operator = null, $second = null, $boolean = 'and')
+  {
+      $type = 'Column';
+
+      $this->wheres[] = compact(
+          'type', 'first', 'operator', 'second', 'boolean'
+      );
+
+      return $this;
   }
 
 }

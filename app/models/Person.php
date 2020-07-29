@@ -7,6 +7,7 @@
  */
 namespace app\models;
 use core\database\model;
+use core\Session;
 
 class Person extends Model
 {

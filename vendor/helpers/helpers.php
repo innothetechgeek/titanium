@@ -37,5 +37,5 @@ function format_date($format,$date){
 }
 //===================================================================================================
 function currentUser(){
-    return Person::currentUser();
+    return app\models\Person::currentUser();
 }

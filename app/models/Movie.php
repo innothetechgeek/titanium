@@ -9,6 +9,8 @@
  use core\database\model;
 class Movie extends Model
 {
+
+  protected $table =  'movie';
     public function __construct()
     {
         $table = 'movie';

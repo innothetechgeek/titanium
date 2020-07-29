@@ -19,9 +19,9 @@ class Home extends Controller
 
     public function index(){
 
-      dnd(DB::table('movie')->get());
+       $genres = DB::table('genre')->select()->leftJoin('mv_genre', 'mv_genre.mvg_ref_genre', '=', 'genre.gnr_id')->get();
 
-       $genres = \app\models\Genre::all();
+       // $genres = \app\models\Genre::all();
       // dnd($genres);
       //$genres = new Genre();
       //$genres->gnr_name = 'isisheli';

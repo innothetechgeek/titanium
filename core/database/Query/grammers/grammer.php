@@ -11,6 +11,7 @@ class Grammer{
       'aggregate',
       'columns',
       'from',
+      'limit',
       'joins',
       'wheres',
       'groups',
@@ -57,8 +58,19 @@ class Grammer{
 
     //  $from = compileFrom($query_builder);
 
-       return "select * ".$this->concatenateQueryComponents($this->compileQueryComponents($query_builder));
+      $columns = $this->compileColumns($query_builder);
+        dnd("select ".$this->concatenateQueryComponents($this->compileQueryComponents($query_builder)));
+       return "select ".$this->concatenateQueryComponents($this->compileQueryComponents($query_builder));
 
+    }
+
+    public function compileColumns($query_builder){
+       if(is_null($query_builder->columns)) return '*';
+       return implode($query_builder->columns,",");
+    }
+
+    public function compileLimit($query_builder){
+        return $query_builder->limit;
     }
 
     public function compileQueryComponents(Builder $query_builder){
@@ -79,7 +91,6 @@ class Grammer{
     }
 
     public function compileFrom($query_builder){
-      dnd($query_builder->from);
         return "from $query_builder->from";
     }
 
@@ -104,6 +115,18 @@ class Grammer{
 
     public function concatenateQueryComponents($queryComponetnts){
         return implode(' ', array_filter($queryComponetnts));
+    }
+
+    public function compileJoins($query_builder,$join){
+        $join_statement = "";
+        foreach($join as $join_obj){
+
+          foreach($join_obj->wheres as $wheres_arr){
+            $join_statement .= " {$join_obj->type} join $join_obj->table on $wheres_arr[first] $wheres_arr[operator] $wheres_arr[second]";
+          }
+
+        }
+        return $join_statement;
     }
 
 }
