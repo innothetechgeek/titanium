@@ -9,9 +9,6 @@
  use core\database\model;
 class MovieGenre extends Model
 {
-    public function __construct()
-    {
-        $table = 'mv_genre';
-        parent::__construct($table);
-    }
+  protected   $table = 'mv_genre';
+  
 }

@@ -83,18 +83,18 @@ class Model
 
     }
 
-    public function find($params = []){
-
-        $results = [];
-        $resultQuery =   $this->query_builder->get();
-        foreach($resultQuery as $result){
-            $obj = new $this->model_name($this->table);
-            $obj->populate_object_data($result);
-            $results = $obj;
-        }
-        return $results;
-
-    }
+    // public function find($params = []){
+    //
+    //     $results = [];
+    //     $resultQuery =   $this->query_builder->get();
+    //     foreach($resultQuery as $result){
+    //         $obj = new $this->model_name($this->table);
+    //         $obj->populate_object_data($result);
+    //         $results = $obj;
+    //     }
+    //     return $results;
+    //
+    // }
     public function findAll($params=[]){
 
         return $this->db->find($this->table,$params);
@@ -117,30 +117,6 @@ class Model
         //     }
         // }
         // return $resultArr;
-    }
-
-    public function find_first($params){
-
-
-       $resultQuery = $this->db->findFirst($this->table,$params);
-        if($resultQuery) {
-            foreach ($resultQuery as $result) {
-
-                $obj = new $this->model_name();
-
-                $obj->populate_object_data($resultQuery);
-
-            }
-           return $obj;
-        }
-
-    }
-
-    public function find_by_id($id){
-
-        $obj =  $this->find_first(['condition'=>"id=?","bind"=>$id]);
-
-
     }
 
     public function insert($fields){

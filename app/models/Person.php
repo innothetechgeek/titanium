@@ -13,6 +13,8 @@ class Person extends Model
 {
     private $is_loggedIn, $session_name, $cookieName;
     public static $currentLoggedInUser = null;
+    public $primary_key = 'usr_id';
+    protected $table = 'person';
 
     public function __construct($user = '')
     {
@@ -26,9 +28,9 @@ class Person extends Model
         $this->soft_delete = true;
          if ($user != '') {
              if (is_int($user)) {
-                 $u = $this->find_first(['conditions'=>['usr_id =?'],'bind'=>[$user]]);
+                 $u = $this->find($user);
              } else {
-                 $u = $this->find_first(['conditions'=>['usr_id =?'],'bind'=>[$user]]);
+                 $u = $this->find($user);
              }
 
              if ($u) {
@@ -43,7 +45,7 @@ class Person extends Model
 
     public function findByUsername($username){
 
-        return $this->find_first(['conditions'=>['usr_email =?'],'bind'=>[$username]]);
+        return $this->where('usr_email',$username)->get();
 
     }
 
@@ -54,8 +56,7 @@ class Person extends Model
         if(isset(self::$currentLoggedInUser)) return self::$currentLoggedInUser;
 
         if(Session::exists(CURRENT_USER_SESSION_NAME)){
-            $user = new Person(Session::get(CURRENT_USER_SESSION_NAME));
-            self::$currentLoggedInUser = $user;
+            self::$currentLoggedInUser =  self::find(Session::get(CURRENT_USER_SESSION_NAME))[0];
 
         }
 
