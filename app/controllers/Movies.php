@@ -5,6 +5,16 @@
  * Date: 2020-05-16
  * Time: 03:01
  */
+ namespace app\controllers;
+ use core\Controller;
+ use core\Paginator;
+ use core\Input;
+ use core\Router;
+ use app\models\Genre;
+ use app\models\Movie;
+ use app\models\Person;
+  use app\models\MovieGenre;
+ use core\support\fecade\DB;
 
 class Movies extends Controller
 {
@@ -21,12 +31,12 @@ class Movies extends Controller
 
             $movie_id = $this->create_movie();
             $this->create_movie_genre($movie_id);
-            Router::redirect('movies/movie-added=true');
+            Router::redirect('movies?movie-added=true');
 
         }else{
 
-            $genre = new Genre();
-            $genres = $genre->select("select * from genre");
+          $genres = DB::table('genre')->select()->get();
+
             $this->view->genres = $genres;
             $this->view->render('movies/add');
 
@@ -38,7 +48,8 @@ class Movies extends Controller
 
 
         $movie = new Movie();
-        $movies = $movie->findAll();
+
+        $movies = $movie->all();
 
         $rows_found = count((array)$movies);
 
@@ -48,8 +59,15 @@ class Movies extends Controller
 
         $limit_and_offset = $paginator->get_offset_and_limit();
 
-        $movies = $movie->select("select mv_id,mv_title,mv_year_released,GROUP_CONCAT(gnr_name) genres from movie left join mv_genre on mvg_ref_movie = mv_id
-                                 LEFT JOIN genre on mvg_ref_genre = gnr_id  GROUP BY mv_id order by mv_id desc LIMIT $limit_and_offset");
+        $movies = DB::table('movie')
+                  ->select('mv_id','mv_title','mv_year_released')
+                  ->selectRaw('GROUP_CONCAT(gnr_name) genres')
+                  ->leftJoin('mv_genre', 'mvg_ref_movie', '=', 'mv_id')
+                  ->leftJoin('genre', 'mvg_ref_genre', '=', 'gnr_id')
+                  ->groupBy('mv_id')
+                  ->appendLimit($limit_and_offset)
+                  ->get();
+
         $this->view->movies = $movies;
         $this->view->rows_found = $rows_found;
         $this->view->count = $rows_found;

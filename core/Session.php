@@ -6,6 +6,7 @@
  * Time: 15:58
  */
 
+namespace core;
 class Session
 {
     public static function exists($name){

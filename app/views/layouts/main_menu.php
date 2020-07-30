@@ -1,4 +1,5 @@
 <?php
+use core\Router;
 $menu = Router::getMenu('menu_acl');
 $current_page = currentPage();
 ?>

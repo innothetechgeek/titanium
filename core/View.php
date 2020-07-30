@@ -5,7 +5,7 @@
  * Date: 2019-04-10
  * Time: 21:42
  */
-
+namespace core;
 class View
 {
     protected $head, $body,$siteTitle, $outputBuffer, $layout = DEFAULT_LAYOUT;

@@ -5,7 +5,7 @@
  * Date: 2020-02-08
  * Time: 16:16
  */
-
+namespace core;
 class Cookie
 {
     public static function set($name,$value,$expiriry){

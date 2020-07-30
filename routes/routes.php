@@ -1,5 +1,9 @@
 <?php
 
+
+require_once 'core\Router.php';
+use core\Router;
+
 Router::get('contact',function(){
 
 });

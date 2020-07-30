@@ -8,7 +8,7 @@
 
 class Model
 {
-    protected $db, $table,$model_name, $soft_delete = false, $column_names = [];
+    protected $connection, $table,$model_name, $soft_delete = false, $column_names = [];
     public $id;
 
     public function __construct($table){
@@ -119,7 +119,7 @@ class Model
       //  dnd($fields_);
 
         //determine whether to updae or insert
-        if(property_exists($this,'id') && $this->id =''){
+        if(property_exists($this,'id') && $this->id != ''){
 
             return $this->update($this->id,$fields);
         }else{
