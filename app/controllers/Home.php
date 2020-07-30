@@ -7,6 +7,8 @@
  */
  namespace app\controllers;
  use core\Controller;
+  use core\Session;
+  use core\Cookie;
  use app\models\Genre;
  use core\support\fecade\DB;
 
@@ -19,6 +21,7 @@ class Home extends Controller
 
     public function index(){
 
+    
        $genres = DB::table('genre')->select()->leftJoin('mv_genre', 'mv_genre.mvg_ref_genre', '=', 'genre.gnr_id')->get();
 
        // $genres = \app\models\Genre::all();

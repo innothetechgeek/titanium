@@ -86,7 +86,7 @@
                                     <td>
                                         <?= format_date('d F Y',$movie['mv_year_released']) ?>
                                     </td>
-                                    <td><?=$movie['mv_genre']?></td>
+                                    <td><?=$movie['genres']?></td>
                                 </tr>
                             <?php $offset++; } ?>
                             </tbody>

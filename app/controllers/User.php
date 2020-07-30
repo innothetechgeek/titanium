@@ -5,7 +5,11 @@
  * Date: 2020-02-08
  * Time: 01:22
  */
-
+namespace app\controllers;
+use core\Controller;
+use core\Router;
+use core\Input;
+use app\models\Person;
 class User extends Controller
 {
     public function __construct($controller, $action)
@@ -16,17 +20,18 @@ class User extends Controller
     public function login(){
 
         if(currentUser()) Router::redirect('movies');
+
         if($_POST){
-            $user = new Person();
-            $user = $user->findByUsername(Input::get('usr_email'));
-           if($user && md5(Input::get('password')) == $user->usr_password){
+            $user = Person::where('usr_email',Input::get('usr_email'))->first();
+             if($user && md5(Input::get('password')) == $user->usr_password){
 
                $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true : false;
 
                $user->login($remember);
                if(isset($_POST['login_required']) && $_POST['login_required'] != '' ){
+
                    Router::redirect('movies/add');
-               }else{
+               }else{ dnd('here login method');
                    Router::redirect('movies');
                }
 

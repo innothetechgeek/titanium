@@ -8,9 +8,12 @@
  namespace app\controllers;
  use core\Controller;
  use core\Paginator;
+ use core\Input;
+ use core\Router;
  use app\models\Genre;
  use app\models\Movie;
  use app\models\Person;
+  use app\models\MovieGenre;
  use core\support\fecade\DB;
 
 class Movies extends Controller
@@ -28,12 +31,12 @@ class Movies extends Controller
 
             $movie_id = $this->create_movie();
             $this->create_movie_genre($movie_id);
-            Router::redirect('movies/movie-added=true');
+            Router::redirect('movies?movie-added=true');
 
         }else{
 
-            $genre = new Genre();
-            $genres = $genre->select("select * from genre");
+          $genres = DB::table('genre')->select()->get();
+
             $this->view->genres = $genres;
             $this->view->render('movies/add');
 
@@ -49,17 +52,22 @@ class Movies extends Controller
         $movies = $movie->all();
 
         $rows_found = count((array)$movies);
-dnd($rows_found);
+
         $paginator = new Paginator($rows_found,10);
         $pagination_links = $paginator->get_pagination_links();
         $this->view->pagination_links = $pagination_links;
 
         $limit_and_offset = $paginator->get_offset_and_limit();
 
-        $movies = DB::table('movie')->select()
-                  ->leftJoin('mv_genre', 'mv_genre.mvg_ref_movie', '=', 'movie.mv_id')
-                  ->leftJoin('genre', 'mv_genre.mvg_ref_genre', '=', 'genre.gnr_id')
+        $movies = DB::table('movie')
+                  ->select('mv_id','mv_title','mv_year_released')
+                  ->selectRaw('GROUP_CONCAT(gnr_name) genres')
+                  ->leftJoin('mv_genre', 'mvg_ref_movie', '=', 'mv_id')
+                  ->leftJoin('genre', 'mvg_ref_genre', '=', 'gnr_id')
+                  ->groupBy('mv_id')
+                  ->appendLimit($limit_and_offset)
                   ->get();
+
         $this->view->movies = $movies;
         $this->view->rows_found = $rows_found;
         $this->view->count = $rows_found;

@@ -11,7 +11,6 @@ class Grammer{
       'aggregate',
       'columns',
       'from',
-      'limit',
       'joins',
       'wheres',
       'groups',
@@ -59,7 +58,6 @@ class Grammer{
     //  $from = compileFrom($query_builder);
 
       $columns = $this->compileColumns($query_builder);
-        dnd("select ".$this->concatenateQueryComponents($this->compileQueryComponents($query_builder)));
        return "select ".$this->concatenateQueryComponents($this->compileQueryComponents($query_builder));
 
     }
@@ -127,6 +125,11 @@ class Grammer{
 
         }
         return $join_statement;
+    }
+
+    protected function compileGroups(Builder $query, $groups)
+    {
+        return 'group by '.implode($groups,',');
     }
 
 }

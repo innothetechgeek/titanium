@@ -11,5 +11,6 @@ class Genre extends Model
 {
 
     protected $table = 'genre';
+    public $primary_key = 'gnr_id';
 
 }

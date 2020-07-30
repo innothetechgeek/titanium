@@ -7,6 +7,7 @@
  * Time: 01:24
  */
 namespace core;
+use app\models\User;
 
 class Router
 {

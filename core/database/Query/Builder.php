@@ -31,7 +31,11 @@ class Builder{
 
  public $limit;
 
+
+ public $groups;
+
  public $wheres = [];
+
 
   public function __construct(){
 
@@ -83,8 +87,23 @@ class Builder{
       return $this;
   }
 
+  public function selectRaw($column){
+
+      $this->bindings['select'] = [];
+      $columns = is_array($column) ? $column : func_get_args();
+
+      foreach ($columns as $as => $column) {
+
+          $this->columns[] = $column;
+
+      }
+
+      return $this;
+
+  }
+
   public function appendLimit($offset_and_limit){
-      $this->limit = $offset_and_limit;
+      $this->limit = 'LIMIT '.$offset_and_limit;
       return $this;
   }
 
@@ -95,6 +114,7 @@ class Builder{
      $result = $this->connection->get($select_statement);
 
      if(!empty($this->model)){
+
         return $this->return_results_as_model($result);
       }else{
 
@@ -110,7 +130,6 @@ class Builder{
           $obj->populate_object_data($result);
           $objectsArr[] = $obj;
       }
-
       return $objectsArr;
    }
 
@@ -143,6 +162,20 @@ class Builder{
 
    }
 
+   public function limit($value)
+   {
+
+       if ($value >= 0) {
+           $this->limit = "LIMIT $value";
+       }
+
+       return $this;
+   }
+
+   public function first(){
+      return  $this->limit(1)->get()[0];
+   }
+
   //add binding to a querying
   public function addBinding($type,$value){
 
@@ -163,6 +196,20 @@ class Builder{
   private function buildDelete(){
 
   }
+  public function groupBy(...$groups)
+  {
+
+      foreach ($groups as $group) {
+
+          $this->groups = array_merge(
+              (array) $this->groups,
+              $groups
+          );
+      }
+
+      return $this;
+  }
+
 
   public function table($table){
     $table = $table[0];
@@ -193,7 +240,12 @@ class Builder{
      return $this;
   }
 
-  //add a where clause comparing two columns to the query
+  public function find($value){
+
+     return $this->where($this->model->primary_key,'=', $value)->get();
+  }
+
+  //add a where clause comparing two columns to the query..
   public function whereColumn($first, $operator = null, $second = null, $boolean = 'and')
   {
       $type = 'Column';
@@ -204,6 +256,7 @@ class Builder{
 
       return $this;
   }
+
 
 }
 ?>

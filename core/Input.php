@@ -5,7 +5,7 @@
  * Date: 2020-02-08
  * Time: 19:08
  */
-
+namespace core;
 class Input
 {
     public static function sanitize($dirty){
