@@ -54,8 +54,6 @@ class Movies extends Controller
         $rows_found = count((array)$movies);
 
         $paginator = new Paginator($rows_found,10);
-        $pagination_links = $paginator->get_pagination_links();
-        $this->view->pagination_links = $pagination_links;
 
         $limit_and_offset = $paginator->get_offset_and_limit();
 
@@ -72,6 +70,7 @@ class Movies extends Controller
         $this->view->rows_found = $rows_found;
         $this->view->count = $rows_found;
         $this->view->offset = $paginator->get_offset();
+        $this->view->pagination_links = $paginator->get_pagination_links();
         $refer = parse_url($_SERVER['HTTP_REFERER'])['path'];
          if(strpos($refer, 'movies/add') !== false) $this->view->movie_added = true;
 
@@ -80,8 +79,6 @@ class Movies extends Controller
         }else{
             $this->view->render('movies/list_home');
         }
-
-
     }
 
     public function create_movie(){
@@ -105,6 +102,7 @@ class Movies extends Controller
             $movie_genre->mvg_ref_genre = $genre_id;
             $movie_genre->mvg_ref_movie = $movie_id;
             $movie_genre->save();
+
         }
 
 
