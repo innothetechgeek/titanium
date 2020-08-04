@@ -24,6 +24,10 @@ class Home extends Controller
     
        $genres = DB::table('genre')->select()->leftJoin('mv_genre', 'mv_genre.mvg_ref_genre', '=', 'genre.gnr_id')->get();
 
+       $data = [];
+       return view('index',$data);
+
+
        // $genres = \app\models\Genre::all();
       // dnd($genres);
       //$genres = new Genre();

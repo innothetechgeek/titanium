@@ -39,3 +39,10 @@ function format_date($format,$date){
 function currentUser(){
     return app\models\Person::currentUser();
 }
+
+function view($name,$data){
+    $path = ROOT . DS . 'app' . DS . 'views' . DS . $name .'.php';
+    $viewFactory = new core\view\Factory();    
+    
+    return $viewFactory->make($name,$data,$path);
+}
