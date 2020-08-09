@@ -1,4 +1,3 @@
-<?php $this->start('head') ?>
 <!-- Styles -->
 <style>
     html, body {
@@ -52,14 +51,11 @@
         margin-bottom: 30px;
     }
 </style>
-<?php $this->end() ?>
-
-<?php $this->start('body') ?>
-<?php include('layouts/main_menu.php') ?>
+<!-- <?php //include('layouts/main_menu.php') ?> -->
 <div class="flex-center position-ref full-height">
     <div class="content">
         <div class="title m-b-md">
-            Welcome to Titanium
+            Welcome to <?=$framework_name?>
         </div>
         <div class="title m-b-md" style="font-size:35px;">
             Theee Best PHP Framework Ever!
@@ -74,4 +70,4 @@
         </div>
     </div>
 </div>
-<?php $this->end() ?>
+
