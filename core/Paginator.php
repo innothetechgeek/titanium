@@ -113,10 +113,12 @@ class Paginator{
     }
     //===============================================================================
     public function get_request_query_strings(){
+
         $request_url = $_SERVER['REQUEST_URI'];
         $request_url = parse_url($request_url);
 
         return isset($request_url['query']) ? $request_url['query'] : "";
+        
     }
     //===============================================================================
     public function get_limit(){

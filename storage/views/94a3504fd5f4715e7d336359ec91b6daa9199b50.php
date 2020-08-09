@@ -51,8 +51,12 @@
     }
 </style>
 <div class="flex-center position-ref full-height">
+
     <div class="content">
         <div class="title m-b-md">
+        <?php  ?>
+            This is the master sidebar.
+        <?php echo ''; ?>
             Welcome to <?php echo e($framework_name); ?>
 
         </div>

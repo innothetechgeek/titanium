@@ -51,8 +51,12 @@
     }
 </style>
 <div class="flex-center position-ref full-height">
+
     <div class="content">
         <div class="title m-b-md">
+        @section('sidebar')
+            This is the master sidebar.
+        @show
             Welcome to {{$framework_name}}
         </div>
         <div class="title m-b-md" style="font-size:35px;">

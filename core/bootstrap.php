@@ -7,15 +7,14 @@
  */
  use core\Router;
 
-//load configuration and helper functions
+    //load configuration and helper functions
     require_once(ROOT . DS . 'config' . DS . 'config.php');
     require_once(ROOT . DS. 'vendor' . DS . 'helpers' . DS . 'functions.php');
 
     //Autoload classes
-     /*load classes automantically....make classes available to this file
+     /*load classes automantically...
         the class name will be passed to this method as a parameter when the class is being instantiated
      */
-  //  spl_autoload_register('autoloader'); //Deprecated function spl_autoload_register()
 
     spl_autoload_register(function($className){
         $className = str_replace("\\", '/' ,$className);

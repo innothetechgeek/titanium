@@ -5,8 +5,14 @@ use \core\fileSystem\FileSystem;
 class BladeCompiler extends Compiler{
 
     use CompileEchos;
+    use CompileLayouts;
 
-   
+    /**
+     * Array of footer lines to be added to template.
+     *
+     * @var array
+     */
+    protected $footer = [];
 
       /**
      * Array of opening and closing tags for raw echos.
@@ -43,6 +49,7 @@ class BladeCompiler extends Compiler{
      */
     protected $compilers = [
         'Echos',
+        'Statements',
     ];
 
     protected $rawBlocks = [];
@@ -80,6 +87,12 @@ class BladeCompiler extends Compiler{
                 $result = $this->restoreRawContent($result);
             }
             
+            // If there are any footer lines that need to get added to a template we will
+            // add them here at the end of the template. This gets used mainly for the
+            // template inheritance via the extends keyword that should be appended.
+            if (count($this->footer) > 0) {
+                $result = $this->addFooters($result);
+            }
            
             return $result;
 
@@ -180,6 +193,57 @@ class BladeCompiler extends Compiler{
         }
 
         return $value;
+    }
+
+    /**
+     * Compile Blade statements that start with "@".
+     *
+     * @param  string  $value
+     * @return string
+     */
+    protected function compileStatements($value)
+    {
+        return preg_replace_callback(
+            '/\B@(@?\w+(?:::\w+)?)([ \t]*)(\( ( (?>[^()]+) | (?3) )* \))?/x', function ($match) {
+               
+                return $this->compileStatement($match);
+            }, $value
+        );
+
+    }
+
+    /**
+     * Compile a single Blade @ statement.
+     *
+     * @param  array  $match
+     * @return string
+     */
+    protected function compileStatement($match)
+    {
+        if (strpos($match[1], '@')) {
+            $match[0] = isset($match[3]) ? $match[1].$match[3] : $match[1];
+        } elseif (isset($this->customDirectives[$match[1]])) {
+           
+            $match[0] = $this->callCustomDirective($match[1], $match[2]);
+        } elseif (method_exists($this, $method = 'compile'.ucfirst($match[1]))) {
+           print_r($method);
+            $match[0] = $this->$method($match[1]);
+        }
+
+        return isset($match[3]) ? $match[0] : $match[0].$match[2];
+    }
+
+
+        /**
+     * Add the stored footers onto the given content.
+     *
+     * @param  string  $result
+     * @return string
+     */
+    protected function addFooters($result)
+    {
+        return ltrim($result, PHP_EOL)
+                .PHP_EOL.implode(PHP_EOL, array_reverse($this->footer));
     }
 
     
