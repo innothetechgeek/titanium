@@ -84,6 +84,7 @@ class Router
   }
 
    private static function request_match_route($route,$url){
+   
       return $route['uri'] == implode($url,'/');
    }
 

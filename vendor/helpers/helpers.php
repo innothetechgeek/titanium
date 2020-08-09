@@ -7,6 +7,7 @@
  */
 
 function dnd($data){
+    
     echo '<pre>';
         var_dump($data);
     echo '</pre>';
@@ -42,7 +43,22 @@ function currentUser(){
 
 function view($name,$data){
     $path = ROOT . DS . 'app' . DS . 'views' . DS . $name .'.php';
+   
     $viewFactory = new core\view\Factory();    
     
     return $viewFactory->make($name,$data,$path);
+}
+
+if (! function_exists('e')) {
+    /**
+     * Encode HTML special characters in a string.
+     *
+     * @param  \Illuminate\Contracts\Support\DeferringDisplayableValue|\Illuminate\Contracts\Support\Htmlable|string  $value
+     * @param  bool  $doubleEncode
+     * @return string
+     */
+    function e($value, $doubleEncode = true)
+    {
+            return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', $doubleEncode);
+    }
 }

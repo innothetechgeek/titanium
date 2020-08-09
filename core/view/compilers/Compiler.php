@@ -1,5 +1,6 @@
 <?php
 namespace core\view\compilers;
+use \core\fileSystem\FileSystem;
 
 class Compiler{
 
@@ -14,5 +15,15 @@ class Compiler{
 
         $this->files = $files;
         $this->cachePath = $cachePath;
+    }
+     /**
+     * Get the path to the compiled version of a view.
+     *
+     * @param  string  $path
+     * @return string
+     */
+    public function getCompiledPath($path)
+    {
+        return $this->cachePath.'/'.sha1($path).'.php';
     }
 }

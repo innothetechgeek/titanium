@@ -43,15 +43,15 @@ trait CompileEchos
      */
     protected function compileRawEchos($value)
     {
-       /* $pattern = sprintf('/(@)?%s\s*(.+?)\s*%s(\r?\n)?/s', $this->rawTags[0], $this->rawTags[1]); */
+        $pattern = sprintf('/(@)?%s\s*(.+?)\s*%s(\r?\n)?/s', $this->rawTags[0], $this->rawTags[1]); 
 
-      /*  $callback = function ($matches) {
+        $callback = function ($matches) {
             $whitespace = empty($matches[3]) ? '' : $matches[3].$matches[3];
 
             return $matches[1] ? substr($matches[0], 1) : "<?php echo {$matches[2]}; ?>{$whitespace}";
         };
 
-        return preg_replace_callback($pattern, $callback, $value); */
+        return preg_replace_callback($pattern, $callback, $value); 
     }
 
     /**
@@ -83,15 +83,16 @@ trait CompileEchos
      */
     protected function compileEscapedEchos($value)
     {
-       /* $pattern = sprintf('/(@)?%s\s*(.+?)\s*%s(\r?\n)?/s', $this->escapedTags[0], $this->escapedTags[1]);
+        $pattern = sprintf('/(@)?%s\s*(.+?)\s*%s(\r?\n)?/s', $this->escapedTags[0], $this->escapedTags[1]);
 
-        dd($pattern);
+       
         $callback = function ($matches) {
             $whitespace = empty($matches[3]) ? '' : $matches[3].$matches[3];
 
             return $matches[1] ? $matches[0] : "<?php echo e({$matches[2]}); ?>{$whitespace}";
         };
 
-        return preg_replace_callback($pattern, $callback, $value); */
+        return preg_replace_callback($pattern, $callback, $value); 
     }
+    
 }

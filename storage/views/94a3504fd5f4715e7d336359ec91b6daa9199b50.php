@@ -53,7 +53,8 @@
 <div class="flex-center position-ref full-height">
     <div class="content">
         <div class="title m-b-md">
-            Welcome to {{$framework_name}}
+            Welcome to <?php echo e($framework_name); ?>
+
         </div>
         <div class="title m-b-md" style="font-size:35px;">
             Theee Best PHP Framework Ever!

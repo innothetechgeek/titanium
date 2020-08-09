@@ -6,6 +6,7 @@
  * @Last Modified time: 2020-08-05 01:51:36
  */
 namespace core\view;
+use \core\fileSystem\FileSystem;
 
 
 class View{
@@ -13,6 +14,7 @@ class View{
     protected $data;
     protected $name;
     protected $path;
+    protected $compiler;
 
      /**
      * The view factory instance.
@@ -26,7 +28,9 @@ class View{
         $this->factory = $factory;
         $this->name = $name;
         $this->data = $data;
-        $this->path = $path;        
+        $this->path = $path;   
+        $this->cachePath =  ROOT . DS . 'storage' . DS . 'views';
+        $this->compiler = new compilers\BladeCompiler(new FileSystem,$this->cachePath);     
 
     }
     /**
@@ -41,8 +45,10 @@ class View{
 
         $data = $this->data;
         extract($data);
-        
-        include $this->path;
+        $viewPath = $this->path;
+        $this->compiler->compile($viewPath);        
+
+        include $this->compiler->getCompiledPath( $this->path);
 
     }
 }

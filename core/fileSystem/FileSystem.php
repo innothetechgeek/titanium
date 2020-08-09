@@ -1,9 +1,12 @@
 <?php
+namespace core\fileSystem;
+
 class FileSystem{
 
     public function get($path, $lock = false)
     {
         if ($this->isFile($path)) {
+           
             return  file_get_contents($path);
         }
 
