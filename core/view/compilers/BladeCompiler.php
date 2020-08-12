@@ -48,8 +48,8 @@ class BladeCompiler extends Compiler{
      * @var array
      */
     protected $compilers = [
-        'Echos',
         'Statements',
+        'Echos',
     ];
 
     protected $rawBlocks = [];
@@ -86,6 +86,8 @@ class BladeCompiler extends Compiler{
             if (! empty($this->rawBlocks)) {
                 $result = $this->restoreRawContent($result);
             }
+
+            
             
             // If there are any footer lines that need to get added to a template we will
             // add them here at the end of the template. This gets used mainly for the
@@ -110,7 +112,7 @@ class BladeCompiler extends Compiler{
             foreach ($this->compilers as $type) {
                 
                 $content = $this->{"compile{$type}"}($content);
-            }
+            }          
            
         }
        
@@ -220,14 +222,15 @@ class BladeCompiler extends Compiler{
      */
     protected function compileStatement($match)
     {
+        
         if (strpos($match[1], '@')) {
             $match[0] = isset($match[3]) ? $match[1].$match[3] : $match[1];
         } elseif (isset($this->customDirectives[$match[1]])) {
            
             $match[0] = $this->callCustomDirective($match[1], $match[2]);
         } elseif (method_exists($this, $method = 'compile'.ucfirst($match[1]))) {
-           print_r($method);
-            $match[0] = $this->$method($match[1]);
+          
+            $match[0] = $this->$method($match[3]);
         }
 
         return isset($match[3]) ? $match[0] : $match[0].$match[2];
@@ -246,7 +249,22 @@ class BladeCompiler extends Compiler{
                 .PHP_EOL.implode(PHP_EOL, array_reverse($this->footer));
     }
 
-    
+     /**
+     * Strip the parentheses from the given expression.
+     *
+     * @param  string  $expression
+     * @return string
+     */
+    public function stripParentheses($expression)
+    {
+       
+        if ((strpos($expression, '(') === 0)) {
+            $expression = substr($expression, 1, -1);
+        }
+
+        return $expression;
+    }
+   
 
 }
 

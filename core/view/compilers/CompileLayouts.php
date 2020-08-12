@@ -8,8 +8,11 @@
  */
 
 namespace core\view\compilers;
-use core\view\View as ViewFactory;
+use core\view\Factory;
 
+
+ 
+    
 
 /**
      * Append content to a given section.
@@ -19,6 +22,13 @@ use core\view\View as ViewFactory;
      * @return void
      */
 trait CompileLayouts{
+
+    /**
+     * The parent placeholder for the request.
+     *
+     * @var mixed
+     */
+    protected static $parentPlaceholder = [];
 
      /**
      * The stack of in-progress sections.
@@ -41,6 +51,7 @@ trait CompileLayouts{
     protected function extendSection($section, $content)
     {
         if (isset($this->sections[$section])) {
+            print_r('seccions is set');
             $content = str_replace(static::parentPlaceholder($section), $content, $this->sections[$section]);
         }
 
@@ -56,7 +67,8 @@ trait CompileLayouts{
      */
     protected function compileYield($expression)
     {
-        return "<?php echo \$__env->yieldContent{$expression}; ?>";
+        $method = $this->yieldContent($expression);
+        return "<?php echo '$method'; ?>";
     }
 
      /**
@@ -137,12 +149,16 @@ trait CompileLayouts{
     protected function compileExtends($expression)
     {
         
-        $expression = $this->stripParentheses($expression);
+       $expression = $this->stripParentheses($expression);
 
+      
+       $path = ROOT . DS . 'app' . DS . 'views' . DS . $expression .'.php';
+   
+        $viewFactory = new Factory();
+        $instance = $viewFactory->make($expression,[],$path);
         
-
-        $echo = "<?php echo \$__env->make({$expression}, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
-
+        $echo = "<?php echo '$instance' ?>";
+        
         $this->footer[] = $echo;
 
         return '';
@@ -175,5 +191,26 @@ trait CompileLayouts{
         return static::$parentPlaceholder[$section];
     }
 
+     /**
+     * Get the string contents of a section.
+     *
+     * @param  string  $section
+     * @param  string  $default
+     * @return string
+     */
+    public function yieldContent($section, $default = '')
+    {
+        $sectionContent = $default instanceof View ? $default : e($default);
+
+        if (isset($this->sections[$section])) {
+            $sectionContent = $this->sections[$section];
+        }
+
+        $sectionContent = str_replace('@@parent', '--parent--holder--', $sectionContent);
+
+        return str_replace(
+            '--parent--holder--', '@parent', str_replace(static::parentPlaceholder($section), '', $sectionContent)
+        );
+    }
 
 }

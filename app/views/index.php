@@ -1,3 +1,4 @@
+@extends(layouts/master)
 <style>
     html, body {
         background-color: #fff;
@@ -54,9 +55,6 @@
 
     <div class="content">
         <div class="title m-b-md">
-        @section('sidebar')
-            This is the master sidebar.
-        @show
             Welcome to {{$framework_name}}
         </div>
         <div class="title m-b-md" style="font-size:35px;">
