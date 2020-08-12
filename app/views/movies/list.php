@@ -1,26 +1,5 @@
-<?php $this->start('head'); ?>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Titanium | Add Movie</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/fontawesome-free/css/all.min.css') ?>">
-    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/toastr/toastr.min.css') ?>">
-    <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') ?>">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <!-- Theme style -->
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/css/admin_template/adminlte.min.css">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-<?php $this->end() ?>
-<?php $this->start('body'); ?>
+@extends(layouts/master)
+@section('content')
 <div class="wrapper">
 <!-- Navbar -->
 <?php include(ROOT . DS . 'app' . DS . 'views'. DS .'layouts'. DS .'admin_nav_bar.php') ?>
@@ -54,14 +33,14 @@
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"><?=$this->rows_found?> movies</h3>
+                        <h3 class="card-title"><?=$rows_found?> movies</h3>
                         <ul class="pagination pagination-sm m-0 float-right">
                             <style>
                                 .pagination .active{
                                     background: #007bff;
                                 }
                             </style>
-                            <?= $this->pagination_links; ?>
+                            <?= $pagination_links; ?>
                         </ul>
                     </div>
 <!--                     /.card-header -->
@@ -77,8 +56,8 @@
                             </thead>
                             <tbody>
                             <?php
-                                $movies = $this->movies;
-                                $offset = $this->offset+1;
+                               
+                                $offset = $offset+1;
                                 foreach ($movies as $movie){ ?>
                                 <tr>
                                     <td><?=$offset?>.</td>
@@ -128,4 +107,4 @@
     })});
 </script>
 <?php } ?>
-<?php $this->end() ?>
+@endsection

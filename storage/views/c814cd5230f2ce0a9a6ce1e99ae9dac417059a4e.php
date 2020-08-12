@@ -1,5 +1,4 @@
-@extends(layouts/master)
-@section('content')
+<?php  ?>
 
 <div class="flex-center position-ref" style="padding-top: 35px">
     <!-- Content Wrapper. Contains page content -->
@@ -71,3 +70,5 @@
     </div>
 </div>
 @endsection('content')
+
+<?php echo '' ?>

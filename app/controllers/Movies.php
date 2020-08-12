@@ -53,7 +53,7 @@ class Movies extends Controller
 
         $rows_found = count((array)$movies);
 
-        $paginator = new Paginator($rows_found,10);
+        $paginator = new Paginator($rows_found,20);
 
         $limit_and_offset = $paginator->get_offset_and_limit();
 
@@ -74,10 +74,19 @@ class Movies extends Controller
         $refer = parse_url($_SERVER['HTTP_REFERER'])['path'];
          if(strpos($refer, 'movies/add') !== false) $this->view->movie_added = true;
 
+         $view_data = [
+            'movies'=>$movies,
+            'rows_found'=>$rows_found,
+            'count'=>$rows_found,'offset'=>$paginator->get_offset(),
+            'pagination_links' => $paginator->get_pagination_links()
+         ];
+
         if(currentUser()){
-            $this->view->render('movies/list');
+            return view('movies/list',$view_data);
+         //   $this->view->render('movies/list');
         }else{
-            $this->view->render('movies/list_home');
+            return view('movies/list_home',$view_data);
+         //   $this->view->render('movies/list_home');
         }
     }
 

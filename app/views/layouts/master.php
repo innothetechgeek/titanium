@@ -18,70 +18,59 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
-<?php
-use core\Router;
-$menu = Router::getMenu('menu_acl');
-$current_page = currentPage();
-?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="<?php url('')?>">Titanium</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<style>
+    html, body {
+        background-color: #fff;
+        color: #636b6f;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 100;
+        height: 100vh;
+        margin: 0;
+    }
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-              <a class="nav-link " href="<?php url('') ?>">Home</a>
-          </li>
-            <?php
-            foreach ($menu as $key => $val):
-                    $active = ''; ?>
-                    <?php  if(is_array($val)):  $i = 0; ?>
+    .full-height {
+        height: 78vh;
+    }
 
-                            <?php foreach ($val as $k => $v):
-                                $active =  ($v == $current_page) ? 'active' : 'ddddd'; ?>
-                                <?php if($k == 'separator')  :   ?>
-                                    <div class="dropdown-divider"></div>
-                                <?php else : ?>
-                                    <?php if($i == 0) {?>
+    .flex-center {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
 
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="<?php url($v) ?>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <?=$key?>
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    .position-ref {
+        position: relative;
+    }
 
-                                    <?php } ?>
-                                            <a class="dropdown-item" href="<?php url($v) ?>"><?=$k?></a>
-                                    <?php if($i == count($val)) { ?>
+    .top-right {
+        position: absolute;
+        right: 10px;
+        top: 18px;
+    }
 
-                                            </div>
-                                        </li>
+    .content {
+        text-align: center;
+    }
 
-                                    <?php }?>
-                                <?php endif; ?>
-                            <?php $i++; endforeach; ?>
+    .title {
+        font-size: 84px;
+    }
 
-                    <?php else:
-                        $active =  ($key == $current_page) ? 'active' : ''; ?>
-                        <li class="nav-item active">
-                            <a class="nav-link <?=$active?>" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/<?=$val?>"><?=$key?><span class="sr-only">(current)</span></a>
-                        </li>
-                    <?php endif; ?>
+    .links > a {
+        color: #636b6f;
+        padding: 0 25px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
 
-            <?php
-            endforeach; ?>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            <ul>
-            </ul>
-        </form>
-    </div>
-</nav>
-
+    .m-b-md {
+        margin-bottom: 30px;
+    }
+</style>
+<?php include(ROOT . DS . 'app' . DS . 'views'. DS .'layouts'. DS .'main_menu.php') ?>
  @yield('content')
 </body>
 </html>
