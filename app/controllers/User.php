@@ -38,14 +38,14 @@ class User extends Controller
            }
         }
 
-       $this->view->render('user/login');
+       return view('user/login');
 
     }
 
 
     public function register(){
 
-        $this->view->render('user/register');
+        return view('user/register');
 
     }
 
@@ -57,7 +57,7 @@ class User extends Controller
         $user->usr_password = md5(Input::get('password'));
         $user->save();
         if($user->id){
-            $this->view->render('user/registration_successful');
+            return view('user/registration_successful');
         //  Router::redirect('registration-successful');
         }
 
@@ -74,6 +74,6 @@ class User extends Controller
     }
 
     public function registration_successful(){
-        $this->view->render('user/registration_successful');
+        return view('user/registration_successful');
     }
 }

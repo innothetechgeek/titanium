@@ -13,7 +13,7 @@
  use app\models\Genre;
  use app\models\Movie;
  use app\models\Person;
-  use app\models\MovieGenre;
+ use app\models\MovieGenre;
  use core\support\fecade\DB;
 
 class Movies extends Controller
@@ -38,7 +38,7 @@ class Movies extends Controller
           $genres = DB::table('genre')->select()->get();
 
             $this->view->genres = $genres;
-            $this->view->render('movies/add');
+            return view('movies/add');
 
         }
 
@@ -65,12 +65,7 @@ class Movies extends Controller
                   ->groupBy('mv_id')
                   ->appendLimit($limit_and_offset)
                   ->get();
-
-        $this->view->movies = $movies;
-        $this->view->rows_found = $rows_found;
-        $this->view->count = $rows_found;
-        $this->view->offset = $paginator->get_offset();
-        $this->view->pagination_links = $paginator->get_pagination_links();
+       
         $refer = parse_url($_SERVER['HTTP_REFERER'])['path'];
          if(strpos($refer, 'movies/add') !== false) $this->view->movie_added = true;
 
@@ -82,11 +77,13 @@ class Movies extends Controller
          ];
 
         if(currentUser()){
+
             return view('movies/list',$view_data);
-         //   $this->view->render('movies/list');
+        
         }else{
+
             return view('movies/list_home',$view_data);
-         //   $this->view->render('movies/list_home');
+         
         }
     }
 

@@ -1,5 +1,4 @@
-@extends(layouts/master)
-@section('content')
+<?php  ?>
 <div class="wrapper">
     <!-- Navbar -->
     <?php include(ROOT . DS . 'app' . DS . 'views'. DS .'layouts'. DS .'admin_nav_bar.php') ?>
@@ -145,3 +144,5 @@
     //Datemask2 mm/dd/yyyy
     $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
 </script>
+
+<?php echo '' ?>
