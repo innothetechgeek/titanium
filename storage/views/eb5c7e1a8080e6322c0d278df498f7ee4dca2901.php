@@ -1,9 +1,3 @@
-@extends(layouts/master)
-@section('styles')
- <!-- Theme style -->
- <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/css/admin_template/adminlte.min.css">
-@endsection
-@section('content')
 <div class="wrapper">
 <!-- Navbar -->
 <?php include(ROOT . DS . 'app' . DS . 'views'. DS .'layouts'. DS .'admin_nav_bar.php') ?>
@@ -37,14 +31,14 @@
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"><?=$rows_found?> movies</h3>
+                        <h3 class="card-title"><?=$this->rows_found?> movies</h3>
                         <ul class="pagination pagination-sm m-0 float-right">
                             <style>
                                 .pagination .active{
                                     background: #007bff;
                                 }
                             </style>
-                            <?= $pagination_links; ?>
+                            <?= $this->pagination_links; ?>
                         </ul>
                     </div>
 <!--                     /.card-header -->
@@ -60,8 +54,8 @@
                             </thead>
                             <tbody>
                             <?php
-                                $movies = $movies;
-                                $offset = $offset+1;
+                                $movies = $this->movies;
+                                $offset = $this->offset+1;
                                 foreach ($movies as $movie){ ?>
                                 <tr>
                                     <td><?=$offset?>.</td>
@@ -96,7 +90,7 @@
 <script src="<?php url('assets/js/admin_template/adminlte.min.js') ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php url('assets/js/admin_template/demo.js') ?>"></script>
-<?php   if($movie_added){ ?>
+<?php   if($this->movie_added){ ?>
 <script>
     $(function() {
         const Toast = Swal.mixin({
@@ -111,4 +105,3 @@
     })});
 </script>
 <?php } ?>
-@endsection

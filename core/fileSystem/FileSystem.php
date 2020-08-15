@@ -4,13 +4,14 @@ namespace core\fileSystem;
 class FileSystem{
 
     public function get($path, $lock = false)
-    {
+    {   
+        
         if ($this->isFile($path)) {
             
           
             return  file_get_contents($path);
         }
-    
+        print($path);
         echo "File Not Found!!"; //refactor later on and throw new exception
        // throw new FileNotFoundException("File does not exist at path {$path}.");
     }

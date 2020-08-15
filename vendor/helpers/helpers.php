@@ -46,6 +46,7 @@ function view($name,$data = []){
    
     $viewFactory = new core\view\Factory();    
     
+   
     return $viewFactory->make($name,$data,$path);
 }
 

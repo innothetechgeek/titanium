@@ -16,7 +16,7 @@
             </div>
             <div class="info">
                 <a href="#" class="d-block"><?php
-                    echo currentUser()->usr_name ?></a>
+                    echo currentUser() ? currentUser()->usr_name : ''; ?></a>
             </div>
         </div>
 

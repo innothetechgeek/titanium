@@ -1,4 +1,4 @@
-<?php  ?>
+<?php $__env->startSection('content'); ?>
 <div class="flex-center position-ref full-height">
 
     <div class="content">
@@ -10,7 +10,6 @@
             Theee Best PHP Framework Ever!
         </div>
         <div class="alert alert-info" role="alert" style="margin-top:5px;">
-
             Don't try to break the framework :( , this is only the beta version!
         </div>
         <div class="links">
@@ -19,5 +18,5 @@
         </div>
     </div>
 </div>
-@endsection
-<?php echo '' ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts/master', [], 'C:\wamp64\www\titanium\app\views\layouts/master.php'); ?>

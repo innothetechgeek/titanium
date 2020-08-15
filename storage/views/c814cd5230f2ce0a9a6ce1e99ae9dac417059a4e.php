@@ -1,5 +1,4 @@
-<?php  ?>
-
+<?php $__env->startSection('content'); ?>
 <div class="flex-center position-ref" style="padding-top: 35px">
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -69,6 +68,5 @@
         </section>
     </div>
 </div>
-@endsection('content')
-
-<?php echo '' ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts/master', [], 'C:\wamp64\www\titanium\app\views\layouts/master.php'); ?>

@@ -1,6 +1,5 @@
 @extends(layouts/master)
 @section('content')
-
 <div class="flex-center position-ref" style="padding-top: 35px">
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -70,4 +69,4 @@
         </section>
     </div>
 </div>
-@endsection('content')
+@endsection

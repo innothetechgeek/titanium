@@ -75,14 +75,15 @@ class Movies extends Controller
             'count'=>$rows_found,'offset'=>$paginator->get_offset(),
             'pagination_links' => $paginator->get_pagination_links()
          ];
-
-        if(currentUser()){
-
-            return view('movies/list',$view_data);
+        
+        if(currentUser() === null){
+            
+            return view('movies/list_home',$view_data);
+            
         
         }else{
-
-            return view('movies/list_home',$view_data);
+            return view('movies/list',$view_data);
+           
          
         }
     }

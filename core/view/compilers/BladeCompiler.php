@@ -95,7 +95,8 @@ class BladeCompiler extends Compiler{
             if (count($this->footer) > 0) {
                 $result = $this->addFooters($result);
             }
-           
+            
+          
             return $result;
 
     }
@@ -110,14 +111,15 @@ class BladeCompiler extends Compiler{
         if ($id == T_INLINE_HTML) { //T_INLINE_HTML - anything outside of php blocks
            
             foreach ($this->compilers as $type) {
-                
                 $content = $this->{"compile{$type}"}($content);
             }          
            
         }
+        
        
         return $content;
     }
+    
      /**
      * Get the path currently being compiled.
      *
@@ -207,14 +209,14 @@ class BladeCompiler extends Compiler{
     {
         return preg_replace_callback(
             '/\B@(@?\w+(?:::\w+)?)([ \t]*)(\( ( (?>[^()]+) | (?3) )* \))?/x', function ($match) {
-               
+              
                 return $this->compileStatement($match);
             }, $value
         );
 
     }
 
-    /**
+     /**
      * Compile a single Blade @ statement.
      *
      * @param  array  $match
@@ -222,18 +224,22 @@ class BladeCompiler extends Compiler{
      */
     protected function compileStatement($match)
     {
-        
+      
         if (strpos($match[1], '@')) {
             $match[0] = isset($match[3]) ? $match[1].$match[3] : $match[1];
         } elseif (isset($this->customDirectives[$match[1]])) {
-           
-            $match[0] = $this->callCustomDirective($match[1], $match[2]);
+            $match[0] = $this->callCustomDirective($match[1], Arr::get($match, 3));
         } elseif (method_exists($this, $method = 'compile'.ucfirst($match[1]))) {
+            
+            $test_match = isset($match[3]) ? $match[3] : $match[2] ;
+           // var_dump("match 3 is ". $test_match);
+          //  print_r($match[1]."<br>");
+           $match[0] = isset($match[3]) ? $this->$method($match[3]) : $this->$method($match[2]) ;
           
-            $match[0] = $this->$method($match[3]);
         }
-
-        return isset($match[3]) ? $match[0] : $match[0].$match[2];
+       
+       
+         return isset($match[3]) ? $match[0] : $match[0].$match[2];
     }
 
 
