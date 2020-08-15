@@ -71,6 +71,6 @@
     }
 </style>
 <?php include(ROOT . DS . 'app' . DS . 'views'. DS .'layouts'. DS .'main_menu.php') ?>
- <?php echo ''; ?>
+ <?php echo $__env->yieldContent('content'); ?>
 </body>
 </html>

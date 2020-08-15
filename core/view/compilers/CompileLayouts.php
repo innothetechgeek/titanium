@@ -44,14 +44,28 @@ trait CompileLayouts{
      * @param  string|null  $content
      * @return void
      */
-    public function startSection($section, $content = null){
-        $this->extendSection($section, $content);
+    public function startSection($section, $content = null)
+    {
+
+        
+       
+        if ($content === null) {  
+                  
+            if (ob_start()) {
+                $this->sectionStack[] = $section;
+            }
+        } else {
+            print_r("else part on start section");
+            $this->extendSection($section, $content instanceof View ? $content : e($content));
+        }
+        
     }
 
     protected function extendSection($section, $content)
     {
+       
         if (isset($this->sections[$section])) {
-            print_r('seccions is set');
+           
             $content = str_replace(static::parentPlaceholder($section), $content, $this->sections[$section]);
         }
 
@@ -67,8 +81,7 @@ trait CompileLayouts{
      */
     protected function compileYield($expression)
     {
-        $method = $this->yieldContent($expression);
-        return "<?php echo '$method'; ?>";
+        return "<?php echo \$__env->yieldContent{$expression}; ?>";
     }
 
      /**
@@ -107,7 +120,7 @@ trait CompileLayouts{
     public function stopSection($overwrite = false)
     {
         if (empty($this->sectionStack)) {
-            throw new InvalidArgumentException('Cannot end a section without first starting one.');
+            echo 'Cannot end a section without first starting one.';
         }
 
         $last = array_pop($this->sectionStack);
@@ -120,24 +133,31 @@ trait CompileLayouts{
 
         return $last;
     }
-
+    
      /**
+     * Compile the end-section statements into valid PHP.
+     *
+     * @return string
+     */
+    protected function compileEndsection()
+    { 
+      
+        return '<?php $__env->stopSection(); ?>';
+    }
+
+    /**
      * Compile the section statements into valid PHP.
      *
      * @param  string  $expression
      * @return string
      */
     protected function compileSection($expression)
-    {
+    {   
 
-     
         
         $this->lastSection = trim($expression, "()'\" ");
 
-         
-        $res  = $this->startSection($expression);
-
-        return "<?php $res ?>";
+        return "<?php \$__env->startSection{$expression}; ?>";
     }
 
    /**
@@ -152,12 +172,9 @@ trait CompileLayouts{
        $expression = $this->stripParentheses($expression);
 
       
-       $path = ROOT . DS . 'app' . DS . 'views' . DS . $expression .'.php';
-   
-        $viewFactory = new Factory();
-        $instance = $viewFactory->make($expression,[],$path);
+       $path = ROOT . DS . 'app' . DS . 'views' . DS . $expression .'.php';   
         
-        $echo = "<?php echo '$instance' ?>";
+       $echo = "<?php echo \$__env->make('$expression', [], '$path'); ?>";
         
         $this->footer[] = $echo;
 
@@ -212,5 +229,17 @@ trait CompileLayouts{
             '--parent--holder--', '@parent', str_replace(static::parentPlaceholder($section), '', $sectionContent)
         );
     }
+
+    /**
+     * Compile the stop statements into valid PHP.
+     *
+     * @return string
+     */
+    protected function compileStop()
+    {
+        $method = $this->stopSection();
+        return '<?php $method ?>';
+    }
+    
 
 }

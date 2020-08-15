@@ -29,6 +29,7 @@ class View{
         $this->name = $name;
         $this->data = $data;
         $this->path = $path;   
+
         $this->cachePath =  ROOT . DS . 'storage' . DS . 'views';
         $this->compiler = new compilers\BladeCompiler(new FileSystem,$this->cachePath);     
 
@@ -43,8 +44,9 @@ class View{
 
     public function getContents(){
 
-        $data = $this->data;
+        $data = array_merge($this->factory->getShared(),$this->data);
         extract($data);
+        
         $viewPath = $this->path;
         $this->compiler->compile($viewPath);        
 
