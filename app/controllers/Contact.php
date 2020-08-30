@@ -14,7 +14,7 @@ class Contact  extends Controller
     }
 
     public  function list_all(){
-        $this->view->render('contact/list_all');
+      return('contact/list_all');
     }
 
 

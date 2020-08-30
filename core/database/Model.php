@@ -83,42 +83,6 @@ class Model
 
     }
 
-    // public function find($params = []){
-    //
-    //     $results = [];
-    //     $resultQuery =   $this->query_builder->get();
-    //     foreach($resultQuery as $result){
-    //         $obj = new $this->model_name($this->table);
-    //         $obj->populate_object_data($result);
-    //         $results = $obj;
-    //     }
-    //     return $results;
-    //
-    // }
-    public function findAll($params=[]){
-
-        return $this->db->find($this->table,$params);
-
-    }
-
-    public function select($sql){
-        // $queryResult = $this->db->select($sql);
-        //
-        // $resultArr = [];
-        // $fildsArr = [];
-        // if($queryResult){
-        //
-        //     foreach ($queryResult as $field => $obj) {
-        //         foreach ($obj as $field => $value) {
-        //             $fildsArr[$field] = $value;
-        //         }
-        //         array_push($resultArr,$fildsArr);
-        //
-        //     }
-        // }
-        // return $resultArr;
-    }
-
     public function insert($fields){
 
         if(empty($fields)) return false;

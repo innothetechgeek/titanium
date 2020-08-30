@@ -14,6 +14,8 @@ class Example extends Controller
     }
 
     public function index(){
-        $this->view->render('examples/example1');
+
+       return view('examples/example1');
+       
     }
 }

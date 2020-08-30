@@ -41,7 +41,6 @@ class Movies extends Controller
             return view('movies/add');
 
         }
-
     }
 
     public function view($param = []){
@@ -67,7 +66,7 @@ class Movies extends Controller
                   ->get();
        
         $refer = parse_url($_SERVER['HTTP_REFERER'])['path'];
-         if(strpos($refer, 'movies/add') !== false) $this->view->movie_added = true;
+        if(strpos($refer, 'movies/add') !== false) $this->view->movie_added = true;
 
          $view_data = [
             'movies'=>$movies,
@@ -78,13 +77,12 @@ class Movies extends Controller
         
         if(currentUser() === null){
             
-            return view('movies/list_home',$view_data);
-            
+            return view('movies/list_home',$view_data);            
         
         }else{
+
             return view('movies/list',$view_data);
-           
-         
+
         }
     }
 

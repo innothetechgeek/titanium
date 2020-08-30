@@ -1,6 +1,9 @@
 @extends(layouts/master)
 @section('styles')
  <!-- Theme style -->
+ <!-- Font Awesome -->
+ <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/fontawesome-free/css/all.min.css') ?>">
+ <link rel="stylesheet" href="<?php url('assets/plugins/admin_template/toastr/toastr.min.css') ?>">
  <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/titanium/assets/css/admin_template/adminlte.min.css">
 @endsection
 @section('content')
@@ -96,7 +99,7 @@
 <script src="<?php url('assets/js/admin_template/adminlte.min.js') ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php url('assets/js/admin_template/demo.js') ?>"></script>
-<?php   if($movie_added){ ?>
+<?php   if(isset($movie_added)){ ?>
 <script>
     $(function() {
         const Toast = Swal.mixin({

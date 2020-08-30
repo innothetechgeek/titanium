@@ -28,13 +28,24 @@ class Builder{
  ];
 
  public $columns;
-
- public $limit;
-
-
+ 
  public $groups;
 
  public $wheres = [];
+
+/**
+ * The maximum number of records to return.
+ *
+ * @var int
+ */
+public $limit;
+
+/**
+ * The number of records to skip.
+ *
+ * @var int
+ */
+public $offset;
 
 
   public function __construct(){
@@ -122,6 +133,7 @@ class Builder{
    */
 
    public function get(){
+
      if(is_null($this->columns)) $this->columns = ['*'];
      $select_statement = $this->grammer->compileSelect($this);
      $result = $this->connection->get($select_statement);
@@ -129,9 +141,11 @@ class Builder{
      if(!empty($this->model)){
 
         return $this->return_results_objects($result);
+
       }else{
 
         return $this->return_result_as_array($result);
+        
       }
 
    }

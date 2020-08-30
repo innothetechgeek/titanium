@@ -14,12 +14,12 @@ class Dashboard extends Controller
     }
 
     public function index(){
-        $this->view->render('admin_lte_template/dashboard/dashboard');
+       return view('admin_lte_template/dashboard/dashboard');
     }
 
     public function version1(){
 
-        $this->view->render('admin_lte_template/dashboard/version1');
+       return view('admin_lte_template/dashboard/version1');
 
     }
 }
