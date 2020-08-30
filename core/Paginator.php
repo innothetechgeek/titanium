@@ -24,8 +24,9 @@ class Paginator{
     private $limit = false;
     //ajax based or nomal paginator (normal paginator trigger page refresh when you click on pagination links)
     private $paginator_type = false;
+  
 
-    public function __construct($rows_found,$per_page=15,$paginator_type = '')
+    public function __construct($rows_found,$per_page=15,$paginator_type = '', $results = [])
     {
         $this->paginator_type = $paginator_type == false ? "normal" : 'ajax';
         $this->rows_found = $rows_found;
@@ -34,6 +35,7 @@ class Paginator{
         $this->request_url = $this->get_request_path();
         $this->per_page = $per_page;
         $this->last_page = ceil($this->total_rows_found / $this->per_page);
+        $this->results = $results;
     }
 
     //=====================================================================

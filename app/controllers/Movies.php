@@ -63,17 +63,16 @@ class Movies extends Controller
                   ->leftJoin('mv_genre', 'mvg_ref_movie', '=', 'mv_id')
                   ->leftJoin('genre', 'mvg_ref_genre', '=', 'gnr_id')
                   ->groupBy('mv_id')
-                  ->appendLimit($limit_and_offset)
-                  ->get();
+                  ->paginate(20);                
        
         $refer = parse_url($_SERVER['HTTP_REFERER'])['path'];
          if(strpos($refer, 'movies/add') !== false) $this->view->movie_added = true;
 
          $view_data = [
-            'movies'=>$movies,
+            'movies'=>$movies->results,
             'rows_found'=>$rows_found,
             'count'=>$rows_found,'offset'=>$paginator->get_offset(),
-            'pagination_links' => $paginator->get_pagination_links()
+            'pagination_links' => $movies->get_pagination_links()
          ];
         
         if(currentUser() === null){

@@ -58,7 +58,7 @@ class Grammer{
     //  $from = compileFrom($query_builder);
 
       $columns = $this->compileColumns($query_builder);
-       return "select ".$this->concatenateQueryComponents($this->compileQueryComponents($query_builder));
+      return "select ".$this->concatenateQueryComponents($this->compileQueryComponents($query_builder));
 
     }
 
@@ -67,8 +67,28 @@ class Grammer{
        return implode($query_builder->columns,",");
     }
 
-    public function compileLimit($query_builder){
-        return $query_builder->limit;
+     /**
+     * Compile the "limit" portions of the query.
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  int  $limit
+     * @return string
+     */
+    protected function compileLimit(Builder $query, $limit)
+    {
+        return 'limit '.(int) $limit;
+    }
+
+    /**
+     * Compile the "offset" portions of the query.
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  int  $offset
+     * @return string
+     */
+    protected function compileOffset(Builder $query, $offset)
+    {
+        return 'offset '.(int) $offset;
     }
 
     public function compileQueryComponents(Builder $query_builder){
@@ -83,7 +103,6 @@ class Grammer{
                  $sql[$component] = $this->$method($query_builder, $query_builder->$component);
              }
          }
-
          return $sql;
        }
     }
