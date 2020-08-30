@@ -21,7 +21,7 @@ class Home extends Controller
 
     public function index(){
 
-    
+        
        $genres = DB::table('genre')->select()->leftJoin('mv_genre', 'mv_genre.mvg_ref_genre', '=', 'genre.gnr_id')->get();
 
        $data = [];

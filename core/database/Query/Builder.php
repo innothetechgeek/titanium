@@ -3,6 +3,7 @@ namespace core\database\query;
 use  core\database\Connection;
 use core\database\Model;
 use core\database\query\grammers\Grammer;
+use core\Paginator;
 
 class Builder{
 
@@ -109,13 +110,13 @@ class Builder{
       return $this;
 
   }
- /**
-  * append limit to the query
-  */
-  public function appendLimit($offset_and_limit){
-      $this->limit = 'LIMIT '.$offset_and_limit;
-      return $this;
-  }
+//  /**
+//   * append limit to the query
+//   */
+//   public function appendLimit($offset_and_limit){
+//       $this->limit = 'LIMIT '.$offset_and_limit;
+//       return $this;
+//   }
 
   /**
    * execute select query
@@ -124,7 +125,9 @@ class Builder{
    public function get(){
      if(is_null($this->columns)) $this->columns = ['*'];
      $select_statement = $this->grammer->compileSelect($this);
-     $result = $this->connection->get($select_statement);
+
+    
+     $result = $this->connection->get($select_statement);     
 
      if(!empty($this->model)){
 
@@ -134,6 +137,11 @@ class Builder{
         return $this->return_result_as_array($result);
       }
 
+   }
+
+   public function toSql(){
+        if(is_null($this->columns)) $this->columns = ['*'];
+        return $this->grammer->compileSelect($this);
    }
 
    /**
@@ -181,25 +189,71 @@ class Builder{
 
    }
 
-   public function limit($value)
+    /**
+     * Set the limit and offset for a given page.
+     *
+     * @param  int  $page
+     * @param  int  $perPage
+     * @return $this
+     */
+    public function forPage($page, $perPage = 15)
+    {   
+        return $this->setOffset(($page - 1) * $perPage)->setLimit($perPage);
+    }
+
+   //set limit for the query (how many records to return)
+   public function setLimit($value)
    {
 
-       if ($value >= 0) {
-           $this->limit = "LIMIT $value";
-       }
+       $this->limit = $value;
 
        return $this;
+
+   } 
+
+   //sets offset for the page (how many records to skip)
+   public function setOffset($value){
+       
+        $this->offset = $value;
+
+        return $this;
+
    }
 
-   public function first(){
-      return  $this->limit(1)->get()[0];
-   }
+    function paginate($per_page){
 
-  //add binding to a querying
-  public function addBinding($type,$value){
+        $total = $this->getCountForPagination();
+        $page =isset($_GET['page']) ? $_GET['page'] : 1;
+        $results = $total ? $this->forPage($page, $per_page)->get() : [];
 
-      $this->bindings[$value][] = $value;
-  }
+        
+        return new Paginator($total,$per_page,'',$results);
+    }
+
+    /**
+     * Get a new instance of the query builder.
+    *
+    * @return \Illuminate\Database\Query\Builder
+    */
+    public function newQuery()
+    {
+        return new static($this->connection, $this->grammar, $this->processor);
+    }
+
+    public function getCountForPagination(){
+        
+        return count($this->get());
+    }
+
+    public function first(){
+        return  $this->limit(1)->get()[0];
+    }
+
+    //add binding to a querying
+    public function addBinding($type,$value){
+
+        $this->bindings[$value][] = $value;
+    }
 
   public function setModel(Model $model){
 
